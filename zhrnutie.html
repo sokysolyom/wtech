@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-SHOP</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <script src="/script.js"></script>
+
+  
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+  
+
+
+<body>
+  <header>
+    <div class="d-sm-none d-md-block d-none d-sm-block">
+      <nav class="navbar navbar-expand-md collapse-sm">
+        <div class="p-0 container-fluid">
+          <div class="collapse navbar-collapse " id="#">
+            <a href="#" class= "navbar-brand "> <img src="./images/logo-nabytok.png" alt="" width=120>
+            </a>
+          
+            <ul class="navbar-nav ml-auto" >
+    
+              <li class="nav-item  mt-2 pt-0 mr-5 ">
+                <input size="35"  placeholder="Vyhľadaj si nábytok" aria-label="Search"> 
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="./kosik.html"><img src="./images/shopping-cart-1.png" width=30 alt=""></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="#"><img src="./images/user-1.png" width=30 alt=""></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><img src="./images/information-1.png" width=30 alt=""></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="collapse " id="navbarResponsive">
+        <div class="b">
+         <a href="#" class= "navbar-brand "> <img src="./images/logo-nabytok.png" alt="" width=120>
+          </a>
+          <div class="col-8">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </div>
+          <div class="col-8">
+          <span class="text-muted">
+            <button class="btn my-2 my-sm-0" type="submit">
+              <a href="./kosik.html">
+              <img src="./images/shopping-cart.png" class="rounded mx-auto d-block" width=30  alt="..." />
+            </a>
+            </button>
+            Kosik</span>
+          </div>
+            <div class="col-8">
+            <span class="text-muted">
+              <button class="btn my-2 my-sm-0" type="submit">
+                <img src="./images/user.png" class="rounded mx-auto d-block" width=30 alt="..." />
+              </button>
+            Prihlasit sa</span>
+          </div>
+        </div>
+      </div>
+
+
+
+      <nav class="navbar navbar-dark bg-dark d-block d-sm-block d-md-none">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+      
+    
+  </header>
+  
+
+  <main class="container-fluid pt-5 pb-5 ">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <h2 class="text-white">Zhrnutie Objednávky</h2>
+      </div>
+    </div>
+
+    <div class="container  mt-5 pt-5 pb-5 mb-5 " id="container_doprava">
+
+      <div class="container">
+        <h3> Fakturačne údaje</h3>
+        <div class="container mt-5 row m-0" id="container_doprava">
+          <div class="container col-6 mt-4 mb-4">
+            <h6>Ladislav Sokol</h6>
+            <h6>Lipova 2</h6>
+            <h6>Želiezovce</h6>
+            <h6>xsokol@stuba.sk</h6>
+            <h6>0904555555</h6>
+          </div>
+          <div class="container col-6 mt-4 c">
+            <div class="row pl-5 pr-5 justify-content-start">
+              <h6 class="col-6">Spôsob platby:</h6>
+              <div class="col-6 row align-items-center justify-content-start">
+                <h6 class=" vertical-align:align-middle">Karta</h6>
+              </div>
+            </div>
+            
+
+            <div class="row pl-5 pr-5 justify-content-start">
+              <h6 class="col-6">Dodanie:</h6>
+              <div class="col-6 row align-items-center justify-content-start">
+                <h6 class=" vertical-align:align-middle">Kuriér</h6>
+              </div>
+            </div>
+
+
+
+             <div class="row pl-5 pr-5 justify-content-start">
+              <h6 class="col-6">Očakávaný dátum dodania: </h6>
+              <div class="col-6 row align-items-center justify-content-start">
+                <h6 class=" vertical-align:align-middle">29.9.2022</h6>
+              </div>
+              
+            </div>
+
+          </div>
+          
+        </div>
+
+        <div class="container m-0 mt-5 p-0" id="container_doprava">
+          <table class="  table-striped table table-bordered">
+            <thead>
+              <tr class="">
+                <th class="col-6" scope="col"><h4>Názov produktu</h4></th>
+                <th class="col-2 center" scope="col"><h4>Ks</h4></th>
+                <th class="col-2 center " scope="col"><h4>Cena/ks</h4></th>
+                <th class="col-2 cennter " scope="col" ><h4>Celková cena</h4></th>
+              
+              </tr>
+            </thead>
+            <tbody >
+              <tr>
+                <td>Postel minecraft bed , pohodlna 200x250</td>
+                <td class ="center ">
+                    <div class="row justify-content-center">
+                      <h6 class="m-0">2</h6>
+                    </div>
+                </td>
+                <td class ="center">29.99 $</td>
+                <td style="text-align: center;" >48.98 $</td>
+    
+              </tr>
+              <tr>
+                <td>Postel minecraft bed , pohodlna 200x250</td>
+                <td class ="center">
+                  <div class="row justify-content-center">
+                    <h6 class="m-0">2</h6>
+                  </div>
+                </td>
+                <td class ="center">10.00 $</td>
+                <td style="text-align: center;">50.00 $</td>
+                
+              </tr>
+              <tr>
+                <td>Postel minecraft bed , pohodlna 200x250</td>
+                <td class ="center" > 
+                  <div class="row justify-content-center">
+                    <h6 class="m-0">2</h6>
+                  </div>
+                </td>
+                <td class ="center">90.50 $</td>
+                <td style="text-align: center;">90.50 $</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="container row mb-5 mt-5">
+          <div class="col-10">
+            <h2 class= "text-right">Celková cena :</h2>
+          </div>
+          <div class = "col-2 mx-auto">
+            <h2>500 $
+            </h2>
+          </div>
+        </div>
+        <div class="container mb-5">
+          <div class="row justify-content-center " style="height: 50px;">
+            <div class="container row justify-content-between">
+              <a class="col-4 mr-3" href="./vyber_dopravy.html">
+                <button class="btn-success col-12  h-100"><h4>Späť</h4></button>
+              </a>
+              <div class="col-auto">
+                
+              </div>
+              <a class="col-4 " href="#">
+                <button class="btn-success  col-12 h-100"><h4>Záväzne objednať</h4></button>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+    
+
+  </main>
+
+
+  <footer  class=" footer bg-dark text-white-50">
+    <div class="container-fluid text-center">
+      <small>Copyright &copy; Laci a Ctibor :D</small>
+    </div>
+  </footer>
+  
+</body>
+
+
+
+</html>
