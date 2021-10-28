@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" text="text/css" href="itemsPage.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+    <title>E-SHOP</title>
+  </head>
+  <body>
+    <div class="d-sm-none d-md-block d-none d-sm-block">
+      <nav class="navbar navbar-light bg-light justify-content-start">
+        <div class="col-7">
+          <a class="navbar-brand" style="margin-left: 20px">NABYTOK</a>
+        </div>
+        <div class="col-3">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </div>
+        <div class="col-1">
+          <div class="row justify-content-end">
+            <div class="col-3">
+              <button class="btn my-2 my-sm-0" type="submit">
+                <img src="images/cart.svg" class="rounded mx-auto d-block" alt="..." />
+              </button>
+            </div>
+            <div class="col-3">
+              <button class="btn my-2 my-sm-0" type="submit">
+                <img src="images/person.svg" class="rounded mx-auto d-block" alt="..." />
+              </button>
+            </div>
+            <div class="col-3">
+              <button class="btn my-2 my-sm-0" type="submit">
+                <img src="images/help.svg" class="rounded mx-auto d-block" alt="..." />
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  
+      <div class="collapse " id="navbarToggleExternalContent">
+        <div class="b p-4">
+          <h5 class=" h4">NABYTOK</h5>
+          <div class="col-8">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </div>
+          <div class="col-8">
+          <span class="text-muted">
+            <button class="btn my-2 my-sm-0" type="submit">
+              <img src="images/cart.svg" class="rounded mx-auto d-block" alt="..." />
+            </button>
+            Kosik</span>
+          </div>
+            <div class="col-8">
+            <span class="text-muted">
+              <button class="btn my-2 my-sm-0" type="submit">
+                <img src="images/person.svg" class="rounded mx-auto d-block" alt="..." />
+              </button>
+            Prihlasit sa</span>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-dark d-block d-sm-block d-md-none">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    <div class="row">
+      <div
+        class="col-xl-2 col-lg-3 col-md-3"
+        style="
+          border-right: 1px solid gray;
+          padding-top: 50px;
+          padding-bottom: 50px;
+        "
+      >
+        <h3 style="text-align: center">Filtrovat produkty</h3>
+        <h5 style="text-align: center; margin-top: 50px">$ Cena</h5>
+        <div class="row justify-content-center">
+          <div class="col-md-5 col-3">
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="OD"
+            />
+          </div>
+          <div class="col-md-5 col-3">
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="DO"
+            />
+          </div>
+        </div>
+        <h5 style="text-align: center; margin-top: 30px">Farba</h5>
+        <div class="row justify-content-center">
+          <div class="col-md-3 col-2">
+            <input
+              type="color"
+              class="form-control form-control-color"
+              id="exampleColorInput"
+              value="#563d7c"
+              title="Choose your color"
+            />
+          </div>
+          <div class="col-md-3 col-2">
+            <input
+              type="color"
+              class="form-control form-control-color"
+              id="exampleColorInput"
+              value="#563d7c"
+              title="Choose your color"
+            />
+          </div>
+          <div class="col-md-3 col-2">
+            <input
+              type="color"
+              class="form-control form-control-color"
+              id="exampleColorInput"
+              value="#563d7c"
+              title="Choose your color"
+            />
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-3 col-2">
+            <input
+              type="color"
+              class="form-control form-control-color"
+              id="exampleColorInput"
+              value="#563d7c"
+              title="Choose your color"
+            />
+          </div>
+          <div class="col-md-3 col-2">
+            <input
+              type="color"
+              class="form-control form-control-color"
+              id="exampleColorInput"
+              value="#563d7c"
+              title="Choose your color"
+            />
+          </div>
+          <div class="col-md-3 col-2">
+            <input
+              type="color"
+              class="form-control form-control-color"
+              id="exampleColorInput"
+              value="#563d7c"
+              title="Choose your color"
+            />
+          </div>
+        </div>
+        <h5 style="text-align: center; margin-top: 30px">Type materialu</h5>
+        <div class="row justify-content-center">
+          <div class="col-md-7 col-sm-2 col-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+              style="margin-right: 10px"
+            />
+            <label class="form-check-label" for="flexCheckDefault"> Kov </label>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-7 col-sm-2 col-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+              style="margin-right: 10px"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Plast
+            </label>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-7 col-sm-2 col-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+              style="margin-right: 10px"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Drevo
+            </label>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-7 col-sm-2 col-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+              style="margin-right: 10px"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Koza
+            </label>
+          </div>
+        </div>
+        <div class="row justify-content-center" style="margin-top: 50px">
+          <div class="col-xxl-8 col-xl-9 col-lg-8 col-md-9 col-sm-3 col-5">
+            <button type="button" class="btn btn-primary">
+              Aplikovat filtre
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-xl-10 col-lg-9  col-md-9 all-items-box "
+      >
+        <h1>Stolicky</h1>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a
+              class="nav-link active"
+              id="nav-home-tab"
+              data-bs-toggle="tab"
+              href="#nav-news"
+              role="tab"
+              aria-controls="nav-news"
+              aria-selected="true"
+              >Najnovsie</a
+            >
+            <a
+              class="nav-link"
+              id="nav-profile-tab"
+              data-bs-toggle="tab"
+              href="#nav-cheap"
+              role="tab"
+              aria-controls="nav-cheap"
+              aria-selected="false"
+              >Najlacnejsie</a
+            >
+            <a
+              class="nav-link"
+              id="nav-profile-tab"
+              data-bs-toggle="tab"
+              href="#nav-expensive"
+              role="tab"
+              aria-controls="nav-expensive"
+              aria-selected="false"
+              >Najdrahsie</a
+            >
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="nav-news"
+            role="tabpanel"
+            aria-labelledby="nav-news-tab"
+            style="margin-left: 30px"
+          >
+            <div class="row justify-content-around">
+              <div class="col-4 col-xxl-3">
+                <div class="card item-card">
+                  <img src="images/Chair.png" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Minecraft bed</h5>
+                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <p class="card-text">price 50$</p>
+                    <a href="#" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 col-xxl-3">
+                <div class="card item-card">
+                  <img src="images/Chair.png" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Minecraft bed</h5>
+                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <p class="card-text">price 50$</p>
+                    <a href="#" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 col-xxl-3">
+                <div class="card item-card" >
+                  <img src="images/Chair.png" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Minecraft bed</h5>
+                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <p class="card-text">price 50$</p>
+                    <a href="#" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 col-xxl-3">
+                <div class="card item-card">
+                  <img src="images/Chair.png" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Minecraft bed</h5>
+                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <p class="card-text">price 50$</p>
+                    <a href="#" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 col-xxl-3">
+                <div class="card item-card" >
+                  <img src="images/Chair.png" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Minecraft bed</h5>
+                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <p class="card-text">price 50$</p>
+                    <a href="#" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 col-xxl-3">
+                <div class="card item-card" >
+                  <img src="images/Chair.png" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Minecraft bed</h5>
+                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <p class="card-text">price 50$</p>
+                    <a href="#" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 col-xxl-3">
+                <div class="card item-card" >
+                  <img src="images/Chair.png" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Minecraft bed</h5>
+                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <p class="card-text">price 50$</p>
+                    <a href="#" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 50px;">
+                <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-4 col-5">
+                    <a href="#" class="btn btn-primary">Nacitat dalsie stolicky</a>
+                </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-cheap"
+            role="tabpanel"
+            aria-labelledby="nav-cheap-tab"
+            style="margin-top: 30px; margin-left: 30px"
+          >
+          <div class="row justify-content-around">
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card">
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card">
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card" >
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card">
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card" >
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card" >
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card" >
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 50px;">
+              <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-4 col-5">
+                  <a href="#" class="btn btn-primary">Nacitat dalsie stolicky</a>
+              </div>
+          </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-expensive"
+            role="tabpanel"
+            aria-labelledby="nav-expensive-tab"
+            style="margin-top: 30px; margin-left: 30px"
+          >
+          <div class="row justify-content-around">
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card">
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card">
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card" >
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card">
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card" >
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card" >
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-xxl-3">
+              <div class="card item-card" >
+                <img src="images/Chair.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Minecraft bed</h5>
+                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">price 50$</p>
+                  <a href="#" class="btn btn-success">Pridat do kosika</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 50px;">
+              <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-4 col-5">
+                  <a href="#" class="btn btn-primary">Nacitat dalsie stolicky</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="footer"
+      style="background-color: #f5f5f5; padding-top: 20px; padding-bottom: 20px"
+    >
+      <div class="container">
+        <div class="row justify-content-around">
+          <div class="col-4">Kontakt</div>
+          <div class="col-4">Copyright</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

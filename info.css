@@ -1,0 +1,8 @@
+.recommended-list {
+    padding-left: 0px;
+  }
+@media (max-width: 576px) {
+    .recommended-list {
+      padding-left: 50px;
+    }
+  }
