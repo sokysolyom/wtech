@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <script src="/script.js"></script>
+
+  
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="page-container">
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-md ">
+      <div class="p-0 container-fluid">
+        <a href="./welcome.html" class= "navbar-brand "> <img src="./images/logo-nabytok.png" alt="" width=120>
+        </a>
+        <div class="collapse navbar-collapse " id="#navbarResponsive">
+          <ul class="navbar-nav ml-auto" >
+  
+            <li class="nav-item  mt-2 pt-0 mr-5 ">
+              <input size="35"  placeholder="Vyhľadaj si nábytok" aria-label="Search"> 
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="./kosik.html"><img src="./images/shopping-cart.png" width=30 alt=""></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="#"><img src="./images/user.png" width=30 alt=""></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><img src="./images/information.png" width=30 alt=""></a>
+            </li>
+  
+          </ul>
+        </div>
+  
+      </div>
+    </nav>
+  </header>
+
+
+
+ <main >
+  <div class="container mt-5 mb-5" id="container_doprava">
+    <div class="container pt-5">
+      <h1>Váš Nákup</h1>
+      
+      <table class="table-striped table table-bordered">
+        <thead  >
+          <tr>
+            <th class="col-6" scope="col">Názov produktu</th>
+            <th class="col-2 center" scope="col">Ks</th>
+            <th class="col-2 center " scope="col">Cena/ks</th>
+            <th class="col-2 cennter " scope="col" >Celková cena</th>
+            <th class=" center"></th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr>
+            <td>Postel minecraft bed , pohodlna 200x250</td>
+            <td class ="center">
+                <div class="container">
+                  <div class="row justify-content-between">
+                    <button type="button" class= "button btn-danger "><h6>-</h6></button>
+                    <h6 class="sm">2</h6>
+                    <button type="button" class= "button btn-success "><h6>+</h6></button>
+                  </div>
+                </div> 
+            </td>
+            <td class ="center">29.99 $</td>
+            <td style="text-align: center;" >48.98 $</td>
+            <td><button class="btn btn-outline-danger">x</button></td>
+          </tr>
+          <tr>
+            <td>Postel minecraft bed , pohodlna 200x250</td>
+            <td class ="center">
+              <div class="container">
+                <div class="row justify-content-between">
+                  <button type="button" class= "button btn-danger "><h6>-</h6></button>
+                  <h6 class="sm">2</h6>
+                  <button type="button" class= "button btn-success "><h6>+</h6></button>
+                </div>
+              </div> 
+            </td>
+            <td class ="center">10.00 $</td>
+            <td style="text-align: center;">50.00 $</td>
+            <td><button class="btn btn-outline-danger">x</button></td>
+          </tr>
+          <tr>
+            <td>Postel minecraft bed , pohodlna 200x250</td>
+            <td class ="center" > 
+              <div class="container">
+                <div class="row justify-content-between">
+                  <button type="button" class= "button btn-danger "><h6>-</h6></button>
+                  <h6 class="sm">2</h6>
+                  <button type="button" class= "button btn-success "><h6>+</h6></button>
+                </div>
+              </div> 
+            </td>
+            <td class ="center">90.50 $</td>
+            <td style="text-align: center;">90.50 $</td>
+            <td><button class="btn btn-outline-danger">x</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="container row mb-5 mt-5">
+        <div class="col-10">
+          <h2 class= "text-right">Celková cena :</h2>
+        </div>
+        <div class = "col-2 mx-auto">
+          <h2>500 $
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-5">
+      <div class="row justify-content-end " style="height: 50px;">
+        <a class="col-3" href="./vyber_dopravy.html">
+          <button class="btn-success col-12 h-100">Prejsť k platbe</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+  <footer  class=" footer bg-dark text-white-50">
+    <div class="container-fluid text-center">
+      <small>Copyright &copy; Laci a Ctibor :D</small>
+    </div>
+  </footer>
+  
+</body>
+</html>

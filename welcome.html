@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome_PAGE</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <script src="/script.js"></script>
+
+  
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body id="page-container">
+
+  <header>
+    <div class="d-sm-none d-md-block d-none d-sm-block">
+      <nav class="navbar navbar-expand-md collapse-sm">
+        <div class="p-0 container-fluid">
+          <div class="collapse navbar-collapse " id="#">
+            <a href="#" class= "navbar-brand "> <img src="./images/logo-nabytok.png" alt="" width=120>
+            </a>
+          
+            <ul class="navbar-nav ml-auto" >
+    
+              <li class="nav-item  mt-2 pt-0 mr-5 ">
+                <input size="35"  placeholder="Vyhľadaj si nábytok" aria-label="Search"> 
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="./kosik.html"><img src="./images/shopping-cart.png" width=30 alt=""></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="#"><img src="./images/user.png" width=30 alt=""></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><img src="./images/information.png" width=30 alt=""></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="collapse " id="navbarResponsive">
+        <div class="b">
+         <a href="#" class= "navbar-brand "> <img src="./images/logo-nabytok.png" alt="" width=120>
+          </a>
+          <div class="col-8">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </div>
+          <div class="col-8">
+          <span class="text-muted">
+            <button class="btn my-2 my-sm-0" type="submit">
+              <a href="./kosik.html">
+              <img src="./images/shopping-cart.png" class="rounded mx-auto d-block" width=30  alt="..." />
+            </a>
+            </button>
+            Kosik</span>
+          </div>
+            <div class="col-8">
+            <span class="text-muted">
+              <button class="btn my-2 my-sm-0" type="submit">
+                <img src="./images/user.png" class="rounded mx-auto d-block" width=30 alt="..." />
+              </button>
+            Prihlasit sa</span>
+          </div>
+        </div>
+      </div>
+
+
+
+      <nav class="navbar navbar-dark bg-dark d-block d-sm-block d-md-none">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+      
+    
+  </header>
+  
+
+  <main class="container-fluid pt-5 pb-5 " >
+
+    <nav class=" secondnav container  mb-5 navbar navbar-expand-sm ">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navseconditems justify-content-center" id="navbarNav">
+        <span>
+          <ul class="navbar-nav "style="font-size: x-large;">
+            <li class="nav-item ">
+              <a class="nav-link text-black" href="#">Stoličky</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black" href="#">Stoly</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black" href="#">Postele</a>
+            </li>
+          </ul>
+        </span>
+        
+      </div>
+    </nav>
+  
+  
+  <div class="container mb-5 pb-5">
+    <div class="row justify-content-center">
+      <div id="carouselsales" class=" col-7 carousel slide mb-5 border-secondary " data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselsales" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselsales" data-slide-to="1"></li>
+          <li data-target="#carouselsales" data-slide-to="2"></li>
+        </ol class = "align-content-center">
+        <div class="carousel-inner align-content-center">
+          <div class="carousel-item active">
+            <a class="justify-content-center" href=""><img class="d-block " src="./images/Bed.png" alt="First slide"></a>
+            <div class="carousel-caption">
+              <div class="circle">
+                <h3>150 eur</h3>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <a href=""><img class="d-block " src="./images/Bed.png" alt="Second slide"></a>
+            <div class="carousel-caption">
+              <div class="circle">
+                <h3>999 eur
+                </h3>
+              </div>
+              
+            </div>
+          </div>
+          <div class="carousel-item">
+            <a href=""><img class="d-block " src="./images/Bed.png" alt="Third slide"></a>
+            <div class="carousel-caption">
+              <div class="circle">
+                <h3>24 eur</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  
+
+  <div class="container">
+   <h2>Odporúčané produkty</h2>
+  </div>
+
+  <div class="container mt-2" id="container_doprava">
+    <div class="row justify-content-around">
+      <button class="button btn-dark btn-work align-self-center">
+        <
+      </button>
+      <div class="item" id="container_doprava">
+        <div class="row">
+          <a href="" class="text-center">
+            <img src="./images/Bed.png" alt="">
+          </a>
+          
+        </div>
+        <div class="content">
+          <p>Cena : 590$</p>
+        </div>
+      </div>
+      <div class="item" id="container_doprava">
+        <div class="row">
+          <a href="" class="text-center">
+            <img src="./images/Bed.png" alt="">
+          </a>
+        </div>
+        <div class="content">
+          <p>Cena : 590$</p>
+        </div>
+      </div>
+      <div class="item" id="container_doprava">
+        <div class="row">
+          <a href="" class="text-center">
+            <img src="./images/Bed.png" alt="">
+          </a>
+        </div>
+        <div class="content">
+          <p>Cena : 590$</p>
+        </div>
+      </div>
+      <div class="item" id="container_doprava">
+        <div class="row">
+          <a href="" class="text-center">
+            <img src="./images/Bed.png" alt="">
+          </a>
+        </div>
+        <div class="content">
+          <p>Cena : 590$</p>
+        </div>
+     </div>
+     <button class="button btn-dark btn-work align-self-center align-middle">
+        >
+    </button>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h2>Najnovšie pridané produkty</h2>
+   </div>
+  
+
+   <div class="container mt-2 mb-5" id="container_doprava">
+    <div class="row justify-content-around">
+      <button class="button btn-dark btn-work align-self-center">
+        <
+      </button>
+      <div class="item" id="container_doprava">
+        <div class="row">
+          <a href="" class="text-center">
+            <img src="./images/Bed.png" alt="">
+          </a>
+          
+        </div>
+        <div class="content">
+          <p>Cena : 590$</p>
+        </div>
+      </div>
+      <div class="item" id="container_doprava">
+        <div class="row">
+          <a href="" class="text-center">
+            <img src="./images/Bed.png" alt="">
+          </a>
+        </div>
+        <div class="content">
+          <p>Cena : 590$</p>
+        </div>
+      </div>
+      <div class="item" id="container_doprava">
+        <div class="row">
+          <a href="" class="text-center">
+            <img src="./images/Bed.png" alt="">
+          </a>
+        </div>
+        <div class="content">
+          <p>Cena : 590$</p>
+        </div>
+      </div>
+      <div class="item" id="container_doprava">
+        <div class="row">
+          <a href="" class="text-center">
+            <img src="./images/Bed.png" alt="">
+          </a>
+        </div>
+        <div class="content">
+          <p>Cena : 590$</p>
+        </div>
+     </div>
+     <button class="button btn-dark btn-work align-self-center align-middle">
+        >
+    </button>
+    </div>
+  </div>
+ 
+  </main>
+  
+
+  <footer  class=" footer bg-dark text-white-50">
+    <div class="container-fluid text-center">
+      <small>Copyright &copy; Laci a Ctibor :D</small>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+</body>
+
+</html>
