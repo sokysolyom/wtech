@@ -1,0 +1,41 @@
+.recommended-list {
+    padding-left: 0px;
+  }
+
+.item{
+  max-width: 200px;
+  margin:10px 0;
+  justify-content: center;
+}
+
+.item .row{
+  max-width: 200px;
+  margin:0;
+  justify-content: center;
+}
+  
+  .content{
+    text-align:center;
+  }
+  
+  .item img{
+    width:50%;
+  }
+  
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  
+  #container_doprava{
+    border-color:#000000;
+    border:2px solid;
+    background-color: rgb(202, 194, 194);
+  }
+
+@media (max-width: 576px) {
+    .recommended-list {
+      padding-left: 50px;
+    }
+  }
