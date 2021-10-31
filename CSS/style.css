@@ -32,6 +32,8 @@ main{
 .item{
   max-width: 200px;
   margin:10px 0;
+  padding-left:auto;
+  padding-right:auto;
   justify-content: center;
 }
 .item .row{
@@ -64,7 +66,7 @@ main{
 #container_doprava{
   border-color:#000000;
   border:2px solid;
-  background-color: rgb(241, 232, 232);
+  background-color: rgb(255, 255, 255);
 }
 
 
@@ -124,6 +126,9 @@ tr td div button{
   h1,h4{
     font-size:10px
   }
+  p{
+    font-size: 10px
+  }
 }
 
 
@@ -143,6 +148,9 @@ tr td div button{
   }
   h1,h4{
     font-size:12px
+  }
+  p{
+    font-size: 15px
   }
 }
 
@@ -166,6 +174,9 @@ tr td div button{
   h1,h4{
     font-size:13px
   }
+  p{
+    font-size: 12px
+  }
 }
 
 /*--- Medium devices (tablets, 768px and up) ---*/
@@ -184,6 +195,9 @@ tr td div button{
   }
   h1,h4{
     font-size:15px
+  }
+  p{
+    font-size: 15px
   }
 }
 
@@ -206,6 +220,9 @@ tr td div button{
   h1,h4{
     font-size:20px
   }
+  p{
+    font-size: 13px
+  }
 }
 
 /*--- X-Large devices (large desktops, 1200px and up) ---*/
@@ -221,6 +238,9 @@ tr td div button{
   }
   h1,h4{
     font-size:25px
+  }
+  p{
+    font-size: 15px
   }
 }
 
@@ -238,7 +258,9 @@ tr td div button{
   h1,h4{
     font-size:30px
   }
-
+  p{
+    font-size: 16px
+  }
   
   
 }
@@ -311,5 +333,12 @@ button.navbutton{
   padding-left: 3px;
   
 }
+
+
+
+.btn{
+  border-radius:0;
+}
+
 
 
