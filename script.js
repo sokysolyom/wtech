@@ -1,4 +1,4 @@
-$('#carouselExample').on('slide.bs.carousel', function (e) {
+$('#carouselsales').on('slide.bs.carousel', function (e) {
 
 
   var $e = $(e.relatedTarget);
