@@ -25,6 +25,31 @@ nav.secondnav{
   background-color: rgb(238, 227, 77);
 }
 
+.dropdown-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.dropdown-input-item {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.navbar-padding {
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+.dropdown-link-item {
+  color: blue;
+  text-align: center;
+}
+
+.dropdown-bold-item {
+  font-weight: bold;
+}
+
 main{
   min-height:1000px;
 }

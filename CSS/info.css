@@ -44,6 +44,55 @@ nav.secondnav {
   background-color: rgb(238, 227, 77);
 }
 
+.dropdown-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.dropdown-input-item {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.navbar-padding {
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+.dropdown-link-item {
+  color: blue;
+  text-align: center;
+}
+
+.dropdown-bold-item {
+  font-weight: bold;
+}
+
+.info-box {
+  margin-top: 50px;
+}
+
+.amount-button {
+  width: 30px;
+}
+
+.amount-item {
+  padding-top: 20px;
+}
+
+.amout-button-margin {
+  margin-top: 10px;
+}
+
+.reference-box {
+  margin-top: 30px;
+}
+
+.add-to-cart-button {
+  padding-top: 15px;
+}
+
 .footer {
   bottom: 0;
   width: 100%;

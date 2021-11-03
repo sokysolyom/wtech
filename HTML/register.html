@@ -36,24 +36,24 @@
                 <li class="nav-item  mt-2 pt-0 mr-5 " >
                   <input size="35"  placeholder="Vyhľadaj si nábytok" aria-label="Search"> 
                 </li>
-                <li class="nav-item" style="padding-left: 10px; padding-right: 10px;">
+                <li class="dropdown-padding nav-item">
                   <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="../images/user-1.png" width=30 alt="">
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <input size="25"  placeholder="Prihlasovacie meno" aria-label="Search" style="margin-left: 5px; margin-left: 5px; margin-bottom: 10px;"> 
+                      <input size="25"  placeholder="Prihlasovacie meno" aria-label="Search" class="dropdown-input-item"> 
                       <input type="password" placeholder="Heslo" class="form-control" id="passwordAgain" />
-                      <li><a class="dropdown-item" href="#" style="color: blue; text-align: center;">Zabudli ste heslo?</a></li>
-                      <li><a class="dropdown-item" href="#" style="font-weight: bold;">Prihlasit sa</a></li>
-                      <li><a class="dropdown-item" href="./register.html" style="font-weight: bold;">Zaregistrovat sa</a></li>
+                      <li><a class="dropdown-item dropdown-link-item" href="#">Zabudli ste heslo?</a></li>
+                      <li><a class="dropdown-item dropdown-bold-item" href="#">Prihlasit sa</a></li>
+                      <li><a class="dropdown-item dropdown-bold-item" href="./register.html">Zaregistrovat sa</a></li>
                     </ul>
                   </div>
                 </li>
-                <li class="nav-item " style="padding-left: 10px; padding-right: 10px;">
+                <li class="nav-item dropdown-padding">
                   <a class="nav-link" href="./kosik.html"><img src="../images/shopping-cart-1.png" width=30 alt=""></a>
                 </li>
-                <li class="nav-item" style="padding-left: 10px; padding-right: 25px;">
+                <li class="nav-item navbar-padding">
                   <a class="nav-link" href="#"><img src="../images/information-1.png" width=30 alt=""></a>
                 </li>
               </ul>
@@ -104,9 +104,9 @@
         
       
     </header>
-    <div class="container" style="margin-top: 50px">
+    <div class="container register-box">
       <h1 style="text-align: center">REGISTRACIA</h1>
-      <div class="row justify-content-center" style="margin-top: 10px">
+      <div class="row justify-content-center form-items">
         <div class="col-lg-5 col-sm-10">
           <label for="exampleFormControlInput1" class="form-label"
             >Prihlasovacie meno</label
@@ -119,13 +119,13 @@
           />
         </div>
       </div>
-      <div class="row justify-content-center" style="margin-top: 10px">
+      <div class="row justify-content-center form-items">
         <div class="col-lg-5 col-sm-10">
           <label for="exampleFormControlInput1" class="form-label">Heslo</label>
           <input type="password" class="form-control" id="password" />
         </div>
       </div>
-      <div class="row justify-content-center" style="margin-top: 10px">
+      <div class="row justify-content-center form-items">
         <div class="col-lg-5 col-sm-10">
           <label for="exampleFormControlInput1" class="form-label"
             >Heslo opakovane</label
@@ -133,7 +133,7 @@
           <input type="password" class="form-control" id="passwordAgain" />
         </div>
       </div>
-      <div class="row justify-content-center" style="margin-top: 10px">
+      <div class="row justify-content-center form-items" >
         <div class="col-lg-2 col-sm-5">
           <label for="exampleFormControlInput1" class="form-label">Meno</label>
           <input
@@ -155,7 +155,7 @@
           />
         </div>
       </div>
-      <div class="row justify-content-center" style="margin-top: 10px">
+      <div class="row justify-content-center form-items">
         <div class="col-lg-5 col-sm-10">
           <label for="exampleFormControlInput1" class="form-label"
             >Adresa</label
@@ -168,7 +168,7 @@
           />
         </div>
       </div>
-      <div class="row justify-content-center" style="margin-top: 10px">
+      <div class="row justify-content-center form-items">
         <div class="col-lg-5 col-sm-10">
           <label for="exampleFormControlInput1" class="form-label">Email</label>
           <input
@@ -179,7 +179,7 @@
           />
         </div>
       </div>
-      <div class="row justify-content-center" style="margin-top: 10px">
+      <div class="row justify-content-center form-items">
         <div class="col-lg-5 col-sm-10">
           <label for="exampleFormControlInput1" class="form-label"
             >Telefonne cislo</label
@@ -192,7 +192,7 @@
           />
         </div>
       </div>
-      <div class="row justify-content-end" style="margin-top: 30px">
+      <div class="row justify-content-end button-margin ">
         <div class="col-5">
           <div class="col">
             <a class="col-sm-5 col-md-3 col-5" href="./welcome.html">
