@@ -40,19 +40,30 @@
       <nav class="p-0 pl-2 pr-5 navbar navbar-expand-md collapse-sm">
         <div class="p-0 container-fluid">
           <div class=" justify-content-between navbar-collapse " id="#">
-            <a href="#" class= "navbar-brand "> <img src="../images/logo-nabytok.png" alt="" width=120>
+            <a href="./welcome.html" class="navbar-brand "> <img src="../images/logo-nabytok.png" alt="" width=120>
             </a>
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item  mt-2 pt-0 mr-5 ">
+              <li class="nav-item  mt-2 pt-0 mr-5 " >
                 <input size="35"  placeholder="Vyhľadaj si nábytok" aria-label="Search"> 
               </li>
-              <li class="nav-item ">
+              <li class="nav-item" style="padding-left: 10px; padding-right: 10px;">
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../images/user-1.png" width=30 alt="">
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <input size="25"  placeholder="Prihlasovacie meno" aria-label="Search" style="margin-left: 5px; margin-left: 5px; margin-bottom: 10px;"> 
+                    <input type="password" placeholder="Heslo" class="form-control" id="passwordAgain" />
+                    <li><a class="dropdown-item" href="#" style="color: blue; text-align: center;">Zabudli ste heslo?</a></li>
+                    <li><a class="dropdown-item" href="#" style="font-weight: bold;">Prihlasit sa</a></li>
+                    <li><a class="dropdown-item" href="./register.html" style="font-weight: bold;">Zaregistrovat sa</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item " style="padding-left: 10px; padding-right: 10px;">
                 <a class="nav-link" href="./kosik.html"><img src="../images/shopping-cart-1.png" width=30 alt=""></a>
               </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="#"><img src="../images/user-1.png" width=30 alt=""></a>
-              </li>
-              <li class="nav-item">
+              <li class="nav-item" style="padding-left: 10px; padding-right: 25px;">
                 <a class="nav-link" href="#"><img src="../images/information-1.png" width=30 alt=""></a>
               </li>
             </ul>
@@ -62,7 +73,7 @@
     </div>
     <div class="collapse " id="navbarToggleExternalContent">
       <div class="b p-4 m-auto">
-        <a href="#" class= "navbar-brand "> <img src="../images/logo-nabytok.png" alt="" width=120>
+        <a href="./welcome.html" class= "navbar-brand "> <img src="../images/logo-nabytok.png" alt="" width=120>
          </a>
          <div class="col-8 mt-1">
            <input
@@ -112,13 +123,13 @@
         <span>
           <ul class="justify-content-center navbar-nav "style="font-size: x-large;">
             <li class="nav-item ">
-              <a class="nav-link text-black" href="./itemsPage.html">Stoličky</a>
+              <a class="nav-link text-black" href="./chairsPage.html">Stoličky</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="#">Stoly</a>
+              <a class="nav-link text-black" href="./tablesPage.html">Stoly</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="#">Postele</a>
+              <a class="nav-link text-black" href="./bedsPage.html">Postele</a>
             </li>
           </ul>
         </span>
@@ -131,13 +142,13 @@
         <span>
           <ul class="text-white navbar-nav "style="font-size: x-large;">
             <li class=" nav-item ">
-              <a class=" nav-link text-black" href="./itemsPage.html"> <img class= "pr-5 "src="../images/Chair.png" width=30 alt=""> Stoličky</a>
+              <a class=" nav-link text-black" href="./chairsPage.html"> <img class= "pr-5 "src="../images/Chair.png" width=30 alt=""> Stoličky</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="#"> <img src="../images/table.png" width=30 alt=""> Stoly</a>
+              <a class="nav-link text-black" href="./tablesPage.html"> <img src="../images/table.png" width=30 alt=""> Stoly</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="#"><img src="../images/bed.png" width=30 alt=""> Postele</a>
+              <a class="nav-link text-black" href="./bedsPage.html"><img src="../images/bed.png" width=30 alt=""> Postele</a>
             </li>
           </ul>
         </span>

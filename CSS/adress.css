@@ -1,3 +1,39 @@
+header{
+  box-shadow: 0px 0px 5px 1px #000000;
+  background-color: rgb(238, 227, 77);
+  color: black ;
+  max-width: 100%;
+  min-height:50px;
+}
+
+nav.secondnav{
+  box-shadow: 0px 0px 5px 1px #000000;
+  background-color: rgb(238, 227, 77);
+  color: black ;
+  max-width:75%;
+}
+
+.external-second-nav{
+  max-width: 100%;
+  box-shadow: 0px 0px 5px 1px #000000;
+  background-color: rgb(238, 227, 77);
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  min-height:50px;
+  height: 2.5rem;   
+}
+
+body{ 
+  min-height: 100vh; 
+  margin: 0; 
+  
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 @media (min-width: 992px) {
     .adress-box {
       max-width: 100%;
