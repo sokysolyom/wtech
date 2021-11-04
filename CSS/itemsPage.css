@@ -29,9 +29,14 @@ header{
     width: 80%
 }
 
-.dropdown-padding {
+.dropdown-padding-right {
+  padding-left: 0px;
+  padding-right: 120px;
+}
+
+.dropdown-padding-left {
   padding-left: 40px;
-  padding-right: 40px;
+  padding-right: 10px;
 }
 
 .dropdown-input-item {
@@ -101,6 +106,8 @@ header{
   width: 100%;
   min-height:50px;
   height: 2.5rem;   
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 body{ 

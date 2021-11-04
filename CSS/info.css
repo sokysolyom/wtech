@@ -55,9 +55,14 @@ nav.secondnav {
   margin-bottom: 10px;
 }
 
-.navbar-padding {
-  padding-left: 10px;
-  padding-right: 25px;
+.dropdown-padding-right {
+  padding-left: 0px;
+  padding-right: 120px;
+}
+
+.dropdown-padding-left {
+  padding-left: 40px;
+  padding-right: 10px;
 }
 
 .dropdown-link-item {
@@ -94,6 +99,7 @@ nav.secondnav {
 }
 
 .footer {
+  margin-top: 30px;
   bottom: 0;
   width: 100%;
   min-height:50px;
