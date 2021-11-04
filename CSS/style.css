@@ -155,8 +155,11 @@ tr td div button{
   h6{
     font-size:10px
   }
-  h1,h4{
+  h4{
     font-size:10px
+  }
+  h1{
+    font-size: 17px;
   }
   p{
     font-size: 10px
@@ -178,11 +181,14 @@ tr td div button{
   h6{
     font-size:10px
   }
-  h1,h4{
+  h4{
     font-size:12px
   }
+  h1{
+    font-size: 22px;
+  }
   p{
-    font-size: 15px
+    font-size: 12px
   }
 }
 
@@ -203,11 +209,14 @@ tr td div button{
   h6{
     font-size:10px
   }
-  h1,h4{
+  h4{
     font-size:13px
   }
+  h1{
+    font-size: 25px;
+  }
   p{
-    font-size: 12px
+    font-size: 13px
   }
 }
 
@@ -223,13 +232,16 @@ tr td div button{
     font-size:20px;
   }
   h6{
-    font-size:10px
-  }
-  h1,h4{
     font-size:15px
   }
+  h4{
+    font-size:15px
+  }
+  h1{
+    font-size: 30px;
+  }
   p{
-    font-size: 15px
+    font-size: 14px
   }
 }
 
@@ -249,11 +261,14 @@ tr td div button{
   h6{
     font-size:15px;
   }
-  h1,h4{
+  h4{
     font-size:20px
   }
+  h1{
+    font-size:35px;
+  }
   p{
-    font-size: 13px
+    font-size: 15px
   }
 }
 
@@ -268,11 +283,14 @@ tr td div button{
   h6{
     font-size:15px;
   }
-  h1,h4{
+  h4{
     font-size:25px
   }
+  h1{
+    font-size: 40px;
+  }
   p{
-    font-size: 15px
+    font-size: 18px
   }
 }
 
@@ -287,11 +305,14 @@ tr td div button{
   h6{
     font-size:15px;
   }
-  h1,h4{
+  h4{
     font-size:30px
   }
+  h1{
+    font-size: 45px;
+  }
   p{
-    font-size: 16px
+    font-size: 20px
   }
   
   
@@ -370,6 +391,10 @@ button.navbutton{
 
 .btn{
   border-radius:0;
+}
+
+h6{
+  margin:0;
 }
 
 
