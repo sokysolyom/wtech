@@ -1,7 +1,6 @@
 
 body{
   background-color: rgb(255, 255, 255);
-  background-image: url("../images/background.jpg");
   background-size: 100%;
 }
 
@@ -26,8 +25,8 @@ nav.secondnav{
 }
 
 .dropdown-padding {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .dropdown-input-item {
@@ -81,10 +80,18 @@ main{
 }
 
 .footer {
-  
   bottom: 0;
   width: 100%;
+  min-height:50px;
   height: 2.5rem;   
+}
+
+body{ 
+  min-height: 100vh; 
+  margin: 0; 
+  
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 
