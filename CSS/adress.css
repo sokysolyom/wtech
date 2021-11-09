@@ -29,6 +29,17 @@ nav.secondnav{
   padding-right: 10px;
 }
 
+.logo {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+}
+
 .dropdown-input-item {
   margin-left: 5px;
   margin-right: 5px;

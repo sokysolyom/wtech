@@ -29,6 +29,17 @@ header{
     width: 75%
 }
 
+.logo {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+}
+
 .dropdown-padding-right {
   padding-left: 0px;
   padding-right: 120px;

@@ -82,6 +82,17 @@ nav.secondnav {
   width: 30px;
 }
 
+.logo {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+}
+
 .amount-item {
   padding-top: 20px;
 }
