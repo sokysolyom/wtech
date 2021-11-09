@@ -92,3 +92,7 @@ header{
         width: 100%;
       }
     }
+
+.registerbutton{
+  font-size: 0.85rem;
+}
