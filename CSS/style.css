@@ -75,9 +75,7 @@ main{
   text-align:center;
 }
 
-.item img{
-  width:50%;
-}
+
 
 #page-container {
   position: relative;
@@ -159,6 +157,14 @@ tr td div button{
   margin-top:10%;
 }
 
+.mycarousel{
+  width:70%;
+}
+.item img{
+  width:10%;
+}
+
+
 
 @media (min-width: 250px) {
   .carousel-item .carousel-caption .circle h3 {
@@ -178,6 +184,12 @@ tr td div button{
   }
   p{
     font-size: 10px
+  }
+  .mycarousel{
+    width:100%;
+  }
+  .item img{
+    width:70%;
   }
 }
 
@@ -204,6 +216,12 @@ tr td div button{
   }
   p{
     font-size: 12px
+  }
+  .mycarousel{
+    width:100%;
+  }
+  .item img{
+    width:80%;
   }
 }
 
@@ -233,6 +251,12 @@ tr td div button{
   p{
     font-size: 13px
   }
+  .mycarousel{
+    width:100%;
+  }
+  .item img{
+    width:80%;
+  }
 }
 
 /*--- Medium devices (tablets, 768px and up) ---*/
@@ -257,6 +281,12 @@ tr td div button{
   }
   p{
     font-size: 15px
+  }
+  .mycarousel{
+    width:90%;
+  }
+  .item img{
+    width:100%;
   }
 }
 
@@ -285,6 +315,12 @@ tr td div button{
   p{
     font-size: 13px
   }
+  .mycarousel{
+    width:80%;
+  }
+  .item img{
+    width:100%;
+  }
 }
 
 /*--- X-Large devices (large desktops, 1200px and up) ---*/
@@ -307,6 +343,12 @@ tr td div button{
   p{
     font-size: 12px
   }
+  .mycarousel{
+    width:70%;
+  }
+  .item img{
+    width:100%;
+  }
 }
 
 /*--- XX-Large devices (larger desktops, 1400px and up)---*/
@@ -328,6 +370,12 @@ tr td div button{
   }
   p{
     font-size: 14px
+  }
+  .mycarousel{
+    width:60%;
+  }
+  .item img{
+    width:100%;
   }
   
   
