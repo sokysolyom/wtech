@@ -55,9 +55,14 @@ nav.secondnav {
   margin-bottom: 10px;
 }
 
-.navbar-padding {
-  padding-left: 10px;
-  padding-right: 25px;
+.dropdown-padding-right {
+  padding-left: 0px;
+  padding-right: 120px;
+}
+
+.dropdown-padding-left {
+  padding-left: 40px;
+  padding-right: 10px;
 }
 
 .dropdown-link-item {
@@ -77,6 +82,17 @@ nav.secondnav {
   width: 30px;
 }
 
+.logo {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+}
+
 .amount-item {
   padding-top: 20px;
 }
@@ -91,9 +107,11 @@ nav.secondnav {
 
 .add-to-cart-button {
   padding-top: 15px;
+  margin-bottom: 30px;
 }
 
 .footer {
+  margin-top: 30px;
   bottom: 0;
   width: 100%;
   min-height:50px;

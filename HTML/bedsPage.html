@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" text="text/css" href="../CSS/itemsPage.css" />
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -22,6 +21,8 @@
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" text="text/css" href="../CSS/itemsPage.css" />
+
     <title>E-SHOP</title>
   </head>
   <body>
@@ -29,78 +30,165 @@
       <div class="d-sm-none d-md-block d-none d-sm-block">
         <nav class="p-0 pl-2 pr-5 navbar navbar-expand-md collapse-sm">
           <div class="p-0 container-fluid">
-            <div class=" justify-content-between navbar-collapse " id="#">
-              <a href="./welcome.html" class="navbar-brand "> <img src="../images/logo-nabytok.png" alt="" width=120>
+            <div class="justify-content-between navbar-collapse" id="#">
+              <a href="./welcome.html" class="navbar-brand">
+                <img src="../images/logo-nabytok.png" alt="" width="120" />
               </a>
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item  mt-2 pt-0 mr-5 " >
-                  <input size="35"  placeholder="Vyhľadaj si nábytok" aria-label="Search"> 
+                <li class="nav-item mt-2 pt-0 mr-5">
+                  <input
+                    size="35"
+                    placeholder="Vyhľadaj si nábytok"
+                    aria-label="Search"
+                  />
                 </li>
-                <li class="dropdown-padding nav-item">
+                <li class="dropdown-padding-left nav-item">
                   <div class="dropdown">
-                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="../images/user-1.png" width=30 alt="">
+                    <button
+                      class="btn dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <img src="../images/user-1.png" width="30" alt="" />
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <input size="25"  placeholder="Prihlasovacie meno" aria-label="Search" class="dropdown-input-item"> 
-                      <input type="password" placeholder="Heslo" class="form-control" id="passwordAgain" />
-                      <li><a class="dropdown-link-item dropdown-item" href="#" >Zabudli ste heslo?</a></li>
-                      <li><a class="dropdown-bold-item dropdown-item" href="#" >Prihlasit sa</a></li>
-                      <li><a class="dropdown-bold-item dropdown-item" href="./register.html">Zaregistrovat sa</a></li>
+                    <ul
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton1"
+                    >
+                      <input
+                        size="25"
+                        placeholder="Prihlasovacie meno"
+                        aria-label="Search"
+                        class="dropdown-input-item"
+                      />
+                      <input
+                        type="password"
+                        placeholder="Heslo"
+                        class="form-control"
+                        id="passwordAgain"
+                      />
+                      <li>
+                        <a class="dropdown-link-item dropdown-item" href="#"
+                          >Zabudli ste heslo?</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-bold-item dropdown-item" href="#"
+                          >Prihlásiť sa</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-bold-item dropdown-item"
+                          href="./register.html"
+                          >Zaregistrovať sa</a
+                        >
+                      </li>
                     </ul>
                   </div>
                 </li>
-                <li class="dropdown-padding nav-item ">
-                  <a class="nav-link" href="./kosik.html"><img src="../images/shopping-cart-1.png" width=30 alt=""></a>
+                <li class="dropdown-padding-right nav-item">
+                  <a class="nav-link" href="./kosik.html"
+                    ><img src="../images/shopping-cart-1.png" width="30" alt=""
+                  /></a>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       </div>
-      <div class="collapse " id="navbarToggleExternalContent">
+      <div class="collapse" id="navbarToggleExternalContent">
         <div class="b p-4 m-auto">
-          <a href="./welcome.html" class= "navbar-brand "> <img src="../images/logo-nabytok.png" alt="" width=120>
-           </a>
-           <div class="col-8 mt-1">
-             <input
-               class="form-control mr-sm-2"
-               type="search"
-               placeholder="Search"
-               aria-label="Search"
-             />
-           </div>
-           <div class="col-8">
-           <span class="text-muted">
-             <button class="navbutton btn my-2  my-sm-0" type="submit">
-               <a href="./kosik.html">
-               <img src="../images/shopping-cart-1.png" class="rounded mx-auto d-block" width=30  alt="..." />
-             </a>
-             </button>
-             Kosik</span>
-           </div>
-             <div class="col-8">
-             <span class="text-muted">
-               <button class="navbutton btn my-2 my-sm-0" type="submit">
-                 <img src="../images/user-1.png" class="rounded mx-auto d-block" width=30 alt="..." />
-               </button>
-             Prihlasit sa</span>
-           </div>
+          <a href="./welcome.html" class="navbar-brand">
+            <img src="../images/logo-nabytok.png" alt="" width="120" />
+          </a>
+          <div class="col-8 mt-1">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </div>
+          <div class="col-8">
+            <a href="./kosik.html">
+              <span class="text-muted">
+                <button class="navbutton btn my-2 my-sm-0" type="submit">
+                
+                  <img
+                    src="../images/shopping-cart-1.png"
+                    class="rounded mx-auto d-block"
+                    width="30"
+                    alt="..."
+                  />
+                
+                </button>
+                  Kosik</span>
+            </a>
+          </div>
+
+          <div class="col-8">
+            <input size="54" type="text"  placeholder="Prihlasovacie meno" aria-label="Search" class="form-control"> 
+            <input size="50" type="password" placeholder="Heslo" class="form-control" id="passwordAgain" />
          </div>
+          <div class="col-8">
+            <span class="text-muted">
+              <button class="navbutton btn my-2 my-sm-0" type="submit">
+                <img
+                  src="../images/login_button.svg"
+                  class="rounded mx-auto d-block"
+                  width="30"
+                  alt="..."
+                />
+              </button>
+              Prihlásiť sa</span
+            >
+          </div>
+          <div class="col-8">
+            <a href="../HTML/register.html">
+              <span class="text-muted">
+              
+                <button class="navbutton btn my-2 my-sm-0" type="submit">
+                  <img
+                    src="../images/user-1.png"
+                    class="rounded mx-auto d-block"
+                    width="30"
+                    alt="..."
+                  />
+                </button>
+                Zaregistrovať sa</span
+              >
+            </a>
+          </div>
+        </div>
       </div>
       <nav class="navbar navbar-dark bg-dark d-block d-sm-block d-md-none">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
       </nav>
     </header>
+    <div class="d-block d-sm-block d-md-none">
+      <a href="./welcome.html" class="navbar-brand logo"> <img src="../images/logo-nabytok.png" alt="" class="main-logo">
+      </a>
+    </div>
     <div class="row">
       <div
         class="col-xl-2 col-lg-3 col-md-3 left-box"
       >
-        <h3 class="text-align">Filtrovat produkty</h3>
+        <h3 class="text-align">Filtrovať produkty</h3>
         <h5 class="left-titles">$ Cena</h5>
         <div class="row justify-content-center">
           <div class="col-md-5 col-3">
@@ -224,14 +312,14 @@
 
             />
             <label class="form-check-label" for="flexCheckDefault">
-              Koza
+              Koža
             </label>
           </div>
         </div>
         <div class="row justify-content-center " style="margin-top: 30px;">
           <div class="col-xxl-8 col-xl-9 col-lg-8 col-md-9 col-sm-3 col-5">
             <button type="button" class="btn btn-primary">
-              Aplikovat filtre
+              Aplikovať filtre
             </button>
           </div>
         </div>
@@ -250,7 +338,7 @@
               role="tab"
               aria-controls="nav-news"
               aria-selected="true"
-              >Najnovsie</a
+              >Najnovšie</a
             >
             <a
               class="nav-link"
@@ -260,7 +348,7 @@
               role="tab"
               aria-controls="nav-cheap"
               aria-selected="false"
-              >Najlacnejsie</a
+              >Najlacnejšie</a
             >
             <a
               class="nav-link"
@@ -270,7 +358,7 @@
               role="tab"
               aria-controls="nav-expensive"
               aria-selected="false"
-              >Najdrahsie</a
+              >Najdrahšie</a
             >
           </div>
         </nav>
@@ -284,130 +372,109 @@
           >
             <div class="row justify-content-around">
               <div class="col-4 col-xxl-3">
-                <div class="card item-card">
+                <article class="card item-card">
                   <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
                   <div class="card-body">
                     <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <p class="card-text">price 50$</p>
+                    
+                    <p class="card-text">cena 50$</p>
                     <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
                   </div>
-                </div>
+                </article>
               </div>
               <div class="col-4 col-xxl-3">
-                <div class="card item-card">
+                <section class="card item-card">
                   <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
                   <div class="card-body">
                     <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <p class="card-text">price 50$</p>
+                    
+                    <p class="card-text">cena 50$</p>
                     <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
                   </div>
-                </div>
+                </section>
               </div>
               <div class="col-4 col-xxl-3">
-                <div class="card item-card" >
+                <section class="card item-card">
                   <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
                   <div class="card-body">
                     <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <p class="card-text">price 50$</p>
+                    
+                    <p class="card-text">cena 50$</p>
                     <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
                   </div>
-                </div>
+                </section>
               </div>
               <div class="col-4 col-xxl-3">
-                <div class="card item-card">
+                <section class="card item-card">
                   <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
                   <div class="card-body">
                     <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <p class="card-text">price 50$</p>
+                    
+                    <p class="card-text">cena 50$</p>
                     <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
                   </div>
-                </div>
+                </section>
               </div>
               <div class="col-4 col-xxl-3">
-                <div class="card item-card" >
+                <section class="card item-card">
                   <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
                   <div class="card-body">
                     <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <p class="card-text">price 50$</p>
+                    
+                    <p class="card-text">cena 50$</p>
                     <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
                   </div>
-                </div>
+                </section>
               </div>
               <div class="col-4 col-xxl-3">
-                <div class="card item-card" >
+                <section class="card item-card">
                   <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
                   <div class="card-body">
                     <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <p class="card-text">price 50$</p>
+                    
+                    <p class="card-text">cena 50$</p>
                     <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
                   </div>
-                </div>
+                </section>
               </div>
               <div class="col-4 col-xxl-3">
-                <div class="card item-card" >
+                <section class="card item-card">
                   <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
                   <div class="card-body">
                     <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                    <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <p class="card-text">price 50$</p>
+                    
+                    <p class="card-text">cena 50$</p>
                     <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
                   </div>
-                </div>
+                </section>
               </div>
             </div>
             <div class="row justify-content-center " style="margin-top: 30px; margin-bottom: 30px;">
@@ -425,130 +492,109 @@
           >
           <div class="row justify-content-around">
             <div class="col-4 col-xxl-3">
-              <div class="card item-card">
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card">
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card" >
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card">
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card" >
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card" >
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card" >
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
           </div>
           <div class="row justify-content-center" style="margin-top: 30px; margin-bottom: 30px;">
@@ -565,130 +611,109 @@
           >
           <div class="row justify-content-around">
             <div class="col-4 col-xxl-3">
-              <div class="card item-card">
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card">
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card" >
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card">
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card" >
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card" >
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
             <div class="col-4 col-xxl-3">
-              <div class="card item-card" >
-                <a href="../HTML/info.html">
+              <section class="card item-card">
+                  <a href="../HTML/info.html">
                     <img src="../images/Bed.png" class="card-img-top" alt="..." />
                   </a>
-                <div class="card-body">
-                  <a href="../HTML/info.html">
-                   <h5 class="card-title">Minecraft bed</h5>
+                  <div class="card-body">
+                    <a href="../HTML/info.html">
+                   <h5 class="card-title">Minecraft postel</h5>
                   </a>
-                  <p class="card-text d-sm-none d-md-block d-none d-sm-block">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <p class="card-text">price 50$</p>
-                  <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                </div>
-              </div>
+                    
+                    <p class="card-text">cena 50$</p>
+                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                  </div>
+                </section>
             </div>
           </div>
           <div class="row justify-content-center" style="margin-top: 30px; margin-bottom: 30px;">

@@ -17,10 +17,25 @@ header{
     box-shadow: 0px 0px 5px 1px #000000;
     background-color: rgb(238, 227, 77);
   }
-
-  .dropdown-padding {
+  .dropdown-padding-right {
+    padding-left: 0px;
+    padding-right: 120px;
+  }
+  
+  .dropdown-padding-left {
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 10px;
+  }
+  
+  .logo {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .main-logo {
+    width: 300px;
+    height: auto;
   }
 
   .dropdown-input-item {
@@ -60,6 +75,7 @@ header{
     width: 100%;
     min-height:50px;
     height: 2.5rem;   
+    margin-top: 30px;
   }
   
   body{ 
@@ -76,3 +92,7 @@ header{
         width: 100%;
       }
     }
+
+.registerbutton{
+  font-size: 0.85rem;
+}

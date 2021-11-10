@@ -26,12 +26,28 @@ header{
 .all-items-box {
     padding-top: 40px; 
     padding-left: 30px; 
-    width: 80%
+    width: 75%
 }
 
-.dropdown-padding {
+.logo {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+}
+
+.dropdown-padding-right {
+  padding-left: 0px;
+  padding-right: 120px;
+}
+
+.dropdown-padding-left {
   padding-left: 40px;
-  padding-right: 40px;
+  padding-right: 10px;
 }
 
 .dropdown-input-item {
@@ -101,6 +117,8 @@ header{
   width: 100%;
   min-height:50px;
   height: 2.5rem;   
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 body{ 
@@ -128,6 +146,15 @@ body{
         width: 11rem;
         margin-top: 30px;
     }
+
+  }
+
+  @media (max-width: 767px) {
+    .all-items-box {
+      padding-top: 40px; 
+      padding-left: 30px; 
+      width: 90%;
+  }
 
   }
 

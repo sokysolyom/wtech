@@ -24,9 +24,14 @@ nav.secondnav{
   background-color: rgb(238, 227, 77);
 }
 
-.dropdown-padding {
+.dropdown-padding-right {
+  padding-left: 0px;
+  padding-right: 120px;
+}
+
+.dropdown-padding-left {
   padding-left: 40px;
-  padding-right: 40px;
+  padding-right: 10px;
 }
 
 .dropdown-input-item {
@@ -101,6 +106,16 @@ body{
   background-color: rgb(255, 255, 255);
 }
 
+.logo {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+}
 
 
 .circle{
@@ -182,7 +197,7 @@ tr td div button{
     font-size:10px
   }
   h4{
-    font-size:12px
+    font-size:11px
   }
   h1{
     font-size: 22px;
@@ -210,7 +225,7 @@ tr td div button{
     font-size:10px
   }
   h4{
-    font-size:13px
+    font-size:12px
   }
   h1{
     font-size: 25px;
@@ -235,13 +250,13 @@ tr td div button{
     font-size:15px
   }
   h4{
-    font-size:15px
+    font-size:16px
   }
   h1{
     font-size: 30px;
   }
   p{
-    font-size: 14px
+    font-size: 15px
   }
 }
 
@@ -262,13 +277,13 @@ tr td div button{
     font-size:15px;
   }
   h4{
-    font-size:20px
+    font-size:18px
   }
   h1{
     font-size:35px;
   }
   p{
-    font-size: 15px
+    font-size: 13px
   }
 }
 
@@ -278,19 +293,19 @@ tr td div button{
     font-size: 25px;
   }
   h2{
-    font-size:40px;
+    font-size:22px;
   }
   h6{
-    font-size:15px;
+    font-size:13px;
   }
   h4{
-    font-size:25px
+    font-size:15px
   }
   h1{
-    font-size: 40px;
+    font-size: 27px;
   }
   p{
-    font-size: 18px
+    font-size: 12px
   }
 }
 
@@ -300,19 +315,19 @@ tr td div button{
     font-size: 30px;
   }
   h2{
-    font-size:50px;
+    font-size:25px;
   }
   h6{
     font-size:15px;
   }
   h4{
-    font-size:30px
+    font-size:17px
   }
   h1{
-    font-size: 45px;
+    font-size: 30px;
   }
   p{
-    font-size: 20px
+    font-size: 14px
   }
   
   
