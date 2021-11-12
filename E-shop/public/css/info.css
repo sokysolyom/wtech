@@ -1,0 +1,137 @@
+.item {
+ max-width: 200px;
+  margin: 10px 0;
+  padding-left: auto;
+  padding-right: auto;
+  justify-content: center;
+}
+.item .row {
+  max-width: 200px;
+  margin: 0;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+}
+
+.item img {
+  width: 90%;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+header {
+  box-shadow: 0px 0px 5px 1px #000000;
+  background-color: rgb(238, 227, 77);
+  color: black;
+  max-width: 100%;
+}
+
+nav.secondnav {
+  box-shadow: 0px 0px 5px 1px #000000;
+  background-color: rgb(238, 227, 77);
+  color: black;
+  max-width: 75%;
+}
+
+.external-second-nav {
+  max-width: 100%;
+  box-shadow: 0px 0px 5px 1px #000000;
+  background-color: rgb(238, 227, 77);
+}
+
+.dropdown-padding {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.dropdown-input-item {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.dropdown-padding-right {
+  padding-left: 0px;
+  padding-right: 120px;
+}
+
+.dropdown-padding-left {
+  padding-left: 40px;
+  padding-right: 10px;
+}
+
+.dropdown-link-item {
+  color: blue;
+  text-align: center;
+}
+
+.dropdown-bold-item {
+  font-weight: bold;
+}
+
+.info-box {
+  margin-top: 50px;
+}
+
+.amount-button {
+  width: 30px;
+}
+
+.logo {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+}
+
+.amount-item {
+  padding-top: 20px;
+}
+
+.amout-button-margin {
+  margin-top: 10px;
+}
+
+.reference-box {
+  margin-top: 30px;
+}
+
+.add-to-cart-button {
+  padding-top: 15px;
+  margin-bottom: 30px;
+}
+
+.footer {
+  margin-top: 30px;
+  bottom: 0;
+  width: 100%;
+  min-height:50px;
+  height: 2.5rem;   
+}
+
+body{ 
+  min-height: 100vh; 
+  margin: 0; 
+  
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.container .row .malybutton {
+  width: 40px;
+}
+
+#container_doprava {
+  border-color: #000000;
+  border: 2px solid;
+  background-color: rgb(255, 255, 255);
+}

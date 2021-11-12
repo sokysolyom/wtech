@@ -1,0 +1,465 @@
+
+body{
+  background-color: rgb(255, 255, 255);
+  background-size: 100%;
+}
+
+header{
+  box-shadow: 0px 0px 5px 1px #000000;
+  background-color: rgb(238, 227, 77);
+  color: black ;
+  max-width: 100%;
+}
+
+nav.secondnav{
+  box-shadow: 0px 0px 5px 1px #000000;
+  background-color: rgb(238, 227, 77);
+  color: black ;
+  max-width:75%;
+}
+
+.external-second-nav{
+  max-width: 100%;
+  box-shadow: 0px 0px 5px 1px #000000;
+  background-color: rgb(238, 227, 77);
+}
+
+.dropdown-padding-right {
+  padding-left: 0px;
+  padding-right: 120px;
+}
+
+.dropdown-padding-left {
+  padding-left: 40px;
+  padding-right: 10px;
+}
+
+.dropdown-input-item {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.navbar-padding {
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+.dropdown-link-item {
+  color: blue;
+  text-align: center;
+}
+
+.dropdown-bold-item {
+  font-weight: bold;
+}
+
+main{
+  min-height:1000px;
+}
+
+.item{
+  max-width: 200px;
+  margin:10px 0;
+  padding-left:auto;
+  padding-right:auto;
+  justify-content: center;
+}
+
+.item .row{
+  max-width: 200px;
+  margin:0;
+  justify-content: center;
+}
+
+.content{
+  text-align:center;
+}
+
+
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  min-height:50px;
+  height: 2.5rem;   
+}
+
+body{ 
+  min-height: 100vh; 
+  margin: 0; 
+  
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+
+#container_doprava{
+  border-color:#000000;
+  border:2px solid;
+  background-color: rgb(255, 255, 255);
+}
+
+.logo {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+}
+
+
+.circle{
+  color:black;
+  position:relative;
+  justify-content: end;
+  width:20%;
+  padding-bottom:20%;
+  background:gold;
+  border-radius:50%;
+  margin-top:10%;
+}
+.circle h3{
+  position:absolute;
+  top:50%; left:50%;
+  transform: translate(-50%, -50%);
+  margin:0;
+}
+
+
+tr .center{
+  text-align: center;
+}
+.table td{
+  vertical-align: middle;
+}
+.table{
+  margin-bottom: 0;
+}
+
+tr td div button{
+  color:rgb(58, 51, 51);
+  width:25px;
+  text-align: center;
+  size: 100%;
+  width: 20%;
+}
+
+.carousel-item img{
+  width:50%;
+  margin-top:10%;
+}
+
+.mycarousel{
+  width:70%;
+}
+.item img{
+  width:10%;
+}
+
+
+
+@media (min-width: 250px) {
+  .carousel-item .carousel-caption .circle h3 {
+    font-size: 10px;
+  }
+  h2{
+    font-size:12px;
+  }
+  h6{
+    font-size:10px
+  }
+  h4{
+    font-size:10px
+  }
+  h1{
+    font-size: 17px;
+  }
+  p{
+    font-size: 10px
+  }
+  .mycarousel{
+    width:100%;
+  }
+  .item img{
+    width:70%;
+  }
+}
+
+
+
+
+
+@media (min-width: 400px) {
+  .carousel-item .carousel-caption .circle h3 {
+    font-size: 12px;
+  }
+
+  h2{
+    font-size:15px;
+  }
+  h6{
+    font-size:10px
+  }
+  h4{
+    font-size:11px
+  }
+  h1{
+    font-size: 22px;
+  }
+  p{
+    font-size: 12px
+  }
+  .mycarousel{
+    width:100%;
+  }
+  .item img{
+    width:80%;
+  }
+}
+
+
+
+/*--- Small devices (landscape phones, 576px and up) ---*/
+@media (min-width: 576px) {
+  .carousel-item .carousel-caption .circle h3 {
+    font-size:13px;
+  }
+  
+  .table th{
+    font-size:20px;
+  }
+  h2{
+    font-size:15px;
+  }
+  h6{
+    font-size:10px
+  }
+  h4{
+    font-size:12px
+  }
+  h1{
+    font-size: 25px;
+  }
+  p{
+    font-size: 13px
+  }
+  .mycarousel{
+    width:100%;
+  }
+  .item img{
+    width:80%;
+  }
+}
+
+/*--- Medium devices (tablets, 768px and up) ---*/
+@media (min-width: 768px) {
+  .carousel-item .carousel-caption .circle h3 {
+    font-size: 15px;
+  }
+  .table th{
+    font-size:25px;
+  }
+  h2{
+    font-size:20px;
+  }
+  h6{
+    font-size:15px
+  }
+  h4{
+    font-size:16px
+  }
+  h1{
+    font-size: 30px;
+  }
+  p{
+    font-size: 15px
+  }
+  .mycarousel{
+    width:90%;
+  }
+  .item img{
+    width:100%;
+  }
+}
+
+/*--- Large devices (desktops, 992px and up) ---*/
+@media (min-width: 992px) {
+  
+
+  .carousel-item .carousel-caption .circle h3 {
+    font-size: 20px;
+  }
+  table th{
+    font-size:30px;
+  }
+  h2{
+    font-size:30px;
+  }
+  h6{
+    font-size:15px;
+  }
+  h4{
+    font-size:18px
+  }
+  h1{
+    font-size:35px;
+  }
+  p{
+    font-size: 13px
+  }
+  .mycarousel{
+    width:80%;
+  }
+  .item img{
+    width:100%;
+  }
+}
+
+/*--- X-Large devices (large desktops, 1200px and up) ---*/
+@media (min-width: 1200px) {
+  .carousel-item .carousel-caption .circle h3 {
+    font-size: 25px;
+  }
+  h2{
+    font-size:22px;
+  }
+  h6{
+    font-size:13px;
+  }
+  h4{
+    font-size:15px
+  }
+  h1{
+    font-size: 27px;
+  }
+  p{
+    font-size: 12px
+  }
+  .mycarousel{
+    width:70%;
+  }
+  .item img{
+    width:100%;
+  }
+}
+
+/*--- XX-Large devices (larger desktops, 1400px and up)---*/
+@media (min-width: 1400px) {
+  .carousel-item .carousel-caption .circle h3 {
+    font-size: 30px;
+  }
+  h2{
+    font-size:25px;
+  }
+  h6{
+    font-size:15px;
+  }
+  h4{
+    font-size:17px
+  }
+  h1{
+    font-size: 30px;
+  }
+  p{
+    font-size: 14px
+  }
+  .mycarousel{
+    width:60%;
+  }
+  .item img{
+    width:100%;
+  }
+  
+  
+}
+
+
+
+
+
+
+.carousel-caption {
+  padding-top:0;
+  justify-content: end;
+  top: 0;
+  bottom: auto;
+}
+
+
+
+#carouselsales{
+  min-width: 80%;
+  height:100%;
+  border: 2px solid rgb(104, 43, 43);
+  background-color: rgb(255, 255, 255);
+}
+
+
+.carousel-inner{
+  display: flex;
+  justify-content: space-around;
+}
+
+.carousel-item{
+  height: fit-content;
+}
+
+
+.navseconditems ul li{
+  padding:0 50px;
+}
+
+ol.carousel-indicators li{
+  margin:0 10px;
+  padding:0;
+  width:0.5%;
+  height: 0.5%;
+  border-radius:100%;
+  background-color: rgb(0, 0, 0);
+}
+
+
+
+a{
+  color:black;
+}
+
+a:hover{
+  color:black;
+}
+
+
+
+
+
+.container .row .malybutton{
+  width:40px;
+}
+
+
+button.navbutton{
+  padding-left: 3px;
+  
+}
+
+
+
+.btn{
+  border-radius:0;
+}
+
+h6{
+  margin:0;
+}
+
+
+
