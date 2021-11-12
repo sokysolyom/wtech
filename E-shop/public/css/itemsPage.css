@@ -1,0 +1,175 @@
+header{
+    box-shadow: 0px 0px 5px 1px #000000;
+    background-color: rgb(238, 227, 77);
+    color: black ;
+    max-width: 100%;
+  }
+  
+  nav.secondnav{
+    box-shadow: 0px 0px 5px 1px #000000;
+    background-color: rgb(238, 227, 77);
+    color: black ;
+    max-width:75%;
+  }
+  
+  .external-second-nav{
+    max-width: 100%;
+    box-shadow: 0px 0px 5px 1px #000000;
+    background-color: rgb(238, 227, 77);
+  }
+
+.item-card {
+    width: 18rem;
+    margin-top: 30px;
+}
+
+.all-items-box {
+    padding-top: 40px; 
+    padding-left: 30px; 
+    width: 75%
+}
+
+.logo {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+}
+
+.dropdown-padding-right {
+  padding-left: 0px;
+  padding-right: 120px;
+}
+
+.dropdown-padding-left {
+  padding-left: 40px;
+  padding-right: 10px;
+}
+
+.dropdown-input-item {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.navbar-padding {
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+.dropdown-link-item {
+  color: blue;
+  text-align: center;
+}
+
+.dropdown-bold-item {
+  font-weight: bold;
+}
+
+.left-box {
+  border-right: 1px solid gray;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.text-align {
+  text-align: center;
+}
+
+.left-titles {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.left-title-material {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.left-box-inputs {
+  margin-right: 10px;
+}
+
+.left-box-button-margin {
+  margin-top: 50px;
+}
+
+.right-box {
+  margin-left: 30px;
+}
+
+.right-box-button {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.rigt-box-tab {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  min-height:50px;
+  height: 2.5rem;   
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+body{ 
+  min-height: 100vh; 
+  margin: 0; 
+  
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+@media (max-width: 1200px) {
+    .item-card {
+        width: 15rem;
+        margin-top: 30px;
+    }
+
+    .all-items-box {
+        padding-top: 40px; 
+        padding-left: 10px; 
+    }
+  }
+
+  @media (max-width: 992px) {
+    .item-card {
+        width: 11rem;
+        margin-top: 30px;
+    }
+
+  }
+
+  @media (max-width: 767px) {
+    .all-items-box {
+      padding-top: 40px; 
+      padding-left: 30px; 
+      width: 90%;
+  }
+
+  }
+
+  @media (max-width: 576px) {
+    .item-card {
+        width: 9rem;
+        margin-top: 30px;
+    }
+
+  }
+
+  @media (max-width: 450px) {
+    .item-card {
+        width: 7rem;
+        margin-top: 30px;
+    }
+
+  }
