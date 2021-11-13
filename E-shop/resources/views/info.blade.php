@@ -92,39 +92,25 @@
             role="tabpanel"
             aria-labelledby="nav-home-tab"
           >
+
+          @if(count($recenzia) === 0)
+            <h5>Nie su recenzie</h5>
+          @endif
+
+          @foreach($recenzia as $item)
             <div class="row reference-box">
               <div class="col-3">
-                <h5>Martina Havlova</h5>
+                <h5> {{$item->author}} </h5>
               </div>
               <div class="col">
                 <p>
-                  Postel jsem vybírala hodně dlouho. Chtěla jsem boxspring s
-                  čelem, úložným prostorem a nejlépe v tmavém provedení. Byla to
-                  sázka do loterie, protože nikde na prodejně ji není možné
-                  vyzkoušet. Riskla jsem to a jsem moc spokojená. Je vysoká,
-                  skvěle se z ní vstává. Úložný prostor je obrovský. Už se nikde
-                  jinde pořádně nevyspím. Jedinou vadou je, že se časem (postel
-                  mám pomalu dva roky) dělají na čele žmolky od manželovy hlavy
-                  a na vršku čela je dost vidět prach, ale to jsou drobnosti.
-                  Tuto postel doporučuji všem!
+                {{$item->text}}
                 </p>
               </div>
               <hr />
             </div>
-            <div class="row reference-box">
-              <div class="col-3">
-                <h5>Tugyine Torocsik Beata</h5>
-              </div>
-              <div class="col">
-                <p>
-                  A kárpitozást a 6 éves gyerekem jobban csinálta volna. Az
-                  ágyneműtartó fa lécezésén a lyukakat majdnem eltalálták.
-                  MAJDNEM! A matrac kényelmesnek tűnik, de összességében az ágy
-                  olcsó hatást sugall.
-                </p>
-              </div>
-              <hr />
-            </div>
+
+            @endforeach
           </div>
           <div
             class="tab-pane fade"
