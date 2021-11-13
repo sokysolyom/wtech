@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -13,7 +15,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $productlist = Product::all();
         return view('info')->with('productlist',$productlist);
     }
@@ -46,21 +48,31 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show_bed($id)
-    {
+    {   
         $product = Product::find($id);
-        return view('info')->with('product',$product);
+        $recenzia = Message::all()->where('product_id' ,'=',$id);
+       
+        return view('info')->with('product',$product)
+                            ->with('recenzia',$recenzia);
+                            
     }
 
     public function show_table($id)
     {
         $product = Product::find($id);
-        return view('info')->with('product',$product);
+        $recenzia = Message::all()->where('product_id' ,'=',$id);
+
+        return view('info')->with('product',$product)
+                            ->with('recenzia',$recenzia);
     }
 
     public function show_chair($id)
     {
         $product = Product::find($id);
-        return view('info')->with('product',$product);
+        $recenzia = Message::all()->where('product_id' ,'=',$id);
+
+        return view('info')->with('product',$product)
+                            ->with('recenzia',$recenzia);
     }
 
     /**
