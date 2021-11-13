@@ -8,6 +8,7 @@ use App\Models\Product;
 
 use DB;
 use App\Http\Requests;
+
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductController;
 
@@ -21,7 +22,14 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $suggestedlist = Product::inRandomOrder()->limit(4)->get();
+        $newslist = Product::orderBy('price', 'DESC')->limit(4)->get();
+
+        $url_link = 'postele';
+
+        return view('welcome')->with('suggestedlist', $suggestedlist)
+                            ->with('newslist', $newslist)
+                            ->with('url_link', $url_link);
 
     }
 
