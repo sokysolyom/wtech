@@ -30,12 +30,9 @@
                   aria-labelledby="dropdownMenuButton1"
                 >
                 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+    @if(!Auth::check())
+    <x-auth-card style="padding-top: 0px !important; padding-bottom: 0px !important">
+
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -54,7 +51,7 @@
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
+            <div class="mt-4" style="margin: 0px !important">
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password" class="block mt-1 w-full"
@@ -64,28 +61,53 @@
             </div>
 
             <!-- Remember Me -->
-            <div class="block mt-4">
+            <div class="block mt-4" style="margin: 0px !important">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end mt-4" style="margin: 10px !important">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
 
-                <x-button class="ml-3">
+                <x-button class="ml-3" style="width: 100%; color: black !important">
                     {{ __('Log in') }}
                 </x-button>
             </div>
+
         </form>
     </x-auth-card>
+    @endif
 </x-guest-layout>
+                @if(Auth::check())
+                    <li>
+                        <div>
+                            <h1 style="text-align: center">{{ Auth::user()->name }}</h1>
+                        </div>
+                    </li>
+                    <li>
+                    <div name="content">
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
+                            <x-button :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();"
+                                style="width: 100%; color: black !important"
+                                >
+                                {{ __('Log Out') }}
+                            </x-button>
+                        </form>
+                    </div>
+                    </li>
+                    @endif
+                    @if(!Auth::check())
                   <li>
                     <a
                       class="dropdown-bold-item dropdown-item"
@@ -93,6 +115,7 @@
                       >Zaregistrovať sa</a
                     >
                   </li>
+                  @endif
                 </ul>
               </div>
             </li>
@@ -123,21 +146,21 @@
         <a href="/kosik">
           <span class="text-muted">
             <button class="navbutton btn my-2 my-sm-0" type="submit">
-            
+
               <img
                 src="../images/shopping-cart-1.png"
                 class="rounded mx-auto d-block"
                 width="30"
                 alt="..."
               />
-            
+
             </button>
               Kosik</span>
         </a>
       </div>
 
       <div class="col-8">
-        <input size="54" type="text"  placeholder="Prihlasovacie meno" aria-label="Search" class="form-control"> 
+        <input size="54" type="text"  placeholder="Prihlasovacie meno" aria-label="Search" class="form-control">
         <input size="50" type="password" placeholder="Heslo" class="form-control" id="passwordAgain" />
      </div>
       <div class="col-8">
@@ -156,7 +179,7 @@
       <div class="col-8">
         <a href="/register">
           <span class="text-muted">
-          
+
             <button class="navbutton btn my-2 my-sm-0" type="submit">
               <img
                 src="../images/user-1.png"

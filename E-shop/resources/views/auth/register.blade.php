@@ -1,4 +1,24 @@
-<x-guest-layout>
+
+
+@extends('app')
+
+@section('styles')
+  <link rel="stylesheet" href="../css/register.css">
+@endsection
+
+
+
+@section('content')
+
+
+
+  <div class="d-block d-sm-block d-md-none">
+    <a href="./welcome.html" class="navbar-brand logo"> <img src="../images/logo-nabytok.png" alt="" class="main-logo">
+    </a>
+  </div>
+  <div class="container register-box">
+    <h1 style="text-align: center">REGISTRACIA</h1>
+    <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -13,47 +33,61 @@
             @csrf
 
             <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+            <div class="row justify-content-center form-items">
+                <div class="col-lg-5 col-sm-10">
+                    <h4 for="name" :value="__('Name')" >Meno</h4>
+                    <x-input id="name" class="block mt-1 w-full" style="width: 100%" type="text" name="name" :value="old('name')" required autofocus />
+                </div>
+              </div>
 
             <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+            <div class="row justify-content-center form-items">
+                <div class="col-lg-5 col-sm-10">
+                    <h4 for="email" :value="__('Email')">Email</h4>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                    <x-input id="email" class="block mt-1 w-full" style="width: 100%" type="email" name="email" :value="old('email')" required />
+                </div>
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+            <div class="row justify-content-center form-items">
+                <div class="col-lg-5 col-sm-10">
+                    <h4 for="password" :value="__('Password')" >Heslo</h4>
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+                    <x-input id="password" class="block mt-1 w-full"
+                                    style="width: 100%"
+                                    type="password"
+                                    name="password"
+                                    required autocomplete="new-password" />
+                </div>
             </div>
 
             <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+            <div class="row justify-content-center form-items">
+                <div class="col-lg-5 col-sm-10">
+                    <h4 for="password_confirmation" :value="__('Confirm Password')" >Potvrdit heslo</h4>
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
+                    <x-input id="password_confirmation" class="block mt-1 w-full"
+                    style="width: 100%"
+                                    type="password"
+                                    name="password_confirmation" required />
+                </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+                <div class="row justify-content-center form-items">
+                    <div class="col-lg-5 col-sm-10">
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="/">
+                            {{ __('Already registered?') }}
+                        </a>
 
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
+                        <x-button class="ml-4" style="color: black !important; margin-left: 20px">
+                            {{ __('Register') }}
+                        </x-button>
+                    </div>
+                </div>
             </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
+
+  </div>
+  @endsection
