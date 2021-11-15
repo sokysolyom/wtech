@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/info.css">
   @endsection
 
-  
+
 
   @section('content')
 
@@ -26,14 +26,14 @@
             <h1>{{ $product->title }}</h1>
           </div>
           <div class="col">
-            
-            
+
+
             <p>
 
                 {{ $product->description }}
 
             </p>
-            
+
           </div>
           <div class="row">
             <div class="col-4">
@@ -156,7 +156,7 @@
     <div class="container">
       <h2 class="text-black mt-5">Odporúčané produkty</h2>
      </div>
-   
+
      <div class="container mt-2" id="container_doprava">
        <div class="row justify-content-around">
          <button class="malybutton button  col-1 btn-dark btn-work align-self-center">
@@ -167,7 +167,7 @@
              <a href="" class="text-center">
                <img src="../images/Bed.png" alt="">
              </a>
-             
+
            </div>
            <div class="content">
              <p>Cena : 5901$</p>
@@ -208,6 +208,6 @@
          </button>
        </div>
      </div>
-     
+
 
      @endsection
