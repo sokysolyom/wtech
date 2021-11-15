@@ -3,18 +3,18 @@
 
   @section('styles')
     <link rel="stylesheet" href="../css/style.css">
-    <script src="E-shop\public\js\welcome.js"></script>
-    
+    <script src="./resources/js/welcome.js"></script>
+
   @endsection
 
   @section('content')
-  
+
 
   <div class="d-block d-sm-block d-md-none logo">
     <a href="/" class="navbar-brand "> <img src="../images/logo-nabytok.png" alt="" class="main-logo">
     </a>
   </div>
-  
+
 
   <main class="container-fluid pt-5 pb-5 " >
 
@@ -33,7 +33,7 @@
             </li>
           </ul>
         </span>
-        
+
       </div>
     </nav>
 
@@ -66,8 +66,8 @@
 
 
 
-  
-  
+
+
   <div class="container mb-5 pb-5">
     <div class="row justify-content-center">
       <div id="carouselExampleSlidesOnly" class="carousel slide col-7" data-bs-ride="carousel">
@@ -79,7 +79,7 @@
                 <h3>999 eur
                 </h3>
               </div>
-              
+
             </div>
           </section>
           <section class="carousel-item">
@@ -89,7 +89,7 @@
                 <h3>999 eur
                 </h3>
               </div>
-              
+
             </div>
           </section>
           <section class="carousel-item">
@@ -99,15 +99,15 @@
                 <h3>999 eur
                 </h3>
               </div>
-              
+
             </div>
           </section>
         </div>
       </div>
     </div>
   </div>
-    
-  
+
+
 
   <div class="container">
    <h2 >Odporúčané produkty</h2>
@@ -126,13 +126,13 @@
           <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
             <img src="../images/Bed.png" alt="">
           </a>
-          
+
         </div>
         <div class="content">
           <p>Cena : {{ $suggested->price }}$</p>
         </div>
       </section>
-      
+
       @endforeach
 
       <button class="malybutton button col-1 btn-dark btn-work align-self-center align-middle">
@@ -144,44 +144,44 @@
   <div class="container mt-5">
     <h2 >Najnovšie pridané produkty</h2>
    </div>
-  
+
 
    <div class="container mt-2" id="container_doprava">
-     
+
     <div class="row justify-content-around">
       <button class="malybutton button  col-1 btn-dark btn-work align-self-center">
         <
       </button>
 
             @foreach ($newslist as $item)
-            
+
               <section class="item d-none d-sm-block " id="container_doprava">
                 <div class="row">
                   <a href="{{ $url_link }}/{{ $item->id }}" class="text-center">
                     <img src="../images/Bed.png" alt="">
                   </a>
-                  
+
                 </div>
                 <div class="content">
                   <p>Cena : {{ $item->price }} $</p>
                 </div>
               </section>
-          
-            
+
+
 
             @endforeach
       <button id="right_button" class="malybutton button col-1 btn-dark btn-work align-self-center align-middle" (click)="go_right()">
         >
       </button>
 
-      
 
-      
+
+
     </div>
 
   </div>
-  
-  
+
+
 </main>
 
 @endsection
