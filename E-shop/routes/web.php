@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,34 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/kosik',[MainController::class, 'kosik']);
-});
-
-// Route::get('/dashboard', function () {
-//    return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-Route::get('/adresa',[MainController::class, 'adress']);
-Route::post('/doprava',[MainController::class, 'doprava']);
-Route::post('/zhrnutie',[MainController::class, 'zhrnutie']);
-
-
-
-
-Route::get('/',[MainController::class, 'index']);
-Route::get('/registracia',[MainController::class, 'register']);
-Route::get('/postele',[ProductController::class, 'display_beds']);
-Route::get('/postele/{product}',[ProductController::class, 'show_item']);
-Route::get('/stoly',[ProductController::class, 'display_tables']);
-Route::get('/stoly/{product}',[ProductController::class, 'show_tablshow_iteme']);
-Route::get('/stolicky',[ProductController::class, 'display_chairs']);
-Route::get('/stolicky/{product}',[ProductController::class, 'show_item']);
-
-Route::get('/products',[ProductController::class, 'display_searched']);
-Route::get('/products/{product}',[ProductController::class, 'show_item']);
-Route::post('/filter/',[ProductController::class, 'filter']);
-
-
-
-require __DIR__.'/auth.php';
+Route::get('/', [ProductController::class, 'productList'])->name('products.list');
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
