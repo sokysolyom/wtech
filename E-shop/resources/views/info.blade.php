@@ -162,47 +162,22 @@
          <button class="malybutton button  col-1 btn-dark btn-work align-self-center">
            <
          </button>
+
+         @foreach($suggestedlist as $suggested)
+
          <section class="item d-none d-sm-block " id="container_doprava">
            <div class="row">
-             <a href="" class="text-center">
+             <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
                <img src="../images/Bed.png" alt="">
              </a>
 
            </div>
            <div class="content">
-             <p>Cena : 5901$</p>
+             <p>Cena : {{ $suggested->price }}$</p>
            </div>
          </section>
-         <section class="item  d-md-block" id="container_doprava">
-           <div class="row">
-             <a href="" class="text-center">
-               <img src="../images/Bed.png" alt="">
-             </a>
-           </div>
-           <div class="content">
-             <p>Cena : 5902$</p>
-           </div>
-         </section>
-         <section class="item d-none d-lg-block" id="container_doprava">
-           <div class="row">
-             <a href="" class="text-center">
-               <img src="../images/Bed.png" alt="">
-             </a>
-           </div>
-           <div class="content">
-             <p>Cena : 5903$</p>
-           </div>
-         </section>
-         <section class="item d-none d-xl-block" id="container_doprava">
-           <div class="row">
-             <a href="" class="text-center">
-               <img src="../images/Bed.png" alt="">
-             </a>
-           </div>
-           <div class="content">
-             <p>Cena : 5904$</p>
-           </div>
-          </section>
+
+         @endforeach
          <button class="malybutton button col-1 btn-dark btn-work align-self-center align-middle">
            >
          </button>

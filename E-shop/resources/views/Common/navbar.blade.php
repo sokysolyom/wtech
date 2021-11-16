@@ -28,7 +28,7 @@
                   class="dropdown-menu"
                   aria-labelledby="dropdownMenuButton1"
                 >
-                <x-guest-layout>
+    <x-guest-layout>
     @if(!Auth::check())
     <x-auth-card style="padding-top: 0px !important; padding-bottom: 0px !important">
 
@@ -130,54 +130,94 @@
   </div>
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="b p-4 m-auto">
-      <a href="/welcome" class="navbar-brand">
+      <a href="/" class="navbar-brand">
         <img src="../images/logo-nabytok.png" alt="" width="120" />
       </a>
       <div class="col-8 mt-1">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
+         <form role="search" class="justify-content-end width_100 row" id="search_menu_buttom">
+            <input type = "text" placeholder="Sem napíšte hľadané slovo" class="form-control col col-12 col-lg-6" name="search" id="productSeatch">
+            <button  type="submit" formaction="/products/?search={{'search'}}" class="btn btn-dark col col-4 col-lg-4"><i class="fa fa-search"></i> Hľadať</button>
+        </form >
       </div>
-      <div class="col-8">
-        <a href="/kosik">
-          <span class="text-muted">
-            <button class="navbutton btn my-2 my-sm-0" type="submit">
-
-              <img
-                src="../images/shopping-cart-1.png"
-                class="rounded mx-auto d-block"
-                width="30"
-                alt="..."
-              />
-
-            </button>
-              Kosik</span>
-        </a>
-      </div>
-
-      <div class="col-8">
-        <input size="54" type="text"  placeholder="Prihlasovacie meno" aria-label="Search" class="form-control">
-        <input size="50" type="password" placeholder="Heslo" class="form-control" id="passwordAgain" />
-     </div>
-      <div class="col-8">
-        <span class="text-muted">
-          <button class="navbutton btn my-2 my-sm-0" type="submit">
+      @if(Auth::check())
+      <div>
+        <h1 style="text-align: start">{{ Auth::user()->name }}</h1>
+    </div>
+    @endif
+      @if(!Auth::check())
+      <div class="col-8" >
+          <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <input size="54" type="email" name="email" placeholder="Prihlasovacie meno":value="old('email')" required autofocus class="form-control">
+            <input size="50" type="password" name="password" placeholder="Heslo" required autocomplete="current-password" class="form-control" id="passwordAgain" />
+            <div class="flex items-center justify-end mt-4" style="margin: 10px !important">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
+            </div>
+            <div class="col-8">
+        <span >
+          <button class="navbutton btn my-2 my-sm-0" type="submit" style="display: flex">
             <img
               src="../images/login_button.svg"
               class="rounded mx-auto d-block"
               width="30"
               alt="..."
             />
+            Prihlásiť sa
           </button>
-          Prihlásiť sa</span
+          </span
         >
       </div>
+        </form>
+        @endif
+        <div class="col-8">
+            <a href="/kosik">
+              <span >
+                <button class="navbutton btn my-2 my-sm-0" type="submit">
+                  <img
+                    src="../images/shopping-cart-1.png"
+                    class="rounded mx-auto d-block"
+                    width="30"
+                    alt="..."
+                  />
+
+                </button>
+                  Kosik</span>
+            </a>
+          </div>
+        @if(Auth::check())
+                    <div name="content">
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <span>
+                                <button :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();"
+                                style="color: black !important; display: flex"
+                                class="navbutton btn"
+                                >
+                                <img
+                                src="../images/logout.svg"
+                                class="rounded mx-auto d-block"
+                                width="30"
+                                alt="..."
+                                />
+                            {{ __('Log Out') }}
+                        </button>
+                            </span>
+
+                        </form>
+                    </div>
+                    @endif
+     </div>
+     @if(!Auth::check())
       <div class="col-8">
         <a href="/register">
-          <span class="text-muted">
+          <span >
 
             <button class="navbutton btn my-2 my-sm-0" type="submit">
               <img
@@ -191,6 +231,7 @@
           >
         </a>
       </div>
+      @endif
     </div>
   </div>
   <nav class="navbar navbar-dark bg-dark d-block d-sm-block d-md-none">

@@ -25,7 +25,7 @@ class MainController extends Controller
         $suggestedlist = Product::inRandomOrder()->limit(4)->get();
         $newslist = Product::orderBy('price', 'DESC')->limit(4)->get();
 
-        $url_link = 'postele';
+        $url_link = '/products';
 
         return view('welcome')->with('suggestedlist', $suggestedlist)
                             ->with('newslist', $newslist)
@@ -36,7 +36,7 @@ class MainController extends Controller
     public function kosik()
     {
         return view('kosik');
-    
+
     }
 
     public function zhrnutie()
@@ -73,7 +73,7 @@ class MainController extends Controller
     public function beds_Page()
     {
 
-        
+
         return view('bedsPage');
     }
 
@@ -82,7 +82,7 @@ class MainController extends Controller
         return view('adress');
     }
 
-   
+
     /**
      * Show the form for creating a new resource.
      *

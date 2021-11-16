@@ -43,18 +43,36 @@ class ProductController extends Controller
 
     public function filter(Request $request)
     {
+        //TODO add to database material and colour
+        if(!$request->colour){
+            $request->colour = ['cervena', 'modra', 'zlta', 'biela'];
+        }
+        if(!$request->material){
+            $request->material = ['kov', 'plast', 'drevo', 'koza'];
+        }
         if(!$request->low_price){
             $request->low_price = 0;
         }
         if(!$request->high_price){
             $request->high_price = PHP_INT_MAX;
         }
-        $itemslist = Product::whereBetween('price', [$request->low_price, $request->high_price])->paginate(8);
-        $ascitemslist = Product::where('category','=',2)->orderBy('price', 'ASC')->paginate(8);
-        $descitemslist = Product::where('category','=',2)->orderBy('price', 'DESC')->paginate(8);
+        $itemslist = Product::whereBetween('price', [$request->low_price, $request->high_price])
+                                ->whereIn('material', $request->material)
+                                ->whereIn('colour', $request->colour)
+                                ->paginate(8);
+        $ascitemslist = Product::whereBetween('price', [$request->low_price, $request->high_price])
+                                ->whereIn('material', $request->material)
+                                ->whereIn('colour', $request->colour)
+                                ->orderBy('price', 'ASC')
+                                ->paginate(8);
+        $descitemslist = Product::whereBetween('price', [$request->low_price, $request->high_price])
+                                ->whereIn('material', $request->material)
+                                ->whereIn('colour', $request->colour)
+                                ->orderBy('price', 'DESC')
+                                ->paginate(8);
 
         $category = "Filtrovane";
-        $url_link = 'postele';
+        $url_link = '/products';
 
         return view('ItemsPage')->with('itemslist', $itemslist)
                                 ->with('ascitemslist', $ascitemslist)
@@ -70,32 +88,19 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show_bed($id)
+    public function show_item($id)
     {
         $product = Product::find($id);
         $recenzia = Message::all()->where('product_id' ,'=',$id);
+        $suggestedlist = Product::inRandomOrder()->limit(4)->get();
+
+        $url_link = '/products';
 
         return view('info')->with('product',$product)
-                            ->with('recenzia',$recenzia);
+                            ->with('recenzia',$recenzia)
+                            ->with('suggestedlist', $suggestedlist)
+                            ->with('url_link', $url_link);
 
-    }
-
-    public function show_table($id)
-    {
-        $product = Product::find($id);
-        $recenzia = Message::all()->where('product_id' ,'=',$id);
-
-        return view('info')->with('product',$product)
-                            ->with('recenzia',$recenzia);
-    }
-
-    public function show_chair($id)
-    {
-        $product = Product::find($id);
-        $recenzia = Message::all()->where('product_id' ,'=',$id);
-
-        return view('info')->with('product',$product)
-                            ->with('recenzia',$recenzia);
     }
 
     /**
@@ -168,7 +173,7 @@ class ProductController extends Controller
 
 
         $category = "Vyhladane";
-        $url_link = 'postele';
+        $url_link = '/products';
 
         return view('ItemsPage')->with('itemslist', $itemslist)
                                 ->with('ascitemslist', $ascitemslist)

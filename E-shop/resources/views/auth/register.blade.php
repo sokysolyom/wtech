@@ -79,9 +79,9 @@
                             {{ __('Already registered?') }}
                         </a>
 
-                        <x-button class="ml-4" style="color: black !important; margin-left: 20px">
-                            {{ __('Register') }}
-                        </x-button>
+                        <button class="ml-4 btn-success col-4 h-100" style=" margin-left: 20px">
+                            <h5>{{ __('Register') }}</h5>
+                        </button>
                     </div>
                 </div>
             </div>

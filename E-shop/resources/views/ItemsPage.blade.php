@@ -46,8 +46,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="colour[]"
+              value="cervena"
 
             />
             <label class="form-check-label" for="flexCheckDefault"> Červená </label>
@@ -58,8 +58,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="colour[]"
+              value="modra"
 
             />
             <label class="form-check-label" for="flexCheckDefault">
@@ -72,8 +72,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="colour[]"
+              value="zlta"
             />
             <label class="form-check-label" for="flexCheckDefault">
               Žltá
@@ -85,8 +85,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="colour[]"
+              value="biela"
             />
             <label class="form-check-label" for="flexCheckDefault">
               Biela
@@ -99,8 +99,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="material[]"
+              value="kov"
 
             />
             <label class="form-check-label" for="flexCheckDefault"> Kov </label>
@@ -111,8 +111,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="material[]"
+              value="plast"
 
             />
             <label class="form-check-label" for="flexCheckDefault">
@@ -125,8 +125,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="material[]"
+              value="drevo"
 
             />
             <label class="form-check-label" for="flexCheckDefault">
@@ -139,8 +139,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="material[]"
+              value="koza"
 
             />
             <label class="form-check-label" for="flexCheckDefault">
@@ -218,7 +218,7 @@
                   </a>
                   <div class="card-body">
                     <a href="{{ $url_link }}/{{ $item->id }}">
-                   <h5 class="card-title">{{ $item->title }}</h5>
+                   <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: clip;">{{ $item->title }}</h5>
                   </a>
 
                     <p class="card-text">Cena: {{ $item->price }}$</p>
