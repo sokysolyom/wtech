@@ -4,9 +4,9 @@
     @section('styles')
       <link rel="stylesheet" href="../css/itemsPage.css">
     @endsection
-  
-    
-  
+
+
+
     @section('content')
 
 
@@ -14,26 +14,28 @@
       <a href="./welcome.html" class="navbar-brand logo"> <img src="../images/logo-nabytok.png" alt="" class="main-logo">
       </a>
     </div>
-    <div class="row">
+    <main class="row">
       <div
         class="col-xl-2 col-lg-3 col-md-3 left-box"
       >
         <h3 class="text-align">Filtrovať produkty</h3>
+        <form method="POST" role="filter" action="/filter/">
+            {{ csrf_field() }}
         <h5 class="left-titles">$ Cena</h5>
         <div class="row justify-content-center">
           <div class="col-md-5 col-3">
             <input
-              type="email"
+            name="low_price"
+              type="text"
               class="form-control"
-              id="exampleFormControlInput1"
               placeholder="OD"
             />
           </div>
           <div class="col-md-5 col-3">
             <input
-              type="email"
+            name="high_price"
+              type="text"
               class="form-control"
-              id="exampleFormControlInput1"
               placeholder="DO"
             />
           </div>
@@ -44,8 +46,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="colour[]"
+              value="cervena"
 
             />
             <label class="form-check-label" for="flexCheckDefault"> Červená </label>
@@ -56,9 +58,9 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
-             
+              name="colour[]"
+              value="modra"
+
             />
             <label class="form-check-label" for="flexCheckDefault">
               Modrá
@@ -70,8 +72,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="colour[]"
+              value="zlta"
             />
             <label class="form-check-label" for="flexCheckDefault">
               Žltá
@@ -83,8 +85,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="colour[]"
+              value="biela"
             />
             <label class="form-check-label" for="flexCheckDefault">
               Biela
@@ -97,9 +99,9 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
-              
+              name="material[]"
+              value="kov"
+
             />
             <label class="form-check-label" for="flexCheckDefault"> Kov </label>
           </div>
@@ -109,8 +111,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="material[]"
+              value="plast"
 
             />
             <label class="form-check-label" for="flexCheckDefault">
@@ -123,8 +125,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="material[]"
+              value="drevo"
 
             />
             <label class="form-check-label" for="flexCheckDefault">
@@ -137,8 +139,8 @@
             <input
               class="form-check-input left-box-inputs"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="material[]"
+              value="koza"
 
             />
             <label class="form-check-label" for="flexCheckDefault">
@@ -148,20 +150,21 @@
         </div>
         <div class="row justify-content-center " style="margin-top: 30px;">
           <div class="col-xxl-8 col-xl-9 col-lg-8 col-md-9 col-sm-3 col-5">
-            <button type="button" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary">
               Aplikovať filtre
             </button>
           </div>
         </div>
+        </form>
       </div>
       <div
         class="col-xl-10 col-lg-9  col-md-9 all-items-box "
       >
 
-       
+
         <h1>{{ "$category" }}</h1>
-        
-        
+
+
         <nav>
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a
@@ -202,7 +205,7 @@
             id="nav-news"
             role="tabpanel"
             aria-labelledby="nav-news-tab"
-   
+
           >
             <div class="row justify-content-around">
 
@@ -215,9 +218,9 @@
                   </a>
                   <div class="card-body">
                     <a href="{{ $url_link }}/{{ $item->id }}">
-                   <h5 class="card-title">{{ $item->title }}</h5>
+                   <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: clip;">{{ $item->title }}</h5>
                   </a>
-                    
+
                     <p class="card-text">Cena: {{ $item->price }}$</p>
                     <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
                   </div>
@@ -231,9 +234,9 @@
               <ul class="pagination" style="justify-content: center !important;">
               <li class="page-item"><a class="page-link" href="{{ $itemslist->previousPageUrl() }}">Previous</a></li>
               <li class="page-item"><a class="page-link" href="{{ $itemslist->nextPageUrl() }}">Next</a></li>
-            </ul> 
+            </ul>
           </div>
-          
+
           </div>
           <div
             class="tab-pane fade rigt-box-tab"
@@ -255,7 +258,7 @@
                 <a href="{{ $url_link }}/{{ $item->id }}">
               <h5 class="card-title">{{ $item->title }}</h5>
               </a>
-                
+
                 <p class="card-text">Cena: {{ $item->price }}$</p>
                 <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
               </div>
@@ -267,11 +270,11 @@
             <ul class="pagination" style="justify-content: center !important;">
               <li class="page-item"><a class="page-link" href="{{ $descitemslist->previousPageUrl() }}">Previous</a></li>
               <li class="page-item"><a class="page-link" href="{{ $descitemslist->nextPageUrl() }}">Next</a></li>
-            </ul> 
+            </ul>
           </div>
           </div>
 
-          
+
           </div>
           <div
             class="tab-pane fade right-box-tab"
@@ -280,7 +283,7 @@
             aria-labelledby="nav-expensive-tab"
           >
           <div class="row justify-content-around">
-            
+
           @foreach($descitemslist as $item)
 
           <div class="col-4 col-xxl-3">
@@ -292,7 +295,7 @@
                 <a href="{{ $url_link }}/{{ $item->id }}">
               <h5 class="card-title">{{ $item->title }}</h5>
               </a>
-                
+
                 <p class="card-text">Cena: {{ $item->price }}$</p>
                 <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
               </div>
@@ -304,11 +307,11 @@
             <ul class="pagination" style="justify-content: center !important;">
               <li class="page-item"><a class="page-link" href="{{ $descitemslist->previousPageUrl() }}">Previous</a></li>
               <li class="page-item"><a class="page-link" href="{{ $descitemslist->nextPageUrl() }}">Next</a></li>
-            </ul> 
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-    
-    
+    </main>
+
+
     @endsection
