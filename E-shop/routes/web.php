@@ -35,6 +35,9 @@ Route::get('/stoly/{product}',[ProductController::class, 'show_table']);
 Route::get('/stolicky',[ProductController::class, 'display_chairs']);
 Route::get('/stolicky/{product}',[ProductController::class, 'show_chair']);
 
+Route::get('/products',[ProductController::class, 'display_searched']);
+Route::post('/filter/',[ProductController::class, 'filter']);
+
 
 
 require __DIR__.'/auth.php';

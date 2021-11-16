@@ -8,11 +8,10 @@
           </a>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mt-2 pt-0 mr-5">
-              <input
-                size="35"
-                placeholder="Vyhľadaj si nábytok"
-                aria-label="Search"
-              />
+                <form role="search" class="collapse navbar-collapse justify-content-end width_100 row" id="search_menu_buttom">
+                    <input type = "text" placeholder="Sem napíšte hľadané slovo" class="form-control col col-12 col-lg-6" name="search" id="productSeatch">
+                    <button  type="submit" formaction="/products/?search={{'search'}}" class="btn btn-dark col col-4 col-lg-4"><i class="fa fa-search"></i> Hľadať</button>
+                </form >
             </li>
             <li class="dropdown-padding-left nav-item">
               <div class="dropdown">
