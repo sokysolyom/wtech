@@ -3,6 +3,7 @@
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,16 @@ Route::get('/stoly',[ProductController::class, 'display_tables']);
 Route::get('/stoly/{product}',[ProductController::class, 'show_table']);
 Route::get('/stolicky',[ProductController::class, 'display_chairs']);
 Route::get('/stolicky/{product}',[ProductController::class, 'show_chair']);
+
+
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+Route::post('/cart', [CartController::class, 'add'])->name('cart.add');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+
 
 
 

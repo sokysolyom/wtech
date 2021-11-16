@@ -120,7 +120,7 @@
               </div>
             </li>
             <li class="dropdown-padding-right nav-item">
-              <a class="nav-link" href="/kosik"
+              <a class="nav-link" href="/cart"
                 ><img src="../images/shopping-cart-1.png" width="30" alt=""
               /></a>
             </li>
@@ -143,7 +143,7 @@
         />
       </div>
       <div class="col-8">
-        <a href="/kosik">
+        <a href="/cart">
           <span class="text-muted">
             <button class="navbutton btn my-2 my-sm-0" type="submit">
 

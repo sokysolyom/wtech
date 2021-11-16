@@ -207,21 +207,30 @@
             <div class="row justify-content-around">
 
               @foreach($itemslist as $item)
-
+              
               <div class="col-4 col-xxl-3">
-                <article class="card item-card">
-                  <a href="{{ $url_link }}/{{ $item->id }}">
-                    <img src="../images/Bed.png" class="card-img-top" alt="..." />
-                  </a>
-                  <div class="card-body">
+                <form action="{{ route('cart.add') }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <article class="card item-card">
                     <a href="{{ $url_link }}/{{ $item->id }}">
-                   <h5 class="card-title">{{ $item->title }}</h5>
-                  </a>
-                    
-                    <p class="card-text">Cena: {{ $item->price }}$</p>
-                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-                  </div>
-                </article>
+                      <img src="../images/Bed.png" class="card-img-top" alt="..." />
+                    </a>
+                    <div class="card-body">
+                      <a href="{{ $url_link }}/{{ $item->id }}">
+                     <h5 class="card-title" >{{ $item->title }}</h5>
+                      </a>
+                      
+                      <p class="card-text" >Cena: {{ $item->price }}$</p>
+                      <input type="hidden" value="{{ $item->id }}" name="id">
+                      <input type="hidden" value="{{ $item->title }}" name="name">
+                      <input type="hidden" value="{{ $item->price }}" name="price">
+                      <input type="hidden" value="{{ $item->category }}"  name="category">
+                      <input type="hidden" value="3" name="quantity">
+                      <button class="btn succes">Add To Cart</button>
+                    </div>
+                  </article>
+                </form>
+                
               </div>
 
               @endforeach
