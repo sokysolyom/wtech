@@ -15,30 +15,30 @@ class ProductSeeder extends Seeder
     public function run()
     {
         Product::create([
-            'title' => 'postel1-red-plastic',
+            'title' => 'postel1-cervena-plastic',
             'price' => 100,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, similique illum! Voluptate, fugiat exercitationem dolores voluptatum enim quod ipsam molestias, nobis pariatur alias, aliquid ad ratione ipsum corporis commodi praesentium!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'plastic',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2
         ]);
         Product::create([
-            'title' => 'Postel2-red-plastic',
+            'title' => 'Postel2-cervena-plastic',
             'price' => 200,
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'plastic',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2
         ]);
         Product::create([
-            'title' => 'Postel3-red-leather',
+            'title' => 'Postel3-cervena-leather',
             'price' => 300,
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'leather',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
@@ -65,20 +65,20 @@ class ProductSeeder extends Seeder
             'category' => 2
         ]);
         Product::create([
-            'title' => 'Postel6-red-wood',
+            'title' => 'Postel6-cervena-wood',
             'price' => 600,
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'wood',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2
         ]);
         Product::create([
-            'title' => 'Postel7-red-wood',
+            'title' => 'Postel7-cervena-wood',
             'price' => 700,
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'wood',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
@@ -145,50 +145,50 @@ class ProductSeeder extends Seeder
             'category' => 0
         ]);
         Product::create([
-            'title' => 'Stolicka5-red-plastic',
+            'title' => 'Stolicka5-cervena-plastic',
             'price' => 50,
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'plastic',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0
         ]);
         Product::create([
-            'title' => 'Stolicka6-red-plastic',
+            'title' => 'Stolicka6-cervena-plastic',
             'price' => 60,
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'plastic',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0
         ]);
         Product::create([
-            'title' => 'Stolicka7-red-plastic',
+            'title' => 'Stolicka7-cervena-plastic',
             'price' => 70,
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'plastic',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' =>0
         ]);
         Product::create([
-            'title' => 'Stolicka8-red-plastic',
+            'title' => 'Stolicka8-cervena-plastic',
             'price' => 80,
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'plastic',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0
         ]);
         Product::create([
-            'title' => 'Stolicka9-red-plastic',
+            'title' => 'Stolicka9-cervena-plastic',
             'price' => 90,
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
-            'colour' => 'red',
+            'colour' => 'cervena',
             'material' => 'plastic',
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
