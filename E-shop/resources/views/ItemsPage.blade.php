@@ -222,7 +222,16 @@
                   </a>
 
                     <p class="card-text">Cena: {{ $item->price }}$</p>
-                    <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+                    
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                      @csrf
+                      <input type="hidden" value="{{ $item->id }}" name="id">
+                      <input type="hidden" value="1" name="quantity">
+                      <button class="btn btn-success">Add To Cart</button>
+                  </form>
+                    
+                    
+                    
                   </div>
                 </article>
               </div>

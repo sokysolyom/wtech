@@ -30,14 +30,20 @@
               <h4 class= "col-2 text-center">Celková cena</h4>
               <h4 class= "col-1 text-center"></h4>
             </div>
+            @foreach ($items as $item)
             <div class="row justify-content-center m-3 bg-light text-black ">
+              
+
+              
+                  
               
               <div class="kosik_item col-12 col-sm-5 align-self-center col-sm-5 col-md-4 col-lg-2">
                 <img class=" p-2" src="../images/Bed.png"  alt="">
               </div>
               
              
-              <div class="col-12 col-sm-7 col-md-8 col-lg-4"><p>Minecraft postel bed , pohodlná velkosotu blablablabla. 200x300cm , úložný priestor </p>
+              <div class="col-12 col-sm-7 col-md-8 col-lg-4"><p>{{ $item->title }}</p>
+                <p>{{ $item->description }}</p>
     
               </div>
               <div class="col-2 col-sm-1 col-md-1 col-lg-1 text-center p-1 align-self-center">
@@ -64,7 +70,7 @@
               <div class="col-5 col-sm-5 col-md-5 col-lg-2 text-center align-self-center">
                 <div class="container p-0">
                   <h4 class="d-lg-none ">Cena/ks</h4>
-                  <h4>145.65$</h4>
+                  <h4>{{ $item->price }}$</h4>
                 </div>
               </div>
               <div class="col-5 col-sm-6 col-md-5 col-lg-2 text-center align-self-center ">
@@ -73,107 +79,21 @@
                   <h4>538.65$</h4>
                 </div>
               </div>
-              <div class="px-1 py-2 x-button col-1 col-sm-1  col-md-1 col-lg-1  text-danger container-fluid p-0 m-0  "> 
-                <button class=" w-100 p-1 btn text-black btn-danger">X </button>
-              </div>
-    
-            </div>
-    
-            <div class="row justify-content-center m-3 bg-light text-black ">
+
+              <form action="{{ route('cart.delete.item') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" value="{{ $item->id }}" name="id">
+                <div class="px-1 py-2 x-button col-1 col-sm-1  col-md-1 col-lg-1  text-danger container-fluid p-0 m-0  "> 
+                  <button class=" w-100 p-1 btn text-black btn-danger">X</button>
+                </div>
+            </form>
               
-              <div class="kosik_item col-12 col-sm-5 align-self-center col-sm-5 col-md-4 col-lg-2">
-                <img class="p-2 " src="../images/Chair.png"  alt="">
-              </div>
-             
-              <div class="col-12 col-sm-7 col-md-8 col-lg-4"><p>Minecraft postel bed , pohodlná velkosotu blablablabla. 200x300cm , úložný priestor </p>
-    
-              </div>
-              <div class="col-2 col-sm-1 col-md-1 col-lg-1 text-center p-1 align-self-center">
-                
-    
-                  <div class=" justify-content-center p-lg-2 p-0">
-                    <button type="button" class= " button btn-danger w-100" style="width:30px">
-                     -
-                     </button>
-                  </div>
-                 
-                  <div class=" m-0 mt-2 mb-2 justify-content-center">
-                    <h4 class="">5</h4>
-                  </div>
-                  
-                  <div class=" justify-content-center p-lg-2 p-0">
-                    <button type="button" class= "button btn-success w-100" style="width:30px">
-                     +
-                    </button>
-                  </div>
-    
-                
-              </div>
-              <div class="col-5 col-sm-5 col-md-5 col-lg-2 text-center align-self-center">
-                <div class="container p-0">
-                  <h4 class="d-lg-none ">Cena/ks</h4>
-                  <h4>141.15$</h4>
-                </div>
-              </div>
-              <div class="col-5 col-sm-6 col-md-5 col-lg-2 text-center align-self-center ">
-                <div class="   container p-0">
-                  <h4 class="d-lg-none ">Celková cena</h4>
-                  <h4>53.65$</h4>
-                </div>
-              </div>
-              <div class="px-1 py-2 x-button col-1 col-sm-1  col-md-1 col-lg-1  text-danger container-fluid p-0 m-0  "> 
-                <button class=" w-100 p-1 btn text-black btn-danger">X</button>
-              </div>
+            
     
             </div>
+            @endforeach
     
-            <div class="row justify-content-center m-3 bg-light text-black ">
-              
-              <div class="kosik_item col-12 col-sm-5 align-self-center col-sm-5 col-md-4 col-lg-2">
-                <img class="p-2 " src="../images/table.png"  alt="">
-              </div>
-             
-              <div class="col-12 col-sm-7 col-md-8 col-lg-4"><p>Minecraft postel bed , pohodlná velkosotu blablablabla. 200x300cm , úložný priestor </p>
-    
-              </div>
-              <div class="col-2 col-sm-1 col-md-1 col-lg-1 text-center p-1 align-self-center">
-                
-    
-                  <div class=" justify-content-center p-lg-2 p-0">
-                    <button type="button" class= "p-0 m-0 button btn-danger w-100" style="width:30px">
-                      <p class= "m-0 align-middle p-1">-</p>
-                     </button>
-                  </div>
-                 
-                  <div class=" m-0 mt-2 mb-2 justify-content-center">
-                    <h4 class="">1</h4>
-                  </div>
-                  
-                  <div class=" justify-content-center p-lg-2 p-0">
-                    <button type="button" class= " button btn-success w-100" style="width:30px">
-                     +
-                    </button>
-                  </div>
-    
-                
-              </div>
-              <div class="col-5 col-sm-5 col-md-5 col-lg-2 text-center align-self-center">
-                <div class="container p-0">
-                  <h4 class="d-lg-none ">Cena/ks</h4>
-                  <h4>999.99$</h4>
-                </div>
-              </div>
-              <div class="col-5 col-sm-6 col-md-5 col-lg-2 text-center align-self-center ">
-                <div class="   container p-0">
-                  <h4 class="d-lg-none ">Celková cena</h4>
-                  <h4>538.65$</h4>
-                </div>
-              </div>
-              <div class="px-1 py-2 x-button col-1 col-sm-1  col-md-1 col-lg-1  text-danger container-fluid p-0 m-0  "> 
-                <button class="w-100 p-1 btn text-black btn-danger">X </button>
-              </div>
-    
-            </div>
+            
     
         </div>
     
