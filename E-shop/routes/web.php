@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/kosik',[MainController::class, 'kosik']);
+    Route::get('/kosik',[CartController::class, 'kosik']);
+    Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.item');
 });
 
 // Route::get('/dashboard', function () {
@@ -25,6 +27,12 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/adresa',[MainController::class, 'adress']);
 Route::post('/doprava',[MainController::class, 'doprava']);
 Route::post('/zhrnutie',[MainController::class, 'zhrnutie']);
+
+
+Route::post('/stolicky', [CartController::class, 'add_to_cart'])->name('cart.store');
+Route::post('/stoly', [CartController::class, 'add_to_cart'])->name('cart.store');
+Route::post('/postele', [CartController::class, 'add_to_cart'])->name('cart.store');
+
 
 
 
