@@ -50,7 +50,7 @@ class CartController extends Controller
                 $exact_product->save();
             }
             
-            return redirect('/kosik');
+            return redirect()->back()->with('message', 'Updated!');
         }
 
         else
@@ -81,7 +81,7 @@ class CartController extends Controller
 
                 Session::put('cart',$newkosik);
                 Session::save();
-                return redirect('/kosik');
+                return redirect()->back()->with('message', 'Updated!');
             }
 
             else
@@ -98,7 +98,7 @@ class CartController extends Controller
                 Session::push('cart',$cartitem);
                 Session::save();
               
-                return redirect('/kosik');
+                return redirect()->back()->with('message', 'Updated!');
                 
             }
         }
@@ -152,6 +152,7 @@ class CartController extends Controller
 
             else
             {
+                $list = [];
 
                 $value = Session::get('cart');
                 

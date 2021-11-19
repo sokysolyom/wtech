@@ -160,7 +160,7 @@
           <div class="container mb-5">
             <div class="row justify-content-center justify-content-md-around justify-content-sm-center " style="height: 50px;">
 
-                <a class="col-4 col-md-4 col-sm-9 mt-sm-3 mt-md-0 " href="/doprava">
+                <a class="col-4 col-md-4 col-sm-9 mt-sm-3 mt-md-0 " href="/doprava-back">
                   <button class="btn-success col-12  h-100"><h4>Späť</h4></button>
                 </a>
 

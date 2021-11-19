@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
 use App\Models\Product;
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 use DB;
 use App\Http\Requests;
@@ -44,9 +46,29 @@ class MainController extends Controller
         return view('zhrnutie');
     }
 
-    public function doprava()
+    public function doprava_back()
     {
         return view('vyber_dopravy');
+    }
+
+    public function doprava(Request $request)
+    {
+        $request->validate([
+            'address' => 'required',
+            'email' => 'requied',
+            'telephone' => 'required'
+        ]);
+
+        if( Auth::user()){
+            $fullname = Auth::user()->name;
+        }
+        else {
+            $fullname = $request->name + $request->surname;
+
+        }
+
+        Order::create(['Name' =>  $fullname, 'Adress' => $request->address, 'Email' => $request->email, 'Telephone' => $request->telephone]);
+        return redirect("vyber_dopravy");
     }
 
     public function tables_Page()

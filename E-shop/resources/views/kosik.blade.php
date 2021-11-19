@@ -56,7 +56,7 @@
 
 
               <div class="kosik_item col-12 col-sm-5 align-self-center col-sm-5 col-md-4 col-lg-2">
-                <img class=" p-2" src="{{ asset('images/Bed.png') }}"  alt="">
+                <img class=" p-2" src="{{ asset('images/'. $item[0]->image) }}"  alt="">
               </div>
 
 
@@ -91,11 +91,6 @@
 
 
 
-                  @php
-                      if ($cart_id)
-                  @endphp
-
-
               </div>
               <div class="col-5 col-sm-5 col-md-5 col-lg-2 text-center align-self-center">
                 <div class="container p-0">
@@ -119,7 +114,7 @@
               </div>
 
               <div class="px-1 py-2 x-button col-2 col-sm-2  col-md-1 col-lg-1  text-danger container-fluid p-0 m-0  ">
-                <form action="{{ route('cart.delete.item') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('cart.delete.item') }}" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" value="{{ $item[0]->id }}" name="id">
                   <button class=" w-100 p-1 btn text-black btn-danger">X</button>
@@ -137,6 +132,7 @@
               function decrement(poradie) {
                 var id = "ks"+poradie;
                 var id2 = "p_ks"+poradie;
+                var id2_2 = "2p_ks"+poradie;
                 var celk = "celk"+poradie;
                 var cena_ks = "cena_ks"+poradie;
 
@@ -144,6 +140,7 @@
                 if (document.getElementById(id).value >=2){
                   document.getElementById(id).value = --i;
                   document.getElementById(id2).value = i;
+                  document.getElementById(id2_2).value = i;
                 }
 
                 var cena = document.getElementById(celk).textContent;
@@ -181,12 +178,14 @@
               function increment(poradie) {
                 var id = "ks"+poradie;
                 var id2 = "p_ks"+poradie;
+                var id2_2 = "2p_ks"+poradie;
                 var celk = "celk"+poradie;
                 var cena_ks = "cena_ks"+poradie;
 
                 var i = document.getElementById(id).value;
                 document.getElementById(id).value = ++i;
                 document.getElementById(id2).value = i;
+                document.getElementById(id2_2).value = i;
 
                 var cena = document.getElementById(celk).textContent;
                 cena = (Number(cena));
@@ -267,13 +266,32 @@
         </div>
 
 
-        <div class="container mb-5">
-          <div class="row justify-content-md-end justify-content-sm-center justify-content-center " style="height: 50px;">
-            <a class="col-md-3 col-sm-10 col-10" href="./adress.html">
-              <button class="btn-success col-12 h-100"><h4>Pokracovat</h4></button>
-            </a>
+        
+        <!-- <form action="" method="POST" enctype="multipart/form-data">
+          @csrf
+         @php
+             $c = 0;
+         @endphp
+          @foreach ($items as $item)
+          
+            <input type="hidden" value="{{ $item[0]->id }}" name="id{{$i}}">
+            <input type="hidden" id="ks2" value="{{ $item[1] }}" class="2p_ks{{$i}}" id = "2p_ks{{$i}}" name="">  
+            
+          @php
+              $c = $c + 1;
+          @endphp
+          @endforeach
+          <input type="hidden" value="{{$c}}" name="pocet_objektov">
+          
+          <div class="container mb-5">
+            <div class="row justify-content-md-end justify-content-sm-center justify-content-center " style="height: 50px;">
+              <a class="col-md-3 col-sm-10 col-10" href="./adresa">
+                <button class="btn-success col-12 h-100"><h4>Pokracovat</h4></button>
+              </a>
+            </div>
           </div>
-        </div>
+        </form> -->
+        
       </div>
 
     </main>
