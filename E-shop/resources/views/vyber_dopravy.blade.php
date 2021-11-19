@@ -11,7 +11,7 @@
     @section('content')
 
     <div class="d-block d-sm-block d-md-none">
-      <a href="./welcome.html" class="navbar-brand logo"> <img src="../images/logo-nabytok.png" alt="" class="main-logo">
+      <a href="./welcome.html" class="navbar-brand logo"> <img src="{{ asset('images/logo-nabytok.png') }}" alt="" class="main-logo">
       </a>
     </div>
     <main class="container-fluid pt-5 pb-5">

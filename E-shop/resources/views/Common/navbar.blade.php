@@ -4,7 +4,7 @@
       <div class="p-0 container-fluid">
         <div class="justify-content-between navbar-collapse" id="#">
           <a href="/" class="navbar-brand">
-            <img src="../images/logo-nabytok.png" alt="" width="120" />
+            <img src="{{ asset('images/logo-nabytok.png') }}" alt="" width="120" />
           </a>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mt-2 pt-0 mr-5">
@@ -22,7 +22,7 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img src="../images/user-1.png" width="30" alt="" />
+                  <img src="{{ asset('images/user-1.png') }}" width="30" alt="" />
                 </button>
                 <ul
                   class="dropdown-menu"
@@ -120,7 +120,7 @@
             </li>
             <li class="dropdown-padding-right nav-item">
               <a class="nav-link" href="/kosik"
-                ><img src="../images/shopping-cart-1.png" width="30" alt=""
+                ><img src="{{ asset('images/shopping-cart-1.png') }}" width="30" alt=""
               /></a>
             </li>
           </ul>
@@ -131,7 +131,7 @@
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="b p-4 m-auto">
       <a href="/" class="navbar-brand">
-        <img src="../images/logo-nabytok.png" alt="" width="120" />
+        <img src="{{ asset('images/logo-nabytok.png') }}" alt="" width="120" />
       </a>
       <div class="col-8 mt-1">
          <form role="search" class="justify-content-end width_100 row" id="search_menu_buttom">
@@ -161,7 +161,7 @@
         <span >
           <button class="navbutton btn my-2 my-sm-0" type="submit" style="display: flex">
             <img
-              src="../images/login_button.svg"
+              src="{{ asset('images/login_button.svg') }}"
               class="rounded mx-auto d-block"
               width="30"
               alt="..."
@@ -178,7 +178,7 @@
               <span >
                 <button class="navbutton btn my-2 my-sm-0" type="submit">
                   <img
-                    src="../images/shopping-cart-1.png"
+                    src="{{ asset('images/shopping-cart-1.png') }}"
                     class="rounded mx-auto d-block"
                     width="30"
                     alt="..."
@@ -201,7 +201,7 @@
                                 class="navbutton btn"
                                 >
                                 <img
-                                src="../images/logout.svg"
+                                src="{{ asset('images/logout.svg') }}"
                                 class="rounded mx-auto d-block"
                                 width="30"
                                 alt="..."
@@ -221,7 +221,7 @@
 
             <button class="navbutton btn my-2 my-sm-0" type="submit">
               <img
-                src="../images/user-1.png"
+                src="{{ asset('images/user-1.png') }}"
                 class="rounded mx-auto d-block"
                 width="30"
                 alt="..."

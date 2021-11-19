@@ -2,7 +2,8 @@
     @extends('app')
 
     @section('styles')
-      <link rel="stylesheet" href="../css/itemsPage.css">
+      <link rel="stylesheet" href="{{ asset('css/itemsPage.css') }}">
+
     @endsection
 
 
@@ -11,7 +12,7 @@
 
 
     <div class="d-block d-sm-block d-md-none">
-      <a href="./welcome.html" class="navbar-brand logo"> <img src="../images/logo-nabytok.png" alt="" class="main-logo">
+      <a href="/" class="navbar-brand logo"> <img src="{{ asset('images/logo-nabytok.png') }}" alt="" class="main-logo">
       </a>
     </div>
     <main class="row">
@@ -19,7 +20,7 @@
         class="col-xl-2 col-lg-3 col-md-3 left-box"
       >
         <h3 class="text-align">Filtrovať produkty</h3>
-        <form method="POST" role="filter" action="/filter/">
+        <form method="POST" role="filter" action="{{ $url_link }}/filter/">
             {{ csrf_field() }}
         <h5 class="left-titles">$ Cena</h5>
         <div class="row justify-content-center">
@@ -161,6 +162,57 @@
         class="col-xl-10 col-lg-9  col-md-9 all-items-box "
       >
 
+      <nav class=" d-sm-none d-md-block d-none d-sm-block secondnav container  mb-5 navbar navbar-expand-sm ">
+        <div class="navseconditems justify-content-center" id="navbarNav">
+          <span>
+            <ul class="navbar-nav "style="font-size: x-large; justify-content: space-evenly !important">
+              <li class="nav-item ">
+                <a class="nav-link text-black" href="./stolicky">Stoličky</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-black" href="./stoly">Stoly</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-black" href="./postele">Postele</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-black" href="./products">Všetko</a>
+                </li>
+            </ul>
+          </span>
+
+        </div>
+      </nav>
+
+      <nav class="collapse  external-second-nav " id="navbarToggleExternalContent1">
+        <div class=" navseconditems w-100 justify-content-center" id="navbarNav">
+          <span>
+            <ul class="text-white navbar-nav "style="font-size: x-large;">
+              <li class=" nav-item ">
+                <a class=" nav-link text-black" href="./stolicky"> <img class= "pr-5 "src="{{ asset('images/Chair.png') }}" width=30 alt=""> Stoličky</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-black" href="./stoly"> <img src="{{ asset('images/table.png') }}" width=30 alt=""> Stoly</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-black" href="./postele"><img src="{{ asset('images/Bed.png') }}" width=30 alt=""> Postele</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-black" href="./products"><img src="{{ asset('images/preview.svg') }}" width=30 alt=""> Všetko</a>
+                </li>
+            </ul>
+          </span>
+        </div>
+      </nav>
+
+      <nav class="navbar navbar-dark bg-dark d-block d-sm-block d-md-none mb-5" id="navbarNav">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent1" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+
 
         <h1>{{ "$category" }}</h1>
 
@@ -171,7 +223,7 @@
               class="nav-link active"
               id="nav-home-tab"
               data-bs-toggle="tab"
-              href="#nav-news"
+              href="#news"
               role="tab"
               aria-controls="nav-news"
               aria-selected="true"
@@ -181,7 +233,7 @@
               class="nav-link"
               id="nav-profile-tab"
               data-bs-toggle="tab"
-              href="#nav-cheap"
+              href="#cheap"
               role="tab"
               aria-controls="nav-cheap"
               aria-selected="false"
@@ -191,7 +243,7 @@
               class="nav-link"
               id="nav-profile-tab"
               data-bs-toggle="tab"
-              href="#nav-expensive"
+              href="#expensive"
               role="tab"
               aria-controls="nav-expensive"
               aria-selected="false"
@@ -202,7 +254,7 @@
         <div class="tab-content" id="nav-tabContent">
           <div
             class="tab-pane fade show active right-box"
-            id="nav-news"
+            id="news"
             role="tabpanel"
             aria-labelledby="nav-news-tab"
 
@@ -214,7 +266,7 @@
               <div class="col-4 col-xxl-3">
                 <article class="card item-card">
                   <a href="{{ $url_link }}/{{ $item->id }}">
-                    <img src="../images/Bed.png" class="card-img-top" alt="..." />
+                    <img src="{{ asset('images/'. $item->image) }}" class="card-img-top" alt="..." />
                   </a>
                   <div class="card-body">
                     <a href="{{ $url_link }}/{{ $item->id }}">
@@ -222,16 +274,16 @@
                   </a>
 
                     <p class="card-text">Cena: {{ $item->price }}$</p>
-                    
+
                     <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <input type="hidden" value="{{ $item->id }}" name="id">
                       <input type="hidden" value="1" name="quantity">
                       <button class="btn btn-success">Add To Cart</button>
                   </form>
-                    
-                    
-                    
+
+
+
                   </div>
                 </article>
               </div>
@@ -249,7 +301,7 @@
           </div>
           <div
             class="tab-pane fade rigt-box-tab"
-            id="nav-cheap"
+            id="cheap"
             role="tabpanel"
             aria-labelledby="nav-cheap-tab"
 
@@ -261,7 +313,7 @@
           <div class="col-4 col-xxl-3">
             <article class="card item-card">
               <a href="{{ $url_link }}/{{ $item->id }}">
-                <img src="../images/Bed.png" class="card-img-top" alt="..." />
+                <img src="{{ asset('images/'. $item->image) }}" class="card-img-top" alt="..." />
               </a>
               <div class="card-body">
                 <a href="{{ $url_link }}/{{ $item->id }}">
@@ -277,8 +329,8 @@
           @endforeach
           <div class="row justify-content-center " style="margin-top: 30px; margin-bottom: 30px;">
             <ul class="pagination" style="justify-content: center !important;">
-              <li class="page-item"><a class="page-link" href="{{ $descitemslist->previousPageUrl() }}">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="{{ $descitemslist->nextPageUrl() }}">Next</a></li>
+              <li class="page-item"><a class="page-link" href="{{ $ascitemslist->previousPageUrl() }}">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="{{ $ascitemslist->nextPageUrl() }}">Next</a></li>
             </ul>
           </div>
           </div>
@@ -287,7 +339,7 @@
           </div>
           <div
             class="tab-pane fade right-box-tab"
-            id="nav-expensive"
+            id="expensive"
             role="tabpanel"
             aria-labelledby="nav-expensive-tab"
           >
@@ -298,7 +350,7 @@
           <div class="col-4 col-xxl-3">
             <article class="card item-card">
               <a href="{{ $url_link }}/{{ $item->id }}">
-                <img src="../images/Bed.png" class="card-img-top" alt="..." />
+                <img src="{{ asset('images/'. $item->image) }}" class="card-img-top" alt="..." />
               </a>
               <div class="card-body">
                 <a href="{{ $url_link }}/{{ $item->id }}">

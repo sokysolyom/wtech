@@ -12,7 +12,7 @@
 
 
     <div class="d-block d-sm-block d-md-none">
-      <a href="/" class="navbar-brand logo"> <img src="../images/logo-nabytok.png" alt="" class="main-logo">
+      <a href="/" class="navbar-brand logo"> <img src="{{ asset('images/logo-nabytok.png') }}" alt="" class="main-logo">
       </a>
     </div>
     <div class="container adress-box">
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="button-margin container mb-5" >
-          <div class="button-height row justify-content-center " style="margin-top: 30px">
+          <div class="button-height row justify-content-center " >
             <div class="container row justify-content-center" >
               <a class="col-sm-5 col-md-3 col-5 mr-3" href="/kosik">
                 <button type="button" class="btn-success col-10  h-100"><h5>Späť</h5></button>

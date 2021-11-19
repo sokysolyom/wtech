@@ -15,7 +15,7 @@ nav.secondnav{
   box-shadow: 0px 0px 5px 1px #000000;
   background-color: rgb(238, 227, 77);
   color: black ;
-  max-width:75%;
+  max-width:80%;
 }
 
 .external-second-nav{
@@ -87,13 +87,13 @@ main{
   bottom: 0;
   width: 100%;
   min-height:50px;
-  height: 2.5rem;   
+  height: 2.5rem;
 }
 
-body{ 
-  min-height: 100vh; 
-  margin: 0; 
-  
+body{
+  min-height: 100vh;
+  margin: 0;
+
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
@@ -233,7 +233,7 @@ tr td div button{
   .carousel-item .carousel-caption .circle h3 {
     font-size:13px;
   }
-  
+
   .table th{
     font-size:20px;
   }
@@ -293,7 +293,7 @@ tr td div button{
 
 /*--- Large devices (desktops, 992px and up) ---*/
 @media (min-width: 992px) {
-  
+
 
   .carousel-item .carousel-caption .circle h3 {
     font-size: 20px;
@@ -378,8 +378,8 @@ tr td div button{
   .item img{
     width:100%;
   }
-  
-  
+
+
 }
 
 
@@ -448,7 +448,7 @@ a:hover{
 
 button.navbutton{
   padding-left: 3px;
-  
+
 }
 
 

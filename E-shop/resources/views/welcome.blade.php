@@ -11,7 +11,7 @@
 
 
   <div class="d-block d-sm-block d-md-none logo">
-    <a href="/" class="navbar-brand "> <img src="../images/logo-nabytok.png" alt="" class="main-logo">
+    <a href="/" class="navbar-brand "> <img src="{{ asset('images/logo-nabytok.png') }}" alt="" class="main-logo">
     </a>
   </div>
 
@@ -31,6 +31,9 @@
             <li class="nav-item">
               <a class="nav-link text-black" href="./postele">Postele</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-black" href="./products">Všetko</a>
+              </li>
           </ul>
         </span>
 
@@ -42,14 +45,17 @@
         <span>
           <ul class="text-white navbar-nav "style="font-size: x-large;">
             <li class=" nav-item ">
-              <a class=" nav-link text-black" href="./chairsPage.html"> <img class= "pr-5 "src="../images/Chair.png" width=30 alt=""> Stoličky</a>
+              <a class=" nav-link text-black" href="./stolicky"> <img class= "pr-5 "src="{{ asset('images/Chair.png') }}" width=30 alt=""> Stoličky</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="./tablesPage.html"> <img src="../images/table.png" width=30 alt=""> Stoly</a>
+              <a class="nav-link text-black" href="./stoly"> <img src="{{ asset('images/table.png') }}" width=30 alt=""> Stoly</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="./bedsPage.html"><img src="../images/bed.png" width=30 alt=""> Postele</a>
+              <a class="nav-link text-black" href="./postele"><img src="{{ asset('images/Bed.png') }}" width=30 alt=""> Postele</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-black" href="./products"><img src="{{ asset('images/preview.svg') }}" width=30 alt=""> Všetko</a>
+              </li>
           </ul>
         </span>
       </div>
@@ -73,7 +79,7 @@
       <div id="carouselExampleSlidesOnly" class="carousel slide col-7" data-bs-ride="carousel">
         <div class="carousel-inner" id="container_doprava">
           <section class="carousel-item active">
-            <a href="../HTML/info.html"><img class="d-block " src="../images/Bed.png" alt="First slide"></a>
+            <a href="../HTML/info.html"><img class="d-block " src="{{ asset('images/Bed.png') }}" alt="First slide"></a>
             <div class="carousel-caption">
               <div class="circle">
                 <h3>999 eur
@@ -83,7 +89,7 @@
             </div>
           </section>
           <section class="carousel-item">
-            <a href="../HTML/info.html"><img class="d-block " src="../images/table.png" alt="Second slide"></a>
+            <a href="../HTML/info.html"><img class="d-block " src="{{ asset('images/Table.png') }}" alt="Second slide"></a>
             <div class="carousel-caption">
               <div class="circle">
                 <h3>999 eur
@@ -93,7 +99,7 @@
             </div>
           </section>
           <section class="carousel-item">
-            <a href="../HTML/info.html"><img class="d-block " src="../images/Chair.png" alt="Second slide"></a>
+            <a href="../HTML/info.html"><img class="d-block " src="{{ asset('images/Chair.png') }}" alt="Second slide"></a>
             <div class="carousel-caption">
               <div class="circle">
                 <h3>999 eur
@@ -124,7 +130,7 @@
       <section class="item d-none d-sm-block suggest_item" id="container_doprava">
         <div class="row">
           <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
-            <img src="../images/Bed.png" alt="">
+            <img src="{{ asset('images/'. $suggested->image) }}" alt="">
           </a>
 
         </div>
@@ -158,7 +164,7 @@
               <section class="item d-none d-sm-block " id="container_doprava">
                 <div class="row">
                   <a href="{{ $url_link }}/{{ $item->id }}" class="text-center">
-                    <img src="../images/Bed.png" alt="">
+                    <img src="{{ asset('images/'. $item->image) }}" alt="">
                   </a>
 
                 </div>

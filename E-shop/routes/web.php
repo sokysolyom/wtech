@@ -41,14 +41,18 @@ Route::get('/',[MainController::class, 'index']);
 Route::get('/registracia',[MainController::class, 'register']);
 Route::get('/postele',[ProductController::class, 'display_beds']);
 Route::get('/postele/{product}',[ProductController::class, 'show_item']);
+Route::post('/postele/filter/',[ProductController::class, 'beds_filter']);
 Route::get('/stoly',[ProductController::class, 'display_tables']);
-Route::get('/stoly/{product}',[ProductController::class, 'show_tablshow_iteme']);
+Route::get('/stoly/{product}',[ProductController::class, 'show_item']);
+Route::post('/stoly/filter/',[ProductController::class, 'tables_filter']);
 Route::get('/stolicky',[ProductController::class, 'display_chairs']);
 Route::get('/stolicky/{product}',[ProductController::class, 'show_item']);
+Route::post('/stolicky/filter/',[ProductController::class, 'chairs_filter']);
 
 Route::get('/products',[ProductController::class, 'display_searched']);
+Route::post('/products/{product}',[ProductController::class, 'post_recension']);
 Route::get('/products/{product}',[ProductController::class, 'show_item']);
-Route::post('/filter/',[ProductController::class, 'filter']);
+Route::post('/products/filter/',[ProductController::class, 'filter']);
 
 
 

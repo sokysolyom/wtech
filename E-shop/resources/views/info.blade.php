@@ -1,5 +1,4 @@
 
-
   @extends('app')
 
   @section('styles')
@@ -12,14 +11,14 @@
 
 
   <div class="d-block d-sm-block d-md-none">
-    <a href="./welcome.html" class="navbar-brand logo"> <img src="../images/logo-nabytok.png" alt="" class="main-logo">
+    <a href="./welcome.html" class="navbar-brand logo"> <img src="{{ asset('images/logo-nabytok.png') }}" alt="" class="main-logo">
     </a>
   </div>
 
     <div class="container-xl info-box">
       <div class="row">
         <div class="col-md-8">
-          <img src="../images/Bed.png" class="rounded mx-auto d-block" alt="..." />
+          <img src="{{ asset('images/'. $product->image) }}" class="rounded mx-auto d-block" alt="..." />
         </div>
         <div class="col-md-4">
           <div class="col">
@@ -55,7 +54,7 @@
               <h4>1ks</h4>
             </div>
             <div class=" add-to-cart-button">
-              <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
+              <a href="/kosik" class="btn btn-success">Pridat do kosika</a>
             </div>
           </div>
         </div>
@@ -112,6 +111,29 @@
 
             @endforeach
           </div>
+          @if(Auth::check())
+          <form method="POST" action="/products/{{ $product->id }}">
+            {{ csrf_field() }}
+          <div class="row justify-content-start form-items">
+            <div class="col-lg-10 col-md-12">
+                <h4 for="name" >Pridat recenziu</h4>
+                <input type="text" name="text" class="form-control">
+            </div>
+            <div style="margin-top: 30px">
+                <button type="submit" style="btn-success">Pridat recenziu</button>
+            </div>
+          </div>
+          @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+          @endif
+          </form>
+          @endif
           <div
             class="tab-pane fade"
             id="nav-profile"
@@ -120,10 +142,7 @@
           >
             <div class="row reference-box">
               <p>
-                Obojstranný pružinový matrac s pružinami Bonell 110/m² a výplňou
-                z polyuretánovej peny. 4 cm vrchný matrac s jadrom z
-                polyuretánovej peny. Pružný poťah s hustým prešívaním. Základňu
-                tvorí 1 rám. Vrátane nôh. Bez čela. 140x200 cm
+                {{$product->paramtere}}
               </p>
             </div>
             <div class="row reference-box">
@@ -136,15 +155,15 @@
                 <tbody>
                   <tr>
                     <th scope="row">Farba</th>
-                    <td>Cervena</td>
+                    <td>{{$product->colour}}</td>
                   </tr>
                   <tr>
                     <th scope="row">Rozmery</th>
-                    <td>Šírka: 140 cm, Dĺžka: 200 cm, Výška: 56,5 cm</td>
+                    <td>{{$product->rozmery}}</td>
                   </tr>
                   <tr>
                     <th scope="row">Material</th>
-                    <td>Čalúnenie, Zamat</td>
+                    <td>{{$product->material}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -168,7 +187,7 @@
          <section class="item d-none d-sm-block " id="container_doprava">
            <div class="row">
              <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
-               <img src="../images/Bed.png" alt="">
+               <img src="{{ asset('images/'. $suggested->image) }}" alt="">
              </a>
 
            </div>

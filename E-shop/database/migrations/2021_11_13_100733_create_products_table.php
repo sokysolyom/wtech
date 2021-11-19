@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('material');
             $table->text('parametre');
             $table->string('rozmery');
+            $table->string('image');
             $table->timestamps();
         });
     }
