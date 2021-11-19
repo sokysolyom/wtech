@@ -41,22 +41,44 @@
             </div>
             <div class="col-2">
               <div class="col-12 justify-content-center">
-                <button type="button" class="p-0 m-0 button btn-success amount-button">
+                <button type="button" class="p-0 m-0 button btn-success amount-button " onclick="increment()">
                  <p class= "m-0 align-middle">+</p>
                 </button>
               </div>
               <div class="col-12 justify-content-center amout-button-margin">
-                <button type="button" class="p-0 m-0 button btn-danger amount-button">
+                <button type="button" class="p-0 m-0 button btn-danger amount-button" onclick="decrement()">
                   <p class= "m-0 align-middle">-</p>
                  </button>
               </div>
+
+              <script>
+                var i =1;
+                function decrement() {
+                  if (document.getElementById('ks').value >=2){
+                    document.getElementById('ks').value = --i;
+                    document.getElementById('ks2').value = i;
+                  }
+                    
+                }
+                function increment() {
+                  document.getElementById('ks').value = ++i;
+                  document.getElementById('ks2').value = i;
+                }
+              </script>
+
             </div>
             <div class="col-1 amount-item">
-              <h4>1ks</h4>
+              <input type="text" id="ks" value="1" disabled name='quantity'>
             </div>
-            <div class=" add-to-cart-button">
-              <a href="kosik.html" class="btn btn-success">Pridat do kosika</a>
-            </div>
+            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" value="{{ $product->id }}" name="id">
+              <input type="hidden" id="ks2" value="1" name="quantity">
+              <div class=" add-to-cart-button">
+                <button class="btn btn-success">Pridať do košíka</button>
+              </div>
+            </form>
+            
           </div>
         </div>
       </div>

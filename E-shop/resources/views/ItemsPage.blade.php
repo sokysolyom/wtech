@@ -227,8 +227,8 @@
                       @csrf
                       <input type="hidden" value="{{ $item->id }}" name="id">
                       <input type="hidden" value="1" name="quantity">
-                      <button class="btn btn-success">Add To Cart</button>
-                  </form>
+                      <button class="btn btn-success">Pridať do košíka</button>
+                    </form>
                     
                     
                     
