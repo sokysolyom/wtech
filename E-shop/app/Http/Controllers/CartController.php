@@ -114,62 +114,71 @@ class CartController extends Controller
 
         $id = Auth::id();
         
-        $cart = User_cart::all()->where('id','=',$id);
+        $cart = User_cart::all()->where('user_id','=',$id);
 
-        if (count($cart) == 0)
+    
+
+        if ($cart === null)
             {
                 $list = [];
-            }
-
-        if (Auth::check()) 
-        {
-            $cart = $cart->first();
-            $items = Cart_items::all()->where('cart_id','=',$cart->id);
-        
-            $list = [];
-            foreach ($items as $item){
-                $number = $item->product;
-                $counter = $item->counter;
-                $item = Product::all()->where('id','=',$number);
-                $item = $item->first();
-                $produkt = [$item,$counter];
-                array_push($list,$produkt);
+                $cart_id = 0;
                 
+                return view('kosik')->with('items',$list)
+
+                ->with('cart_id',$cart_id);
             }
-            return view('kosik')->with('items',$list)
-            ->with('cart_id',$cart->id);
+        else{
+
         }
-        
-
-        else
-        {
-
-            $value = Session::get('cart');
-            
-            if (Session::has('cart'))
+            if (Auth::check()) 
             {
-                foreach($value as $item)
-                {
-                    $product = $item[0];
-                    $counter = $item[1];
-                    $item = Product::where('id',$product);
+                $cart = $cart->first();
+                $items = Cart_items::all()->where('cart_id','=',$cart->id);
+            
+                $list = [];
+                foreach ($items as $item){
+                    $number = $item->product;
+                    $counter = $item->counter;
+                    $item = Product::all()->where('id','=',$number);
                     $item = $item->first();
                     $produkt = [$item,$counter];
-                    
                     array_push($list,$produkt);
+                    
                 }
+                return view('kosik')->with('items',$list)
+                ->with('cart_id',$cart->id);
             }
+            
+
             else
             {
-                $list = [];
+
+                $value = Session::get('cart');
+                
+                if (Session::has('cart'))
+                {
+                    foreach($value as $item)
+                    {
+                        $product = $item[0];
+                        $counter = $item[1];
+                        $item = Product::where('id',$product);
+                        $item = $item->first();
+                        $produkt = [$item,$counter];
+                        
+                        array_push($list,$produkt);
+                    }
+                }
+                else
+                {
+                    $list = [];
+                }
+                $cart_id = 0;
+                return view('kosik')->with('items',$list)
+                ->with('cart_id',$cart_id);
+                
+    
             }
-            $cart_id = 0;
-            return view('kosik')->with('items',$list)
-            ->with('cart_id',$cart_id);
             
-  
-        }
-        
         
         
         
@@ -184,14 +193,18 @@ class CartController extends Controller
 
         if (Auth::check()) 
         {
-            $cart = User_cart::all()->where('id','=',$user_id);
+            $cart = User_cart::all()->where('user_id','=',$user_id);
 
             $cart = $cart->first();
 
             $items = Cart_items::all()->where('cart_id','=',$cart->id);
-
+            
             
             foreach ($items as $item){
+                echo("SDADA");
+                echo($item->product);
+                echo("HALDAM : ");
+                echo($product_id);
                 
                 $number = $item->product;
                 if ($number == $product_id)
