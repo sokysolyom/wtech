@@ -4,9 +4,19 @@
 
   @section('styles')
   <link rel="stylesheet" href="../css/kosik.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
   @endsection
 
+
   @section('content')
+
+  <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+  </head>
+
 
 
     <div class="d-block d-sm-block d-md-none">
@@ -30,7 +40,15 @@
               <h4 class= "col-2 text-center">Celková cena</h4>
               <h4 class= "col-1 text-center"></h4>
             </div>
+            @php
+                $totalprice =0;
+                $i = 0;
+            @endphp
             @foreach ($items as $item)
+            @php
+                $totalprice = $totalprice + ($item[0]->price * $item[1]);
+                $i = $i + 1;
+            @endphp
             <div class="row justify-content-center m-3 bg-light text-black ">
 
 
@@ -42,62 +60,193 @@
               </div>
 
 
-              <div class="col-12 col-sm-7 col-md-8 col-lg-4"><p>{{ $item->title }}</p>
-                <p>{{ $item->description }}</p>
+              <div class="col-12 col-sm-7 col-md-8 col-lg-4"><p>{{ $item[0]->title }}</p>
+                <p>{{ $item[0]->description }}</p>
 
               </div>
               <div class="col-2 col-sm-1 col-md-1 col-lg-1 text-center p-1 align-self-center">
 
+                  <form id="myForm">
+                    <div class=" justify-content-center p-lg-2 p-0">
+                      <button type="button" class= " button btn-danger w-100 decrement_button" style="width:30px" id="dec{{$i}}" id = "element" onclick="decrement({{$i}})" onclick="zapni()">
+                        -
+                       </button>
+                    </div>
 
-                  <div class=" justify-content-center p-lg-2 p-0">
-                    <button type="button" class= " button btn-danger w-100" style="width:30px">
-                      -
-                     </button>
-                  </div>
+                    <div class=" m-0 mt-2 mb-2 justify-content-center">
+                      <input type="text" class="ks" id="ks{{$i}}" value=" {{ $item[1]  }}" disabled name='quantity'>
+                    </div>
 
-                  <div class=" m-0 mt-2 mb-2 justify-content-center">
-                    <h4 class="">2</h4>
-                  </div>
+                    <div class=" justify-content-center p-lg-2 p-0">
+                      <button type="button" class= "button btn-success w-100 increment_button" style="width:30px" id="inc{{$i}}" id = "element" onclick="increment({{$i}})" onclick="zapni()">
+                       +
+                      </button>
+                    </div>
 
-                  <div class=" justify-content-center p-lg-2 p-0">
-                    <button type="button" class= " button btn-success w-100" style="width:30px">
-                     +
-                    </button>
-                  </div>
+                    <input type="hidden" value="{{ $cart_id}}" class="cart_id{{$i}}" id="cart_id{{$i}}">
+                    <input type="hidden" value="{{ $item[0]->id}}" class="product_id{{$i}}" id = "product_id{{$i}}">
+                    <input type="hidden" value="{{ $item[1] }}" class="p_ks{{$i}}" id = "p_ks{{$i}}">
+                    <input type="hidden" value="{{$i}}" class="id_pre_ajax" id = "id_pre_ajax">
+                  </form>
+
+
+
+                  @php
+                      if ($cart_id)
+                  @endphp
 
 
               </div>
               <div class="col-5 col-sm-5 col-md-5 col-lg-2 text-center align-self-center">
                 <div class="container p-0">
                   <h4 class="d-lg-none ">Cena/ks</h4>
-                  <h4>{{ $item->price }}$</h4>
+                  <div class="row justify-content-center">
+                    <h4 class= "col-3" id="cena_ks{{$i}}">{{ $item[0]->price }}</h4>
+                    <h4 class= "col-3">$</h4>
+                  </div>
                 </div>
               </div>
               <div class="col-5 col-sm-6 col-md-5 col-lg-2 text-center align-self-center ">
                 <div class="   container p-0">
                   <h4 class="d-lg-none ">Celková cena</h4>
-                  <h4>538.65$</h4>
+                  <div class="row justify-content-center">
+                    <h4 class= "col-3" id="celk{{$i}}">{{ $item[0]->price * $item[1] }}</h4>
+                    <h4 class= "col-3">$</h4>
+                  </div>
+
+
                 </div>
               </div>
 
-              <form action="{{ route('cart.delete.item') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="hidden" value="{{ $item->id }}" name="id">
-                <div class="px-1 py-2 x-button col-1 col-sm-1  col-md-1 col-lg-1  text-danger container-fluid p-0 m-0  ">
+              <div class="px-1 py-2 x-button col-2 col-sm-2  col-md-1 col-lg-1  text-danger container-fluid p-0 m-0  ">
+                <form action="{{ route('cart.delete.item') }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <input type="hidden" value="{{ $item[0]->id }}" name="id">
                   <button class=" w-100 p-1 btn text-black btn-danger">X</button>
-                </div>
-            </form>
-
-
+                </form>
+              </div>
 
             </div>
             @endforeach
 
+            <input type="hidden" value="{{$i}}" id="pocet_produktov">
+
+
+            <script>
+
+              function decrement(poradie) {
+                var id = "ks"+poradie;
+                var id2 = "p_ks"+poradie;
+                var celk = "celk"+poradie;
+                var cena_ks = "cena_ks"+poradie;
+
+                var i = document.getElementById(id).value;
+                if (document.getElementById(id).value >=2){
+                  document.getElementById(id).value = --i;
+                  document.getElementById(id2).value = i;
+                }
+
+                var cena = document.getElementById(celk).textContent;
+                cena = (Number(cena));
+                var ck = document.getElementById(cena_ks).textContent;
+                ck = (Number(ck));
+                cena = ck * i;
+                console.log(cena);
+                document.getElementById(celk).textContent = cena;
+                calculate(i);
+
+
+                var p_ks = '#p_ks'+ poradie;
+                var cart_id = '#cart_id'+ poradie;
+                var product = '#product_id'+ poradie;
+                console.log(product);
+
+                $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                jQuery.ajax({
+                    url: "{{ url('/kosik/update') }}",
+                    method: 'POST',
+                    data: {
+                      cart: jQuery(cart_id).val(),
+                      product: jQuery(product).val(),
+                      count: jQuery(p_ks).val()
+                    },
+                    success: function(result){
+                      console.log(result)
+                    }});
+              }
+              function increment(poradie) {
+                var id = "ks"+poradie;
+                var id2 = "p_ks"+poradie;
+                var celk = "celk"+poradie;
+                var cena_ks = "cena_ks"+poradie;
+
+                var i = document.getElementById(id).value;
+                document.getElementById(id).value = ++i;
+                document.getElementById(id2).value = i;
+
+                var cena = document.getElementById(celk).textContent;
+                cena = (Number(cena));
+                var ck = document.getElementById(cena_ks).textContent;
+                ck = (Number(ck));
+                cena = ck * i;
+                console.log(cena);
+                document.getElementById(celk).textContent = cena;
+
+                calculate();
+
+
+                var p_ks = '#p_ks'+ poradie;
+                var cart_id = '#cart_id'+ poradie;
+                var product = '#product_id'+ poradie;
+                console.log(product);
+
+                $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                jQuery.ajax({
+                    url: "{{ url('/kosik/update') }}",
+                    method: 'POST',
+                    data: {
+                      cart: jQuery(cart_id).val(),
+                      product: jQuery(product).val(),
+                      count: jQuery(p_ks).val()
+                    },
+                    success: function(result){
+                      console.log(result)
+                    }});
+              }
+
+
+
+
+            </script>
+
+            <script>
+              function calculate(){
+                console.log("SJDHADGHA");
+                var pocet = document.getElementById('pocet_produktov').value;
+                var totalprice = 0;
+                for (let step = 1; step <= pocet; step++) {
+                  var id= "celk"+step;
+                  var price = document.getElementById(id).textContent;
+                  price = Number(price);
+                  console.log(price);
+                  totalprice = totalprice + price;
+                }
+                console.log(totalprice);
+                document.getElementById('totalprice').textContent = totalprice;
+              }
+            </script>
+
 
 
         </div>
-
-
 
         <div class="container">
           <div class="row mb-5 mt-5 ml-0 mr-0">
@@ -107,7 +256,11 @@
             </div>
 
             <div class = "col-3 align-self-end text-end">
-              <h2>500 $</h2>
+              <div class="row justify-content-center">
+                <h2 class="col-3" id = "totalprice">{{ $totalprice }}</h2>
+                <h2 class="col-3">$</h2>
+              </div>
+
             </div>
 
           </div>
@@ -124,6 +277,7 @@
       </div>
 
     </main>
+
 
     @endsection
 

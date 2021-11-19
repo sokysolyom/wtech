@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/kosik',[CartController::class, 'kosik']);
-    Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.item');
+    
 });
+
+Route::get('/kosik',[CartController::class, 'kosik']);
+Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.item');
+Route::post('/kosik/update',[CartController::class, 'update_kosik']);
 
 // Route::get('/dashboard', function () {
 //    return view('dashboard');
