@@ -265,9 +265,14 @@
 
               <div class="col-4 col-xxl-3">
                 <article class="card item-card">
-                  <a href="{{ $url_link }}/{{ $item->id }}">
+                  
+                  <a href="{{ $url_link }}/{{ $item->id }}" class="text-center">
                     <img src="{{ asset('images/'. $item->image) }}" class="card-img-top" alt="..." />
                   </a>
+                  
+                  
+                  
+                  
                   <div class="card-body">
                     <a href="{{ $url_link }}/{{ $item->id }}">
                    <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: clip;">{{ $item->title }}</h5>
@@ -289,6 +294,16 @@
               </div>
 
               @endforeach
+
+              <script>
+                var msg = '{{Session::get('message')}}';
+                var exist = '{{Session::has('message')}}';
+                if(exist){
+                  message(msg);
+                }
+              </script>
+
+
             </div>
 
             <div class="row justify-content-center " style="margin-top: 30px; margin-bottom: 30px;">

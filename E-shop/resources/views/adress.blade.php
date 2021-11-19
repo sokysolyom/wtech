@@ -23,11 +23,11 @@
         <div class="form-items row justify-content-center">
             <div class="col-lg-2 col-sm-5">
                 <label for="exampleFormControlInput1" class="form-label">Meno</label>
-                <input type="text" class="form-control" name="firstname" placeholder="Ladislav" required>
+                <input type="text" class="form-control" name="name" placeholder="Ladislav" required>
             </div>
             <div class="col-lg-3 col-sm-5">
                 <label for="exampleFormControlInput1" class="form-label">Priezvisko</label>
-                <input type="text" class="form-control" name="secondname" placeholder="Sokol" required>
+                <input type="text" class="form-control" name="surname" placeholder="Sokol" required>
             </div>
         </div>
         @endif

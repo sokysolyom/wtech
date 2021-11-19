@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +31,12 @@ Route::post('/kosik/update',[CartController::class, 'update_kosik']);
 // })->middleware(['auth'])->name('dashboard');
 Route::get('/adresa',[MainController::class, 'adress']);
 Route::post('/doprava',[MainController::class, 'doprava']);
+Route::get('/doprava',[MainController::class, 'doprava_back']);
 Route::post('/zhrnutie',[MainController::class, 'zhrnutie']);
 
+
+Route::post('/kosik-create-order',[OrderController::class, 'create_order'])->name('order.create');
+Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.item');
 
 Route::post('/stolicky', [CartController::class, 'add_to_cart'])->name('cart.store');
 Route::post('/stoly', [CartController::class, 'add_to_cart'])->name('cart.store');

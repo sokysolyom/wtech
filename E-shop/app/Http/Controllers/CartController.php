@@ -50,7 +50,7 @@ class CartController extends Controller
                 $exact_product->save();
             }
             
-            return redirect('/kosik');
+            return redirect()->back()->with('message', 'Updated!');
         }
 
         else
@@ -81,7 +81,7 @@ class CartController extends Controller
 
                 Session::put('cart',$newkosik);
                 Session::save();
-                return redirect('/kosik');
+                return redirect()->back()->with('message', 'Updated!');
             }
 
             else
@@ -98,7 +98,7 @@ class CartController extends Controller
                 Session::push('cart',$cartitem);
                 Session::save();
               
-                return redirect('/kosik');
+                return redirect()->back()->with('message', 'Updated!');
                 
             }
         }
@@ -112,77 +112,62 @@ class CartController extends Controller
     public function kosik(Request $request)
     {
 
-        $id = Auth::id();
+        if (Auth::check())
+        {
+            $id = Auth::id();
+            $cart = User_cart::firstOrCreate([
+                'user_id' => $id,
+            ]);
+
+            $items = Cart_items::all()->where('cart_id','=',$cart->id);
         
-        $cart = User_cart::all()->where('user_id','=',$id);
-
-    
-
-        if ($cart === null)
-            {
-                $list = [];
-                $cart_id = 0;
+            $list = [];
+            foreach ($items as $item){
+                $number = $item->product;
+                $counter = $item->counter;
+                $item = Product::all()->where('id','=',$number);
+                $item = $item->first();
+                $produkt = [$item,$counter];
+                array_push($list,$produkt);
                 
-                return view('kosik')->with('items',$list)
-
-                ->with('cart_id',$cart_id);
             }
-        else{
+               
+            
+            return view('kosik')->with('items',$list)
+            ->with('cart_id',$cart->id);
 
         }
-            if (Auth::check()) 
-            {
-                $cart = $cart->first();
-                $items = Cart_items::all()->where('cart_id','=',$cart->id);
+
+
+        else
+        {
+            $list = [];
+
+            $value = Session::get('cart');
             
-                $list = [];
-                foreach ($items as $item){
-                    $number = $item->product;
-                    $counter = $item->counter;
-                    $item = Product::all()->where('id','=',$number);
+            if (Session::has('cart'))
+            {
+                foreach($value as $item)
+                {
+                    $product = $item[0];
+                    $counter = $item[1];
+                    $item = Product::where('id',$product);
                     $item = $item->first();
                     $produkt = [$item,$counter];
-                    array_push($list,$produkt);
                     
+                    array_push($list,$produkt);
                 }
-                return view('kosik')->with('items',$list)
-                ->with('cart_id',$cart->id);
             }
-            
-
             else
             {
-
-                $value = Session::get('cart');
-                
-                if (Session::has('cart'))
-                {
-                    foreach($value as $item)
-                    {
-                        $product = $item[0];
-                        $counter = $item[1];
-                        $item = Product::where('id',$product);
-                        $item = $item->first();
-                        $produkt = [$item,$counter];
-                        
-                        array_push($list,$produkt);
-                    }
-                }
-                else
-                {
-                    $list = [];
-                }
-                $cart_id = 0;
-                return view('kosik')->with('items',$list)
-                ->with('cart_id',$cart_id);
-                
-    
+                $list = [];
             }
-            
-        
-        
-        
+            $cart_id = 0;
+            return view('kosik')->with('items',$list)
+            ->with('cart_id',$cart_id);
+        }
        
+   
     }
 
     public function delete_item(){
