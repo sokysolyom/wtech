@@ -132,7 +132,8 @@
               function decrement(poradie) {
                 var id = "ks"+poradie;
                 var id2 = "p_ks"+poradie;
-                var id2_2 = "2p_ks"+poradie;
+                
+                
                 var celk = "celk"+poradie;
                 var cena_ks = "cena_ks"+poradie;
 
@@ -140,9 +141,8 @@
                 if (document.getElementById(id).value >=2){
                   document.getElementById(id).value = --i;
                   document.getElementById(id2).value = i;
-                  document.getElementById(id2_2).value = i;
                 }
-
+                console.log("SDA");
                 var cena = document.getElementById(celk).textContent;
                 cena = (Number(cena));
                 var ck = document.getElementById(cena_ks).textContent;
@@ -178,14 +178,12 @@
               function increment(poradie) {
                 var id = "ks"+poradie;
                 var id2 = "p_ks"+poradie;
-                var id2_2 = "2p_ks"+poradie;
                 var celk = "celk"+poradie;
                 var cena_ks = "cena_ks"+poradie;
 
                 var i = document.getElementById(id).value;
                 document.getElementById(id).value = ++i;
                 document.getElementById(id2).value = i;
-                document.getElementById(id2_2).value = i;
 
                 var cena = document.getElementById(celk).textContent;
                 cena = (Number(cena));
@@ -267,15 +265,16 @@
 
 
         
-        <!-- <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('order.create') }}" method="POST" enctype="multipart/form-data">
           @csrf
          @php
              $c = 0;
          @endphp
           @foreach ($items as $item)
           
-            <input type="hidden" value="{{ $item[0]->id }}" name="id{{$i}}">
-            <input type="hidden" id="ks2" value="{{ $item[1] }}" class="2p_ks{{$i}}" id = "2p_ks{{$i}}" name="">  
+           
+            <input type="hidden" value="{{ $cart_id}}" name="cart_id">
+            
             
           @php
               $c = $c + 1;
@@ -285,12 +284,12 @@
           
           <div class="container mb-5">
             <div class="row justify-content-md-end justify-content-sm-center justify-content-center " style="height: 50px;">
-              <a class="col-md-3 col-sm-10 col-10" href="./adresa">
+              <a class="col-md-3 col-sm-10 col-10" href="./kosik-create-order">
                 <button class="btn-success col-12 h-100"><h4>Pokracovat</h4></button>
               </a>
             </div>
           </div>
-        </form> -->
+        </form> 
         
       </div>
 

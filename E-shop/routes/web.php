@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +35,7 @@ Route::get('/doprava',[MainController::class, 'doprava_back']);
 Route::post('/zhrnutie',[MainController::class, 'zhrnutie']);
 
 
-#Route::post('/kosik',[OrderController::class, 'create_order'])->name('order.create');
+Route::post('/kosik-create-order',[OrderController::class, 'create_order'])->name('order.create');
 Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.item');
 
 Route::post('/stolicky', [CartController::class, 'add_to_cart'])->name('cart.store');
