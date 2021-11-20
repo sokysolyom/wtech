@@ -21,7 +21,7 @@
             $put_url = "/doprava/".$order_id;
         }
         else {
-            $put_url = "/doprava/";
+            $put_url = "/zhrnutie";
         }
     @endphp
         <form method="post" action={{ $put_url }}>

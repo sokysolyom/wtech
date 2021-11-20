@@ -7,11 +7,14 @@ use App\Models\Orderitems;
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User_cart;
+use App\Models\Cart_items;
+
 
 
 
 use Illuminate\Http\Request;
-use App\Models\Cart_items;
+
 
 class OrderController extends Controller
 {
@@ -46,7 +49,6 @@ class OrderController extends Controller
 
             $data = request('pocet_objektov');
             $list_of_products = [];
-            echo("DATA ");
 
             $list = Cart_items::all()->where('cart_id',$cart_id);
             $x = 0;
@@ -54,7 +56,6 @@ class OrderController extends Controller
 
             foreach ($list as $item)
             {
-                echo($item);
 
                 $items =  Orderitems::where('product',$item->product)->where('order_id',$order->id)->first();
                 if ($items === null){
@@ -174,10 +175,6 @@ class OrderController extends Controller
     {
         if (Auth::check())
         {
-            echo("LOGGED");
-
-
-
         }
 
        else
@@ -276,7 +273,6 @@ class OrderController extends Controller
 
             for ($x = 0; $x < count($item); $x++)
             {
-               echo($item[$x][1]);
                 if ($x <= 6){
                     if ($x === 0)
                     {
@@ -341,6 +337,18 @@ class OrderController extends Controller
     {
         if (Auth::check())
         {
+            $user_id = Auth::user()->id;
+            $kosik = User_cart::where('id', '=', $user_id)->first();
+            $list_of_items_to_delete = Cart_items::all()->where('cart_id', '=',$kosik->id);
+
+            foreach ($list_of_items_to_delete as $item_to_delete)
+            {
+
+                $id_to_delete = $item_to_delete->id;
+                $del = Cart_items::find($id_to_delete);
+                $del->delete();
+            }
+            return redirect('/');
 
         }
         else
@@ -411,7 +419,6 @@ class OrderController extends Controller
             $list = [];
             $ORDERID = $order->id;
             foreach ($product_list as $item){
-                echo($item[0]);
                 $number = $item[0];
                 $counter = $item[1];
                 $item = Product::all()->where('id','=',$number);
@@ -433,7 +440,6 @@ class OrderController extends Controller
         }
 
         return redirect('/');
-
     }
 
 

@@ -76,38 +76,41 @@
 
   <div class="container mb-5 pb-5">
     <div class="row justify-content-center">
-      <div id="carouselExampleSlidesOnly" class="carousel slide col-7" data-bs-ride="carousel">
+      <div id="carouselExampleSlidesOnly" class="carousel slide col-9" data-bs-ride="carousel">
         <div class="carousel-inner" id="container_doprava">
+
           <section class="carousel-item active">
 
-            <a href="../HTML/info.html">
-              <img class="d-block " src="{{ asset('images/Bed.png') }}" alt="First slide">
+            <a href="{{ $url_link }}/{{ $carousellist[0]->id }}">
+              <img class="d-block "  src="{{ asset('images/'. $carousellist[0]->image) }}" alt="First slide">
             </a>
 
 
             <div class="carousel-caption">
               <div class="circle">
-                <h3>999 eur
+                <h3>{{ $carousellist[0]->price }} $
                 </h3>
               </div>
 
             </div>
           </section>
           <section class="carousel-item">
-            <a href="../HTML/info.html"><img class="d-block " src="{{ asset('images/Table.png') }}" alt="Second slide"></a>
+            <a href="{{ $url_link }}/{{ $carousellist[1]->id }}">
+                <img class="d-block "  src="{{ asset('images/'. $carousellist[1]->image) }}" alt="Second slide"></a>
             <div class="carousel-caption">
               <div class="circle">
-                <h3>999 eur
+                <h3>{{ $carousellist[1]->price }} $
                 </h3>
               </div>
 
             </div>
           </section>
           <section class="carousel-item">
-            <a href="../HTML/info.html"><img class="d-block " src="{{ asset('images/Chair.png') }}" alt="Second slide"></a>
+            <a href="{{ $url_link }}/{{ $carousellist[2]->id }}">
+                <img class="d-block "  src="{{ asset('images/'. $carousellist[2]->image) }}" alt="Second slide"></a>
             <div class="carousel-caption">
               <div class="circle">
-                <h3>999 eur
+                <h3>{{ $carousellist[2]->price }} $
                 </h3>
               </div>
 
@@ -126,31 +129,21 @@
 
   <div class="container mt-2" id="container_doprava">
     <div class="row justify-content-around">
-      <button class="malybutton button  col-1 btn-dark btn-work align-self-center">
-        <
-      </button>
-
       <input type="hidden" value={{$suggestedlist}}>
       @foreach($suggestedlist as $suggested)
 
-      <section class="item d-none d-sm-block suggest_item" id="container_doprava">
-        <div class="row">
-          <div class="image">
-            <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
-              <img src="{{ asset('images/'. $suggested->image) }}" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="content mt-2">
-          <p>Cena : {{ $suggested->price }}$</p>
-        </div>
-      </section>
+         <section class="item d-sm-block col-sm-6" id="container_doprava">
+           <div class="row">
+             <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
+               <img src="{{ asset('images/'. $suggested->image) }}" alt="">
+             </a>
 
-      @endforeach
-
-      <button class="malybutton button col-1 btn-dark btn-work align-self-center align-middle">
-        >
-      </button>
+           </div>
+           <div class="content">
+             <p>Cena : {{ $suggested->price }}$</p>
+           </div>
+         </section>
+         @endforeach
     </div>
   </div>
 
@@ -162,42 +155,22 @@
    <div class="container mt-2" id="container_doprava">
 
     <div class="row justify-content-around">
-      <button class="malybutton button  col-1 btn-dark btn-work align-self-center">
-        <
-      </button>
+        @foreach($newslist as $suggested)
 
-            @foreach ($newslist as $item)
+        <section class="item d-sm-block col-sm-6" id="container_doprava">
+          <div class="row">
+            <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
+              <img src="{{ asset('images/'. $suggested->image) }}" alt="">
+            </a>
 
-              <section class="item d-none d-sm-block " id="container_doprava">
-                <div class="row">
-                  <div class="image">
-                    <a href="{{ $url_link }}/{{ $item->id }}" class="text-center">
-                      <img src="{{ asset('images/'. $item->image) }}" alt="">
-                    </a>
-                  </div>
-
-
-                </div>
-                <div class="content mt-2">
-                  <p>Cena : {{ $item->price }} $</p>
-                </div>
-              </section>
-
-
-
-            @endforeach
-      <button id="right_button" class="malybutton button col-1 btn-dark btn-work align-self-center align-middle" (click)="go_right()">
-        >
-      </button>
-
-
-
-
+          </div>
+          <div class="content">
+            <p>Cena : {{ $suggested->price }}$</p>
+          </div>
+        </section>
+        @endforeach
     </div>
-
   </div>
-
-
 </main>
 
 @endsection
