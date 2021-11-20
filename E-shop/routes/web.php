@@ -4,7 +4,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,18 +31,43 @@ Route::post('/kosik/update',[CartController::class, 'update_kosik']);
 // Route::get('/dashboard', function () {
 //    return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
+
+
+
+Route::middleware(['auth'])->group(function () {
+  Route::get('/adresa/{id}',[MainController::class, 'adress']);
+  Route::put('/adresa/{id}',[MainController::class, 'adresa']);
+  Route::get('/doprava/{id}',[MainController::class, 'doprava_back']);
+  Route::put('/doprava/{id}',[MainController::class, 'doprava']);
+  Route::get('/zhrnutie/{id}',[MainController::class, 'zhrnutie']);
+  
+  
+  Route::post('/kosik-create-order',[OrderController::class, 'create_order'])->name('order.create');
+  Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.item');
+});
+
+
+
+
+
+
+
 Route::get('/adresa',[MainController::class, 'adress']);
-Route::post('/doprava',[OrderController::class, 'doprava']);
+Route::post('/doprava',[OrderController::class, 'contact']);
 Route::get('/doprava',[MainController::class, 'doprava_back']);
-Route::post('/zhrnutie',[MainController::class, 'zhrnutie']);
-
-
+Route::post('/zhrnutie',[OrderController::class, 'zhrnutie']);
+Route::get('/zhrnutie',[MainController::class, 'zhrnutie']);
+Route::get('/confirm-order', [OrderController::class, 'order_to_DB']);
 Route::post('/adresa',[OrderController::class, 'create_order'])->name('order.create');
 Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.item');
+
+
 
 Route::post('/stolicky', [CartController::class, 'add_to_cart'])->name('cart.store');
 Route::post('/stoly', [CartController::class, 'add_to_cart'])->name('cart.store');
 Route::post('/postele', [CartController::class, 'add_to_cart'])->name('cart.store');
+
+
 
 
 
