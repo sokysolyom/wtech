@@ -284,7 +284,7 @@
           
           <div class="container mb-5">
             <div class="row justify-content-md-end justify-content-sm-center justify-content-center " style="height: 50px;">
-              <a class="col-md-3 col-sm-10 col-10" href="./kosik-create-order">
+              <a class="col-md-3 col-sm-10 col-10" href="./adresa">
                 <button class="btn-success col-12 h-100"><h4>Pokracovat</h4></button>
               </a>
             </div>

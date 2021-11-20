@@ -39,6 +39,13 @@
                     <x-input id="name" class="block mt-1 w-full" style="width: 100%" type="text" name="name" :value="old('name')" required autofocus />
                 </div>
               </div>
+            
+              <div class="row justify-content-center form-items">
+                <div class="col-lg-5 col-sm-10">
+                    <h4 for="name" :value="__('Surname')" >Priezvisko</h4>
+                    <x-input id="surname" class="block mt-1 w-full" style="width: 100%" type="text" name="surname" :value="old('surname')" required autofocus />
+                </div>
+              </div>
 
             <!-- Email Address -->
             <div class="row justify-content-center form-items">

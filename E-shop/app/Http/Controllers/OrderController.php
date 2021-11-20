@@ -41,7 +41,7 @@ class OrderController extends Controller
 
             else
             {
-                echo("UZ JE");
+
             }
 
             $data = request('pocet_objektov');
@@ -95,192 +95,346 @@ class OrderController extends Controller
 
                 $objednavka = Session::get('order');
                 $newlist = [];
+                $contact_list = [];
                 Session::put('order', $newlist);
+
                 foreach ($objednavka as $item)
                 {
 
-                    for ($x = 0; $x < count($item); $x++) {
-                        if ($x <= 5){
+                    for ($x = 0; $x < count($item); $x++)
+                    {
+                        if ($x <= 6){
                             $contact = [$item[$x][0], $item[$x][1]];
                             array_push($newlist,$contact);
+
+                            array_push($contact_list,$contact[1]);
+                            $contact = [$item[$x][0], $item[$x][1]];
                         }
                         else
                         {
-                            foreach ($kosik as $kosikitem)
-                            {
-                                if ($kosikitem[0] === $item[$x][0])
-                                {
-                                    $item[$x][1] = $kosikitem[1];
-                                }
 
-                            }
                         }
                     }
-                    echo(count($item));
-
-                    echo($item[6][0]);
-                    echo($item[6][1]);
-                    echo(" ");
-                    echo($item[7][0]);
-                    echo($item[7][1]);
-
-
-                    for ($y = 6; $y < count($item); $y++) {
-                        $orderitem = [$item[$y][0], $item[$y][1]];
-                        array_push($newlist,$orderitem);
+                    foreach ($kosik as $kosikitem)
+                    {
+                        array_push($newlist,$kosikitem);
 
                     }
+
+
 
                     Session::push('order',$newlist);
                     Session::save();
 
-
-
-                    // $checked = 0;
-
-                    // foreach ($kosik as $kosikitem){
-                    //     $variable = 0;
-
-
-                    //     $variable = $variable + 1;
-                    //     if ($variable >= 7)
-                    //     {
-                    //         if ($kosikitem[0] == $item[0])
-                    //         {
-                    //             $i[1] = $kosikitem[1];
-                    //             $newitem = [$i[0],$i[1]];
-                    //             array_push($newlist,$newitem);
-
-                    //         }
-
-                    //     }
-                    //     else
-                    //     {
-                    //         if ($checked === 0)
-                    //         {
-                    //             $new_is = [$item[0],$item[1]];
-                    //             echo($item[0]);
-                    //             echo("->");
-                    //             echo($item[1]);
-                    //             echo(" ");
-                    //             array_push($newlist,$new_is);
-
-                    //         }
-                    //     }
-
-
-                    // }
-                    // $checked = 1;
-
                 }
 
+                return view("adress")->with('contact',$contact_list);
 
             }
             else
             {
                 $order =[];
                 Session::put('order', $order);
-                Session::save();
+
                 $new = [];
-                array_push($new,["Name"," "]);
-                array_push($new,["Email"," "]);
-                array_push($new,["Address"," "]);
-                array_push($new,["Telephone"," "]);
+                array_push($new,["Name",""]);
+                array_push($new,["Surname",""]);
+                array_push($new,["Address",""]);
+                array_push($new,["Email",""]);
+                array_push($new,["Telephone",""]);
                 array_push($new,["Payment"," "]);
                 array_push($new,["Billing"," "]);
                 foreach ($kosik as $item)
                 {
-
                     array_push($new,$item);
                 }
-
-
 
                 Session::push('order',$new);
                 Session::save();
 
-
+                $objednavka = Session::get('order');
+                $contact_list = [];
+                foreach ($objednavka as $item)
+                {
+                    for ($x = 0; $x < count($item); $x++)
+                    {
+                        if ($x <= 6){
+                            $contact = [$item[$x][0], $item[$x][1]];
+                            array_push($contact_list,$contact[1]);
+                        }
+                    }
+                }
+                return view("adress")->with('contact',$contact_list);
             }
-            #return redirect("/adresa");
+        }
+    }
+
+
+    public function contact()
+    {
+        if (Auth::check())
+        {
+            echo("LOGGED");
+
+
+
         }
 
+       else
+       {
+            $kosik = Session::get('cart');
+
+            $name = request('name');
+            $surname = request('surname');
+            $address = request('address');
+            $email = request('email');
+            $telephone = request('telephone');
+            $objednavka = Session::get('order');
+            $newlist = [];
+            $contact_list = [];
+            Session::put('order', $newlist);
+
+            foreach ($objednavka as $item)
+            {
+
+
+                for ($x = 0; $x < count($item); $x++)
+                {
+                    if ($x <= 6){
+                        if ($x === 0)
+                        {
+                            $contact = ["Name", $name];
+                        }
+                        if ($x === 1)
+                        {
+                            $contact = ["Surname", $surname];
+                        }
+                        if ($x === 2)
+                        {
+                            $contact = ["Address", $address];
+                        }
+                        if ($x === 3)
+                        {
+                            $contact = ["Email", $email];
+                        }
+                        if ($x === 4)
+                        {
+                            $contact = ["Telephone", $telephone];
+                        }
+                        if ($x === 5)
+                        {
+                            $contact = ["Payment", $item[$x][1]];
+                        }
+                        if ($x === 6)
+                        {
+                            $contact = ["Billing", $item[$x][1]];
+                        }
+                        array_push($newlist,$contact);
+                    }
+                    else
+                    {
+                        foreach ($kosik as $kosikitem)
+                        {
+                            if ($kosikitem[0] === $item[$x][0])
+                            {
+                                $item[$x][1] = $kosikitem[1];
+                            }
+
+                        }
+                    }
+                }
+
+                for ($y = 7; $y < count($item); $y++) {
+                    $orderitem = [$item[$y][0], $item[$y][1]];
+                    array_push($newlist,$orderitem);
+
+                }
+
+                Session::push('order',$newlist);
+                Session::save();
+
+            }
+
+            return redirect("/doprava");
+       }
     }
 
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function zhrnutie()
     {
-        //
+        $doprava = request('doprava');
+        $platba = request('platba');
+        $objednavka = Session::get('order');
+        $kosik = Session::get('cart');
+        $newlist = [];
+        $contact_list = [];
+        Session::put('order', $newlist);
+
+        foreach ($objednavka as $item)
+        {
+
+
+            for ($x = 0; $x < count($item); $x++)
+            {
+               echo($item[$x][1]);
+                if ($x <= 6){
+                    if ($x === 0)
+                    {
+                        $contact = ["Name", $item[$x][1]];
+                    }
+                    if ($x === 1)
+                    {
+                        $contact = ["Surname", $item[$x][1]];
+                    }
+                    if ($x === 2)
+                    {
+                        $contact = ["Address", $item[$x][1]];
+                    }
+                    if ($x === 3)
+                    {
+                        $contact = ["Email", $item[$x][1]];
+                    }
+                    if ($x === 4)
+                    {
+                        $contact = ["Telephone", $item[$x][1]];
+                    }
+                    if ($x === 5)
+                    {
+                        $contact = ["Payment", $platba];
+                    }
+                    if ($x === 6)
+                    {
+                        $contact = ["Billing", $doprava];
+                    }
+                    array_push($newlist,$contact);
+                }
+                else
+                {
+                    foreach ($kosik as $kosikitem)
+                    {
+                        if ($kosikitem[0] === $item[$x][0])
+                        {
+                            $item[$x][1] = $kosikitem[1];
+                        }
+
+                    }
+                }
+            }
+
+            for ($y = 7; $y < count($item); $y++) {
+                $orderitem = [$item[$y][0], $item[$y][1]];
+                array_push($newlist,$orderitem);
+
+            }
+
+            Session::push('order',$newlist);
+            Session::save();
+
+        }
+
+        return redirect('/zhrnutie');
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function order_to_DB()
     {
-        //
+        if (Auth::check())
+        {
+
+        }
+        else
+        {
+            $objednavka = Session::get('order');
+
+
+            $contact_list = [];
+            $product_list=[];
+            foreach ($objednavka as $item)
+            {
+                for ($x = 0; $x < count($item); $x++)
+                {
+                    if ($x === 0)
+                    {
+                        $name = $item[$x][1];
+                    }
+                    elseif ($x === 1)
+                    {
+                        $surname = $item[$x][1];
+                    }
+                    elseif ($x === 2)
+                    {
+                        $address = $item[$x][1];
+                    }
+                    elseif ($x === 3)
+                    {
+                        $email = $item[$x][1];
+                    }
+                    elseif ($x === 4)
+                    {
+                        $telephone = $item[$x][1];
+                    }
+                    elseif ($x === 5)
+                    {
+                        $payment = $item[$x][1];
+                    }
+                    elseif ($x === 6)
+                    {
+                        $delivery = $item[$x][1];
+                    }
+                    else
+                    {
+                        $produkt = [$item[$x][0], $item[$x][1]];
+                        array_push($product_list,$produkt);
+                    }
+
+                }
+            }
+
+            $order = Order::all()->where('telephone',$telephone);
+            $order = $order->first();
+            $fullname = $name." ".$surname;
+
+            $token = Session::get('_token');
+            $token = intval($token);
+            $order = Order::create(
+                [
+                    'cart_id' => $token,
+                    'Name' => $fullname,
+                    'Adress' => $address,
+                    'Email' => $email,
+                    'Telephone' => $telephone,
+                    'Payment' => $payment,
+                    'Delivery' => $delivery,
+                ]
+            );
+            $list = [];
+            $ORDERID = $order->id;
+            foreach ($product_list as $item){
+                echo($item[0]);
+                $number = $item[0];
+                $counter = $item[1];
+                $item = Product::all()->where('id','=',$number);
+                $item = $item->first();
+                $produkt = [$item,$counter];
+
+                array_push($list,$produkt);
+                Orderitems::create(
+                    [
+                        'product' => $number,
+                        'counter' => $counter,
+                        'order_id' => $ORDERID,
+                    ]
+                    );
+
+            }
+
+            Session::flush();
+        }
+
+        return redirect('/');
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
-    }
 }

@@ -8,13 +8,16 @@ use App\Models\Product;
 use App\Models\Order;
 use App\Models\Cart_items;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
+
 
 use DB;
 use App\Http\Requests;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductController;
-
+use App\Models\Orderitems;
 
 class MainController extends Controller
 {
@@ -44,30 +47,152 @@ class MainController extends Controller
 
     public function zhrnutie($id)
     {
-        $order = Order::where('id','=',$id)->first();
-        $ldate = date('Y-m-d H:i:s');
 
-        $items = Cart_items::all()->where('cart_id','=',$order->cart_id);
+        if (Auth::check())
+        {
+            $order = Order::where('id','=',$id)->first();
+            $ldate = date('Y-m-d H:i:s');
+
+            $items = Cart_items::all()->where('cart_id','=',$order->cart_id);
+
+            $contact_list = [];
+            array_push($contact_list, $order->Name);
+            array_push($contact_list, '');
+            array_push($contact_list, $order->Adress);
+            array_push($contact_list, $order->Email);
+            array_push($contact_list, $order->Telephone);
+            array_push($contact_list, $order->Payment);
+            array_push($contact_list, $order->Delivery);
+
+                $list = [];
+                foreach ($items as $item){
+                    $number = $item->product;
+                    $counter = $item->counter;
+                    $item = Product::all()->where('id','=',$number);
+                    $item = $item->first();
+                    $produkt = [$item,$counter];
+                    array_push($list,$produkt);
+
+                }
+
+            return view('zhrnutie')->with('contact',$contact_list)
+                                ->with('id', $order->id)
+                                ->with('product',$list);
+
+        }
+        else
+        {
+            $objednavka = Session::get('order');
+            $contact_list = [];
+            $product_list=[];
+            foreach ($objednavka as $item)
+            {
+                for ($x = 0; $x < count($item); $x++)
+                {
+                    if ($x === 0)
+                    {
+                        $name = $item[$x][1];
+                    }
+                    elseif ($x === 1)
+                    {
+                        $surname = $item[$x][1];
+                    }
+                    elseif ($x === 2)
+                    {
+                        $address = $item[$x][1];
+                    }
+                    elseif ($x === 3)
+                    {
+                        $email = $item[$x][1];
+                    }
+                    elseif ($x === 4)
+                    {
+                        $telephone = $item[$x][1];
+                    }
+                    elseif ($x === 5)
+                    {
+                        $payment = $item[$x][1];
+                    }
+                    elseif ($x === 6)
+                    {
+                        $delivery = $item[$x][1];
+                    }
+                    else
+                    {
+                        $produkt = [$item[$x][0], $item[$x][1]];
+                        array_push($product_list,$produkt);
+                    }
+
+                }
+            }
+
+            $fullname = $name." ".$surname;
+
+            $token = Session::get('_token');
+            $token = intval($token);
+
 
             $list = [];
-            foreach ($items as $item){
-                $number = $item->product;
-                $counter = $item->counter;
+
+            foreach ($product_list as $item){
+                echo($item[0]);
+                $number = $item[0];
+                $counter = $item[1];
                 $item = Product::all()->where('id','=',$number);
                 $item = $item->first();
                 $produkt = [$item,$counter];
+
                 array_push($list,$produkt);
 
+
+            }
+            $objednavka = Session::get('order');
+            $contact_list = [];
+            foreach ($objednavka as $item)
+            {
+                for ($x = 0; $x < count($item); $x++)
+                {
+                    if ($x <= 6){
+                        $contact = [$item[$x][0], $item[$x][1]];
+                        array_push($contact_list,$contact[1]);
+
+                    }
+
+                }
             }
 
-        return view('zhrnutie')->with('order', $order)
-                                ->with('ldate', $ldate)
-                                ->with('items',$list);
+            return view('zhrnutie')->with('contact',$contact_list)
+                                ->with('product',$list);
+        }
+
     }
 
-    public function doprava_back()
+    public function doprava_back($id)
     {
-        return view('vyber_dopravy');
+        if (Auth::check())
+        {
+            $order = Order::where('id','=',$id)->first();
+            $choices_list = [];
+            array_push($choices_list,$order->Payment);
+            array_push($choices_list,$order->Delivery);
+            $order_id = $order->id;
+
+            return view('vyber_dopravy')->with('choices',$choices_list)->with('order_id', $order_id);
+        }
+        else
+        {
+            $objednavka = Session::get('order');
+            $choices_list = [];
+            foreach ($objednavka as $item)
+            {
+                echo($item[5][1]);
+                array_push($choices_list,$item[5][1]);
+                array_push($choices_list,$item[6][1]);
+            }
+
+            return view('/vyber_dopravy')->with('choices',$choices_list);
+        }
+
     }
 
     public function doprava(Request $request, $id)
@@ -75,8 +200,8 @@ class MainController extends Controller
 
         $order = Order::where('id','=',$id)->first();
 
-        $order->Payment = $request->payment;
-        $order->Delivery = $request->delivery;
+        $order->Payment = $request->platba;
+        $order->Delivery = $request->doprava;
         $order->save();
         $request->session()->flash('message', 'Úloha bola úspešne zmenená.');
 
@@ -138,9 +263,41 @@ class MainController extends Controller
         return view('bedsPage');
     }
 
-    public function adress()
+    public function adress($id)
     {
-        return view('adress');
+        if (Auth::check())
+        {
+
+            $order = Order::where('id','=',$id)->first();
+            $contact_list = [];
+            array_push($contact_list,$fullname = Auth::user()->name);
+            array_push($contact_list,$fullname = Auth::user()->name);
+            array_push($contact_list,$order->Adress);
+            array_push($contact_list,$order->Email);
+            array_push($contact_list,$order->Telephone);
+
+            return view('adress')->with('contact',$contact_list);
+        }
+        else
+        {
+            $objednavka = Session::get('order');
+            $contact_list = [];
+            foreach ($objednavka as $item)
+            {
+                for ($x = 0; $x < count($item); $x++)
+                {
+                    if ($x <= 6){
+                        $contact = [$item[$x][0], $item[$x][1]];
+                        array_push($contact_list,$contact[1]);
+
+                    }
+
+                }
+            }
+
+            return view('adress')->with('contact',$contact_list);
+        }
+
     }
 
 
