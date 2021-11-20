@@ -34,22 +34,6 @@ Route::post('/kosik/update',[CartController::class, 'update_kosik']);
 
 
 
-Route::middleware(['auth'])->group(function () {
-  Route::get('/adresa/{id}',[MainController::class, 'adress']);
-  Route::put('/adresa/{id}',[MainController::class, 'adresa']);
-  Route::get('/doprava/{id}',[MainController::class, 'doprava_back']);
-  Route::put('/doprava/{id}',[MainController::class, 'doprava']);
-  Route::get('/zhrnutie/{id}',[MainController::class, 'zhrnutie']);
-  
-  
-  Route::post('/kosik-create-order',[OrderController::class, 'create_order'])->name('order.create');
-  Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.item');
-});
-
-
-
-
-
 
 
 Route::get('/adresa',[MainController::class, 'adress']);
