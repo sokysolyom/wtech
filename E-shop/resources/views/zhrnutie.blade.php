@@ -14,7 +14,7 @@
     <main class="container-fluid pt-5 pb-5 ">
       <div class="container mt-5">
         <div class="row justify-content-center">
-          <h2 class="text-white">Zhrnutie Objednávky</h2>
+          <h2>Zhrnutie Objednávky</h2>
         </div>
       </div>
 
@@ -48,10 +48,10 @@
                   <h6 class=" vertical-align:align-middle">{{$contact[4]}}</h6>
                 </div>
               </div>
-              
-              
-              
-              
+
+
+
+
             </div>
             <div class="container col-md-6 col-sm-12 mt-4 mb-4">
 
@@ -72,7 +72,7 @@
 
 
 
-               
+
             </div>
 
           </div>
@@ -118,7 +118,6 @@
                       <h4 class="col-4 text-start m-0 p-1">$</h4>
                     </div>
 
-                  </td>
 
                 </tr>
                 @endforeach
@@ -143,7 +142,17 @@
           <div class="container mb-5">
             <div class="row justify-content-center justify-content-md-around justify-content-sm-center " style="height: 50px;">
 
-                <a class="col-4 col-md-4 col-sm-9 mt-sm-3 mt-md-0 " href="/doprava">
+                @php
+                    if (Auth::check())
+                    {
+                      $ref = "/doprava/".$id;
+                    }
+                    else
+                    {
+                      $ref = "/doprava";
+                    }
+                @endphp
+                <a class="col-4 col-md-4 col-sm-9 mt-sm-3 mt-md-0 " href={{$ref}}>
                   <button class="btn-success col-12  h-100"><h4>Späť</h4></button>
                 </a>
 

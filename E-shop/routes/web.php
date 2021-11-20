@@ -21,7 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth'])->group(function () {
-    
+    Route::get('/adresa/{id}',[MainController::class, 'adress']);
+    Route::put('/adresa/{id}',[MainController::class, 'adresa']);
+    Route::get('/doprava/{id}',[MainController::class, 'doprava_back']);
+    Route::put('/doprava/{id}',[MainController::class, 'doprava']);
+    Route::get('/zhrnutie/{id}',[MainController::class, 'zhrnutie']);
 });
 
 Route::get('/kosik',[CartController::class, 'kosik']);
@@ -31,9 +35,6 @@ Route::post('/kosik/update',[CartController::class, 'update_kosik']);
 // Route::get('/dashboard', function () {
 //    return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
-
-
-
 
 
 Route::get('/adresa',[MainController::class, 'adress']);
@@ -59,17 +60,28 @@ Route::post('/postele', [CartController::class, 'add_to_cart'])->name('cart.stor
 
 Route::get('/',[MainController::class, 'index']);
 Route::get('/registracia',[MainController::class, 'register']);
-Route::get('/postele',[ProductController::class, 'display_beds']);
+
+Route::get('/postele_new',[ProductController::class, 'display_beds']);
+Route::get('/postele_cheap',[ProductController::class, 'display_cheap_beds']);
+Route::get('/postele_luxury',[ProductController::class, 'display_luxury_beds']);
 Route::get('/postele/{product}',[ProductController::class, 'show_item']);
 Route::post('/postele/filter/',[ProductController::class, 'beds_filter']);
-Route::get('/stoly',[ProductController::class, 'display_tables']);
+
+Route::get('/stoly_new',[ProductController::class, 'display_tables']);
+Route::get('/stoly_cheap',[ProductController::class, 'display_cheap_tables']);
+Route::get('/stoly_luxury',[ProductController::class, 'display_luxury_tables']);
 Route::get('/stoly/{product}',[ProductController::class, 'show_item']);
 Route::post('/stoly/filter/',[ProductController::class, 'tables_filter']);
-Route::get('/stolicky',[ProductController::class, 'display_chairs']);
+
+Route::get('/stolicky_new',[ProductController::class, 'display_chairs']);
+Route::get('/stolicky_cheap',[ProductController::class, 'display_cheap_chairs']);
+Route::get('/stolicky_luxury',[ProductController::class, 'display_luxury_chairs']);
 Route::get('/stolicky/{product}',[ProductController::class, 'show_item']);
 Route::post('/stolicky/filter/',[ProductController::class, 'chairs_filter']);
 
-Route::get('/products',[ProductController::class, 'display_searched']);
+Route::get('/products_new',[ProductController::class, 'display_all']);
+Route::get('/products_cheap',[ProductController::class, 'display_cheap_all']);
+Route::get('/products_luxury',[ProductController::class, 'display_luxury_all']);
 Route::post('/products/{product}',[ProductController::class, 'post_recension']);
 Route::get('/products/{product}',[ProductController::class, 'show_item']);
 Route::post('/products/filter/',[ProductController::class, 'filter']);

@@ -20,7 +20,8 @@
     </div>
     <div class="container adress-box">
         <h1 style="text-align: center;">ADRESA DODANIA</h1>
-        <form method="POST" role="address" action="/doprava/">
+        <form method="post" action="/adresa/{{ request()->route('id') }}">
+            <input type="hidden" name="_method" value="PUT">
             {{ csrf_field() }}
             @csrf
             

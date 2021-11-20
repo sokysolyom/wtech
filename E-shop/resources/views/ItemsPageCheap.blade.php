@@ -217,17 +217,17 @@
         <h1>{{ "$category" }}</h1>
 
 
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ $url_link_new }}">Najnovšie</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{{ $url_link_cheap }}">Najlacnejšie</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ $url_link_luxury }}">Najdrahšie</a>
-        </li>
-      </ul>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{{ $url_link_new }}">Najnovšie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ $url_link_cheap }}">Najlacnejšie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ $url_link_luxury }}">Najdrahšie</a>
+            </li>
+          </ul>
       <div class="row justify-content-around">
       @foreach($itemslist as $item)
 

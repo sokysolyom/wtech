@@ -23,16 +23,16 @@
         <span>
           <ul class="justify-content-center navbar-nav "style="font-size: x-large;">
             <li class="nav-item ">
-              <a class="nav-link text-black" href="./stolicky">Stoličky</a>
+              <a class="nav-link text-black" href="./stolicky_new">Stoličky</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="./stoly">Stoly</a>
+              <a class="nav-link text-black" href="./stoly_new">Stoly</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="./postele">Postele</a>
+              <a class="nav-link text-black" href="./postele_new">Postele</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-black" href="./products">Všetko</a>
+                <a class="nav-link text-black" href="./products_new">Všetko</a>
               </li>
           </ul>
         </span>
@@ -45,16 +45,16 @@
         <span>
           <ul class="text-white navbar-nav "style="font-size: x-large;">
             <li class=" nav-item ">
-              <a class=" nav-link text-black" href="./stolicky"> <img class= "pr-5 "src="{{ asset('images/Chair.png') }}" width=30 alt=""> Stoličky</a>
+              <a class=" nav-link text-black" href="./stolicky_new"> <img class= "pr-5 "src="{{ asset('images/Chair.png') }}" width=30 alt=""> Stoličky</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="./stoly"> <img src="{{ asset('images/table.png') }}" width=30 alt=""> Stoly</a>
+              <a class="nav-link text-black" href="./stoly_new"> <img src="{{ asset('images/table.png') }}" width=30 alt=""> Stoly</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="./postele"><img src="{{ asset('images/Bed.png') }}" width=30 alt=""> Postele</a>
+              <a class="nav-link text-black" href="./postele_new"><img src="{{ asset('images/Bed.png') }}" width=30 alt=""> Postele</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-black" href="./products"><img src="{{ asset('images/preview.svg') }}" width=30 alt=""> Všetko</a>
+                <a class="nav-link text-black" href="./products_new"><img src="{{ asset('images/preview.svg') }}" width=30 alt=""> Všetko</a>
               </li>
           </ul>
         </span>
@@ -79,12 +79,12 @@
       <div id="carouselExampleSlidesOnly" class="carousel slide col-7" data-bs-ride="carousel">
         <div class="carousel-inner" id="container_doprava">
           <section class="carousel-item active">
-            
+
             <a href="../HTML/info.html">
               <img class="d-block " src="{{ asset('images/Bed.png') }}" alt="First slide">
             </a>
-            
-            
+
+
             <div class="carousel-caption">
               <div class="circle">
                 <h3>999 eur
@@ -175,7 +175,7 @@
                       <img src="{{ asset('images/'. $item->image) }}" alt="">
                     </a>
                   </div>
-                  
+
 
                 </div>
                 <div class="content mt-2">
