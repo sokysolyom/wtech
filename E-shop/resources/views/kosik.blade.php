@@ -282,6 +282,8 @@
           @endforeach
           <input type="hidden" value="{{$c}}" name="pocet_objektov">
           
+
+          @if (count($items) > 0)
           <div class="container mb-5">
             <div class="row justify-content-md-end justify-content-sm-center justify-content-center " style="height: 50px;">
               <a class="col-md-3 col-sm-10 col-10" href="./adresa">
@@ -289,6 +291,9 @@
               </a>
             </div>
           </div>
+          @endif
+
+          
         </form> 
         
       </div>
