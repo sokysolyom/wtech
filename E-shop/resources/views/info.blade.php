@@ -118,6 +118,7 @@
             <h5>Nie su recenzie</h5>
           @endif
 
+
           @foreach($recenzia as $item)
             <div class="row reference-box">
               <div class="col-3">
@@ -132,8 +133,7 @@
             </div>
 
             @endforeach
-          </div>
-          @if(Auth::check())
+            @if(Auth::check())
           <form method="POST" action="/products/{{ $product->id }}">
             {{ csrf_field() }}
           <div class="row justify-content-start form-items">
@@ -156,6 +156,8 @@
           @endif
           </form>
           @endif
+          </div>
+
           <div
             class="tab-pane fade"
             id="nav-profile"

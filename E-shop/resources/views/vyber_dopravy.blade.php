@@ -15,7 +15,8 @@
       </a>
     </div>
     <main class="container-fluid pt-5 pb-5">
-        <form method="POST" role="doprava" action="/zhrnutie/">
+        <form method="post" action="/doprava/{{ request()->route('id') }}">
+            <input type="hidden" name="_method" value="PUT">
             {{ csrf_field() }}
       <div class="container mt-5 mb-5" id="container_doprava">
 
@@ -29,7 +30,7 @@
                 <table class="table">
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="posta" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="delivery" id="exampleRadios1" value="Slovenská pošta" >
                     </td>
                     <td>
                       <span>Slovenská pošta</span>
@@ -38,7 +39,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="zasielkovna" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="delivery" id="exampleRadios1" value="Zasielkovňa" >
                     </td>
                     <td>
                       <span>Zasielkovňa</span>
@@ -47,7 +48,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="kurier" id="exampleRadios1" value="option2" >
+                      <input class="form-check-input" type="radio" name="delivery" id="exampleRadios1" value="Kuriér" >
                     </td>
                     <td>
                       <span>Kuriér</span>
@@ -56,7 +57,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="na_mieste" id="exampleRadios1" value="option2" >
+                      <input class="form-check-input" type="radio" name="delivery" id="exampleRadios1" value="Vyzdvihnúť na mieste" >
                     </td>
 
                     <td>
@@ -75,7 +76,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="karta" id="exampleRadios4" value="option1" >
+                      <input class="form-check-input" type="radio" name="payment" id="exampleRadios4" value="Platba Kartou" >
                     </td>
 
                     <td>
@@ -86,7 +87,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="dobierka" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="payment" id="exampleRadios1" value="Platba dobierkou" >
                     </td>
 
                     <td>
@@ -96,7 +97,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="bank" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="payment" id="exampleRadios1" value="Bankový prevod" >
                     </td>
 
                     <td>
@@ -106,7 +107,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="paypal" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="payment" id="exampleRadios1" value="PayPal" >
                     </td>
 
                     <td>

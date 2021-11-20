@@ -14,7 +14,7 @@
     <main class="container-fluid pt-5 pb-5 ">
       <div class="container mt-5">
         <div class="row justify-content-center">
-          <h2 class="text-white">Zhrnutie Objednávky</h2>
+          <h2>Zhrnutie Objednávky</h2>
         </div>
       </div>
 
@@ -24,17 +24,17 @@
           <h3> Fakturačne údaje</h3>
           <div class="container mt-5 row m-0" id="container_doprava">
             <div class="container col-md-6 col-sm-12 mt-4 mb-4">
-              <h6>Ladislav Sokol</h6>
-              <h6>Lipova 2</h6>
+              <h6>{{ $order->Name }}</h6>
+              <h6>{{ $order->Adress }}</h6>
               <h6>Želiezovce</h6>
-              <h6>xsokol@stuba.sk</h6>
-              <h6>0904555555</h6>
+              <h6>{{ $order->Email }}</h6>
+              <h6>{{ $order->Telephone }}</h6>
             </div>
             <div class="container col-md-6 col-sm-12 mt-4 mb-4">
               <div class="row pl-5 pr-5 justify-content-start">
                 <h6 class="col-6">Spôsob platby:</h6>
                 <div class="col-6 row align-items-center justify-content-start">
-                  <h6 class=" vertical-align:align-middle">Karta</h6>
+                  <h6 class=" vertical-align:align-middle">{{ $order->Payment }}</h6>
                 </div>
               </div>
 
@@ -42,7 +42,7 @@
               <div class="row pl-5 pr-5 justify-content-start">
                 <h6 class="col-6">Dodanie:</h6>
                 <div class="col-6 row align-items-center justify-content-start">
-                  <h6 class=" vertical-align:align-middle">Kuriér</h6>
+                  <h6 class=" vertical-align:align-middle">{{ $order->Delivery }}</h6>
                 </div>
               </div>
 
@@ -51,7 +51,7 @@
                <div class="row pl-5 pr-5 justify-content-start">
                 <h6 class="col-6">Očakávaný dátum dodania: </h6>
                 <div class="col-6 row align-items-center justify-content-start">
-                  <h6 class=" vertical-align:align-middle">29.9.2022</h6>
+                  <h6 class=" vertical-align:align-middle">{{ $ldate }}</h6>
                 </div>
 
               </div>
@@ -72,74 +72,41 @@
                 </tr>
               </thead>
               <tbody >
+                @php
+                $totalprice =0;
+                $i = 0;
+            @endphp
+                @foreach ($items as $item)
+                @php
+                $totalprice = $totalprice + ($item[0]->price * $item[1]);
+                $i = $i + 1;
+            @endphp
                 <tr>
-                  <td><p>Postel Minecraft postel , pohodlna 200x250</p></td>
+                  <td><p>{{ $item[0]->title}}</p></td>
                   <td class ="center ">
                       <div class="row justify-content-center">
-                        <h4 class="m-0">2</h4>
+                        <h4 class="m-0">{{ $item[1]  }}</h4>
                       </div>
                   </td>
                   <td style="text-align: center;">
                     <div class="row">
-                      <h4 class="col-8 text-end p-1 m-0">55.50</h4>
+                      <h4 class="col-8 text-end p-1 m-0">{{ $item[0]->price}}</h4>
                       <h4 class="col-4 text-start m-0 p-1">$</h4>
                     </div>
 
                   </td>
                   <td style="text-align: center;">
                     <div class="row">
-                      <h4 class="col-8 text-end p-1 m-0">55.50</h4>
+                      <h4 class="col-8 text-end p-1 m-0">{{ $item[0]->price * $item[1]}}</h4>
                       <h4 class="col-4 text-start m-0 p-1">$</h4>
                     </div>
 
                   </td>
 
                 </tr>
-                <tr>
-                  <td><p>Postel Minecraft postel , pohodlna 200x25 ja neviem ako sa to valoa</p></td>
-                  <td class ="center">
-                    <div class="row justify-content-center">
-                      <h4 class="m-0">2</h4>
-                    </div>
-                  </td>
-                  <td style="text-align: center;">
-                    <div class="row">
-                      <h4 class="col-8 text-end p-1 m-0">55.50</h4>
-                      <h4 class="col-4 text-start m-0 p-1">$</h4>
-                    </div>
+                @endforeach
 
-                  </td>
-                  <td style="text-align: center;">
-                    <div class="row">
-                      <h4 class="col-8 text-end p-1 m-0">55.50</h4>
-                      <h4 class="col-4 text-start m-0 p-1">$</h4>
-                    </div>
 
-                  </td>
-
-                </tr>
-                <tr>
-                  <td><p>Postel Minecraft postel , pohodlna 200x250</p></td>
-                  <td class ="center" >
-                    <div class="row justify-content-center">
-                      <h4 class="m-0">2</h4>
-                    </div>
-                  </td>
-                  <td style="text-align: center;">
-                    <div class="row">
-                      <h4 class="col-8 text-end p-1 m-0">55.50</h4>
-                      <h4 class="col-4 text-start m-0 p-1">$</h4>
-                    </div>
-
-                  </td>
-                  <td style="text-align: center;">
-                    <div class="row">
-                      <h4 class="col-8 text-end p-1 m-0">90.50</h4>
-                      <h4 class="col-4 text-start m-0 p-1">$</h4>
-                    </div>
-
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -151,8 +118,7 @@
                 <h2 class= "text-right">Celková cena :</h2>
               </div>
               <div class = "col-2 p-0 mx-auto">
-                <h2>500 $
-                </h2>
+                <h2>{{ $totalprice }} $</h2>
               </div>
             </div>
           </div>

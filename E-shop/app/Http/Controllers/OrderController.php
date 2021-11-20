@@ -17,14 +17,14 @@ class OrderController extends Controller
 {
 
     public function create_order(Request $request)
-    {   
+    {
 
         if (Auth::check()){
 
-        
+
             $cart_id = request('cart_id');
             $order = Order::where('cart_id', '=', $cart_id)->first();
-            if ($order === null) 
+            if ($order === null)
             {
                 $order = Order::create(
                     [
@@ -37,9 +37,9 @@ class OrderController extends Controller
                         'Delivery' => "",
                     ]
                 );
-            } 
+            }
 
-            else 
+            else
             {
                 echo("UZ JE");
             }
@@ -51,7 +51,7 @@ class OrderController extends Controller
             $list = Cart_items::all()->where('cart_id',$cart_id);
             $x = 0;
             Orderitems::where('order_id',$order->id)->delete();
-            
+
             foreach ($list as $item)
             {
                 echo($item);
@@ -65,7 +65,7 @@ class OrderController extends Controller
                             'order_id' => $order->id,
                         ]
                         );
-        
+
                     array_push($list_of_products,$item);
                 }
                 else
@@ -76,29 +76,29 @@ class OrderController extends Controller
                         $items->save();
                     }
                 }
-                
+
             }
-            
 
 
-            return redirect("/adresa");
+            $id = Auth::user()->id;
+            return redirect("/adresa/$id");
         }
 
         else
         {
-            
+
             $kosik = Session::get('cart');
             $cart_id = Session::get('_token');
-           
+
             if (Session::exists('order'))
             {
-                
+
                 $objednavka = Session::get('order');
                 $newlist = [];
                 Session::put('order', $newlist);
                 foreach ($objednavka as $item)
-                {   
-                    
+                {
+
                     for ($x = 0; $x < count($item); $x++) {
                         if ($x <= 5){
                             $contact = [$item[$x][0], $item[$x][1]];
@@ -112,47 +112,47 @@ class OrderController extends Controller
                                 {
                                     $item[$x][1] = $kosikitem[1];
                                 }
-                                
+
                             }
                         }
                     }
                     echo(count($item));
-                    
+
                     echo($item[6][0]);
                     echo($item[6][1]);
                     echo(" ");
                     echo($item[7][0]);
                     echo($item[7][1]);
 
-                    
+
                     for ($y = 6; $y < count($item); $y++) {
                         $orderitem = [$item[$y][0], $item[$y][1]];
                         array_push($newlist,$orderitem);
-                        
+
                     }
-                    
+
                     Session::push('order',$newlist);
                     Session::save();
-                   
-                    
-                   
+
+
+
                     // $checked = 0;
 
                     // foreach ($kosik as $kosikitem){
                     //     $variable = 0;
-                        
-                        
+
+
                     //     $variable = $variable + 1;
                     //     if ($variable >= 7)
                     //     {
                     //         if ($kosikitem[0] == $item[0])
-                    //         { 
+                    //         {
                     //             $i[1] = $kosikitem[1];
                     //             $newitem = [$i[0],$i[1]];
                     //             array_push($newlist,$newitem);
 
                     //         }
-                            
+
                     //     }
                     //     else
                     //     {
@@ -164,17 +164,17 @@ class OrderController extends Controller
                     //             echo($item[1]);
                     //             echo(" ");
                     //             array_push($newlist,$new_is);
-                                
-                    //         } 
+
+                    //         }
                     //     }
-                        
-                        
+
+
                     // }
                     // $checked = 1;
 
                 }
-                
-                
+
+
             }
             else
             {
@@ -190,16 +190,16 @@ class OrderController extends Controller
                 array_push($new,["Billing"," "]);
                 foreach ($kosik as $item)
                 {
-                   
+
                     array_push($new,$item);
                 }
-   
-                
-                
+
+
+
                 Session::push('order',$new);
                 Session::save();
-              
-                
+
+
             }
             #return redirect("/adresa");
         }

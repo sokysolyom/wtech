@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Cart_items;
 use Illuminate\Support\Facades\Auth;
 
 use DB;
@@ -41,9 +42,27 @@ class MainController extends Controller
 
     }
 
-    public function zhrnutie()
+    public function zhrnutie($id)
     {
-        return view('zhrnutie');
+        $order = Order::where('id','=',$id)->first();
+        $ldate = date('Y-m-d H:i:s');
+
+        $items = Cart_items::all()->where('cart_id','=',$order->cart_id);
+
+            $list = [];
+            foreach ($items as $item){
+                $number = $item->product;
+                $counter = $item->counter;
+                $item = Product::all()->where('id','=',$number);
+                $item = $item->first();
+                $produkt = [$item,$counter];
+                array_push($list,$produkt);
+
+            }
+
+        return view('zhrnutie')->with('order', $order)
+                                ->with('ldate', $ldate)
+                                ->with('items',$list);
     }
 
     public function doprava_back()
@@ -51,11 +70,26 @@ class MainController extends Controller
         return view('vyber_dopravy');
     }
 
-    public function doprava(Request $request)
+    public function doprava(Request $request, $id)
     {
+
+        $order = Order::where('id','=',$id)->first();
+
+        $order->Payment = $request->payment;
+        $order->Delivery = $request->delivery;
+        $order->save();
+        $request->session()->flash('message', 'Úloha bola úspešne zmenená.');
+
+        return redirect("/zhrnutie/$id");
+    }
+
+    public function adresa(Request $request, $id)
+    {
+        $order = Order::where('id','=',$id)->first();
+
         $request->validate([
             'address' => 'required',
-            'email' => 'requied',
+            'email' => 'required',
             'telephone' => 'required'
         ]);
 
@@ -64,11 +98,16 @@ class MainController extends Controller
         }
         else {
             $fullname = $request->name + $request->surname;
-
         }
 
-        Order::create(['Name' =>  $fullname, 'Adress' => $request->address, 'Email' => $request->email, 'Telephone' => $request->telephone]);
-        return redirect("vyber_dopravy");
+        $order->Adress = $request->address;
+        $order->Email = $request->email;
+        $order->Telephone = $request->telephone;
+        $order->Name = $fullname;
+        $order->save();
+        $request->session()->flash('message', 'Úloha bola úspešne zmenená.');
+
+        return redirect("/doprava/$id");
     }
 
     public function tables_Page()
