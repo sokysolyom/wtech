@@ -7,6 +7,9 @@ use SebastianBergmann\Environment\Console;
 use App\Models\Product;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
+
 
 use DB;
 use App\Http\Requests;
@@ -101,7 +104,23 @@ class MainController extends Controller
 
     public function adress()
     {
-        return view('adress');
+
+        $objednavka = Session::get('order');
+        $contact_list = [];
+        foreach ($objednavka as $item)
+        {
+            for ($x = 0; $x < count($item); $x++) 
+            {
+                if ($x <= 6){
+                    $contact = [$item[$x][0], $item[$x][1]];
+                    array_push($contact_list,$contact[1]);
+         
+                }
+                
+            }
+        }
+
+        return view('adress')->with('contact',$contact_list);;
     }
 
 

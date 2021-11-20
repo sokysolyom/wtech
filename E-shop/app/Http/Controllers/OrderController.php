@@ -80,8 +80,8 @@ class OrderController extends Controller
             }
             
 
-
-            return redirect("/adresa");
+            
+            #return redirect("/adresa");
         }
 
         else
@@ -92,17 +92,30 @@ class OrderController extends Controller
            
             if (Session::exists('order'))
             {
-                
+                echo("AHO");
                 $objednavka = Session::get('order');
                 $newlist = [];
+                $contact_list = [];
                 Session::put('order', $newlist);
+                
                 foreach ($objednavka as $item)
                 {   
                     
-                    for ($x = 0; $x < count($item); $x++) {
-                        if ($x <= 5){
+                    
+                    for ($x = 0; $x < count($item); $x++) 
+                    {
+                        if ($x <= 6){
                             $contact = [$item[$x][0], $item[$x][1]];
                             array_push($newlist,$contact);
+                            echo(" KONTAKT ");
+                            echo($contact[0]);
+                            echo(" ");
+                            echo($contact[1]);
+                            array_push($contact_list,$contact[1]);
+                            $contact = [$item[$x][0], $item[$x][1]];
+                            
+                            
+
                         }
                         else
                         {
@@ -116,15 +129,11 @@ class OrderController extends Controller
                             }
                         }
                     }
-                    echo(count($item));
+                
                     
-                    echo($item[6][0]);
-                    echo($item[6][1]);
-                    echo(" ");
-                    echo($item[7][0]);
-                    echo($item[7][1]);
+                
 
-                    
+                
                     for ($y = 6; $y < count($item); $y++) {
                         $orderitem = [$item[$y][0], $item[$y][1]];
                         array_push($newlist,$orderitem);
@@ -133,47 +142,10 @@ class OrderController extends Controller
                     
                     Session::push('order',$newlist);
                     Session::save();
-                   
-                    
-                   
-                    // $checked = 0;
-
-                    // foreach ($kosik as $kosikitem){
-                    //     $variable = 0;
-                        
-                        
-                    //     $variable = $variable + 1;
-                    //     if ($variable >= 7)
-                    //     {
-                    //         if ($kosikitem[0] == $item[0])
-                    //         { 
-                    //             $i[1] = $kosikitem[1];
-                    //             $newitem = [$i[0],$i[1]];
-                    //             array_push($newlist,$newitem);
-
-                    //         }
-                            
-                    //     }
-                    //     else
-                    //     {
-                    //         if ($checked === 0)
-                    //         {
-                    //             $new_is = [$item[0],$item[1]];
-                    //             echo($item[0]);
-                    //             echo("->");
-                    //             echo($item[1]);
-                    //             echo(" ");
-                    //             array_push($newlist,$new_is);
-                                
-                    //         } 
-                    //     }
-                        
-                        
-                    // }
-                    // $checked = 1;
-
+      
                 }
                 
+                return view("adress")->with('contact',$contact_list);
                 
             }
             else
@@ -182,10 +154,12 @@ class OrderController extends Controller
                 Session::put('order', $order);
                 Session::save();
                 $new = [];
-                array_push($new,["Name"," "]);
-                array_push($new,["Email"," "]);
-                array_push($new,["Address"," "]);
-                array_push($new,["Telephone"," "]);
+                
+                array_push($new,["Name",""]);
+                array_push($new,["Surname",""]);
+                array_push($new,["Address",""]);
+                array_push($new,["Email",""]);
+                array_push($new,["Telephone",""]);
                 array_push($new,["Payment"," "]);
                 array_push($new,["Billing"," "]);
                 foreach ($kosik as $item)
@@ -193,17 +167,121 @@ class OrderController extends Controller
                    
                     array_push($new,$item);
                 }
+                $contact_list = $new;
    
                 
                 
                 Session::push('order',$new);
                 Session::save();
+                
+                return view("adress")->with('contact',$contact_list);
+                
               
                 
             }
-            #return redirect("/adresa");
+            
         }
 
+    }
+
+
+    public function doprava()
+    {
+        if (Auth::check())
+        {
+            echo("LOGGED");
+
+
+
+        }
+
+       else
+       {    
+            $kosik = Session::get('cart');
+           
+            $name = request('name');
+            $surname = request('surname');
+            $address = request('address');
+            $email = request('email');
+            $telephone = request('telephone');
+            $objednavka = Session::get('order');
+            $newlist = [];
+            $contact_list = [];
+            Session::put('order', $newlist);
+                
+            foreach ($objednavka as $item)
+            {   
+                
+                
+                for ($x = 0; $x < count($item); $x++) 
+                {
+                    if ($x <= 6){
+                        if ($x === 0)
+                        {
+                            $contact = ["Name", $name];
+                        }
+                        if ($x === 1)
+                        {
+                            $contact = ["Surname", $surname];
+                        }
+                        if ($x === 2)
+                        {
+                            $contact = ["Address", $address];
+                        }
+                        if ($x === 3)
+                        {
+                            $contact = ["Email", $email];
+                        }
+                        if ($x === 4)
+                        {
+                            $contact = ["Telephone", $telephone];
+                        }
+                        if ($x === 5)
+                        {
+                            $contact = ["Payment", " "];
+                        }
+                        if ($x === 6)
+                        {
+                            $contact = ["Billing", " "];
+                        }
+                        array_push($newlist,$contact);
+
+                        
+                        
+                        
+                        
+
+                    }
+                    else
+                    {
+                        foreach ($kosik as $kosikitem)
+                        {
+                            if ($kosikitem[0] === $item[$x][0])
+                            {
+                                $item[$x][1] = $kosikitem[1];
+                            }
+                            
+                        }
+                    }
+                }
+            
+                
+            
+
+            
+                for ($y = 7; $y < count($item); $y++) {
+                    $orderitem = [$item[$y][0], $item[$y][1]];
+                    array_push($newlist,$orderitem);
+                    
+                }
+                
+                Session::push('order',$newlist);
+                Session::save();
+    
+            }
+                
+            return redirect("/doprava");
+       }
     }
 
 
