@@ -15,19 +15,19 @@ use PHPUnit\TextUI\XmlConfiguration\Php;
 
 class CartController extends Controller
 {
-    
+
     public function add_to_cart(Request $request){
 
-        
+
 
         if (Auth::check()) {
             $user = Auth::user();
-        
+
             $id = Auth::id();
             $product_id = request('id');
             $count = request('quantity');
-            
-            
+
+
             $cart = User_cart::firstOrCreate([
                 'user_id' => $id,
             ]);
@@ -35,7 +35,7 @@ class CartController extends Controller
 
             $exact_product = Cart_items::where('product', '=', $product_id);
             $exact_product = $exact_product->first();
-            
+
             if ($exact_product == null) {
                 $cartitem = new Cart_items;
                 $cartitem->product = $product_id;
@@ -46,17 +46,17 @@ class CartController extends Controller
             }
             else{
                 $exact_product->counter = $exact_product->counter +$count;
-               
+
                 $exact_product->save();
             }
-            
+
             return redirect()->back()->with('message', 'Updated!');
         }
 
         else
         {
-       
-            if (Session::exists('cart')) 
+
+            if (Session::exists('cart'))
             {
                 $variable = 1;
                 $id = request('id');
@@ -67,7 +67,7 @@ class CartController extends Controller
                     if ($item[0] === $id){
                         $item[1] = $item[1] + $counter;
                         $variable = 0;
-                        
+
                     }
                     array_push($newkosik,$item);
                 }
@@ -77,7 +77,7 @@ class CartController extends Controller
 
                     array_push($newkosik,$new_item);
                 }
-                
+
 
                 Session::put('cart',$newkosik);
                 Session::save();
@@ -85,27 +85,27 @@ class CartController extends Controller
             }
 
             else
-            {   
+            {
                 $cart =[];
                 Session::put('cart', $cart);
                 Session::save();
 
                 $id = request('id');
                 $counter = request('quantity');
-   
+
                 $cartitem = [$id,$counter];
-                
+
                 Session::push('cart',$cartitem);
                 Session::save();
-              
+
                 return redirect()->back()->with('message', 'Updated!');
-                
+
             }
         }
-        
-        
-        
-        
+
+
+
+
     }
 
 
@@ -120,7 +120,7 @@ class CartController extends Controller
             ]);
 
             $items = Cart_items::all()->where('cart_id','=',$cart->id);
-        
+
             $list = [];
             foreach ($items as $item){
                 $number = $item->product;
@@ -129,10 +129,10 @@ class CartController extends Controller
                 $item = $item->first();
                 $produkt = [$item,$counter];
                 array_push($list,$produkt);
-                
+
             }
-               
-            
+
+
             return view('kosik')->with('items',$list)
             ->with('cart_id',$cart->id);
 
@@ -144,7 +144,7 @@ class CartController extends Controller
             $list = [];
 
             $value = Session::get('cart');
-            
+
             if (Session::has('cart'))
             {
                 foreach($value as $item)
@@ -154,7 +154,7 @@ class CartController extends Controller
                     $item = Product::where('id',$product);
                     $item = $item->first();
                     $produkt = [$item,$counter];
-                    
+
                     array_push($list,$produkt);
                 }
             }
@@ -166,8 +166,8 @@ class CartController extends Controller
             return view('kosik')->with('items',$list)
             ->with('cart_id',$cart_id);
         }
-       
-   
+
+
     }
 
     public function delete_item(){
@@ -176,28 +176,24 @@ class CartController extends Controller
 
         $user_id = Auth::id();
 
-        if (Auth::check()) 
+        if (Auth::check())
         {
             $cart = User_cart::all()->where('user_id','=',$user_id);
 
             $cart = $cart->first();
 
             $items = Cart_items::all()->where('cart_id','=',$cart->id);
-            
-            
+
+
             foreach ($items as $item){
-                echo("SDADA");
-                echo($item->product);
-                echo("HALDAM : ");
-                echo($product_id);
-                
+
                 $number = $item->product;
                 if ($number == $product_id)
                 {
                     $id_to_delete = $item->id;
                 }
             }
-            
+
             $del = Cart_items::find($id_to_delete);
 
             $del->delete();
@@ -206,7 +202,7 @@ class CartController extends Controller
         else
         {
             $value = Session::get('cart');
-            
+
             if (Session::has('cart'))
             {
                 Session::pull('cart');
@@ -222,13 +218,13 @@ class CartController extends Controller
                     }
                     else
                     {
-                        
-                        
+
+
                         $cartitem = [$item[0],$item[1]];
-                        
+
                         Session::push('cart',$cartitem);
                         Session::save();
-                       
+
                     }
                 }
             }
@@ -239,14 +235,14 @@ class CartController extends Controller
 
         }
 
-        
+
 
         return redirect('/kosik');
     }
 
 
     public function update_kosik(Request $request){
-        
+
         $product_id = $request->product;
         $counter =  $request->count;
         $cart_id = $request->cart;
@@ -260,16 +256,16 @@ class CartController extends Controller
 
             $items = Cart_items::all()->where('cart_id','=',$cart_id);
 
-            
+
             foreach ($items as $item){
-                
+
                 $number = $item->product;
                 if ($number == $product_id)
                 {
                     $id_to_update = $item->id;
                 }
             }
-            
+
             $updated = Cart_items::find($id_to_update);
             $updated->counter = $counter;
 
@@ -280,41 +276,40 @@ class CartController extends Controller
         else
         {
             $value = Session::get('cart');
-            
-            
+
+
             Session::pull('cart');
             $newlist = [];
-            
+
             foreach($value as $item)
             {
                 $product = $item[0];
-                
-                echo($product);
-                
+
+
                 if ($product == $product_id)
                 {
                     $item[1] = $counter;
                     $cartitem = [$item[0],$counter];
                     Session::push('cart',$cartitem);
                     Session::save();
-                    
+
                 }
                 else
                 {
                     $cartitem = [$item[0],$item[1]];
                     Session::push('cart',$cartitem);
                     Session::save();
-                    
-                    
+
+
                 }
-                
+
             }
-           
+
             Session::save();
             return response()->json(['success'=>$counter],);
-            
-           
+
+
         }
-        
+
     }
 }

@@ -29,12 +29,14 @@ class MainController extends Controller
     public function index()
     {
         $suggestedlist = Product::inRandomOrder()->limit(4)->get();
+        $carousellist = Product::inRandomOrder()->limit(3)->get();
         $newslist = Product::orderBy('price', 'DESC')->limit(4)->get();
 
         $url_link = '/products';
 
         return view('welcome')->with('suggestedlist', $suggestedlist)
                             ->with('newslist', $newslist)
+                            ->with('carousellist', $carousellist)
                             ->with('url_link', $url_link);
 
     }
@@ -135,7 +137,127 @@ class MainController extends Controller
             $list = [];
 
             foreach ($product_list as $item){
-                echo($item[0]);
+                $number = $item[0];
+                $counter = $item[1];
+                $item = Product::all()->where('id','=',$number);
+                $item = $item->first();
+                $produkt = [$item,$counter];
+
+                array_push($list,$produkt);
+
+
+            }
+            $objednavka = Session::get('order');
+            $contact_list = [];
+            foreach ($objednavka as $item)
+            {
+                for ($x = 0; $x < count($item); $x++)
+                {
+                    if ($x <= 6){
+                        $contact = [$item[$x][0], $item[$x][1]];
+                        array_push($contact_list,$contact[1]);
+
+                    }
+
+                }
+            }
+
+            return view('zhrnutie')->with('contact',$contact_list)
+                                ->with('product',$list);
+        }
+
+    }
+
+    public function zhrnutie_no_logged()
+    {
+
+        if (Auth::check())
+        {
+            $order = Order::where('id','=',$id)->first();
+            $ldate = date('Y-m-d H:i:s');
+
+            $items = Cart_items::all()->where('cart_id','=',$order->cart_id);
+
+            $contact_list = [];
+            array_push($contact_list, $order->Name);
+            array_push($contact_list, '');
+            array_push($contact_list, $order->Adress);
+            array_push($contact_list, $order->Email);
+            array_push($contact_list, $order->Telephone);
+            array_push($contact_list, $order->Payment);
+            array_push($contact_list, $order->Delivery);
+
+                $list = [];
+                foreach ($items as $item){
+                    $number = $item->product;
+                    $counter = $item->counter;
+                    $item = Product::all()->where('id','=',$number);
+                    $item = $item->first();
+                    $produkt = [$item,$counter];
+                    array_push($list,$produkt);
+
+                }
+
+            return view('zhrnutie')->with('contact',$contact_list)
+                                ->with('id', $order->id)
+                                ->with('product',$list);
+
+        }
+        else
+        {
+            $objednavka = Session::get('order');
+            $contact_list = [];
+            $product_list=[];
+            foreach ($objednavka as $item)
+            {
+                for ($x = 0; $x < count($item); $x++)
+                {
+                    if ($x === 0)
+                    {
+                        $name = $item[$x][1];
+                    }
+                    elseif ($x === 1)
+                    {
+                        $surname = $item[$x][1];
+                    }
+                    elseif ($x === 2)
+                    {
+                        $address = $item[$x][1];
+                    }
+                    elseif ($x === 3)
+                    {
+                        $email = $item[$x][1];
+                    }
+                    elseif ($x === 4)
+                    {
+                        $telephone = $item[$x][1];
+                    }
+                    elseif ($x === 5)
+                    {
+                        $payment = $item[$x][1];
+                    }
+                    elseif ($x === 6)
+                    {
+                        $delivery = $item[$x][1];
+                    }
+                    else
+                    {
+                        $produkt = [$item[$x][0], $item[$x][1]];
+                        array_push($product_list,$produkt);
+                    }
+
+                }
+            }
+
+            $fullname = $name." ".$surname;
+
+            $token = Session::get('_token');
+            $token = intval($token);
+
+
+            $list = [];
+
+            foreach ($product_list as $item){
                 $number = $item[0];
                 $counter = $item[1];
                 $item = Product::all()->where('id','=',$number);
@@ -185,7 +307,33 @@ class MainController extends Controller
             $choices_list = [];
             foreach ($objednavka as $item)
             {
-                echo($item[5][1]);
+                array_push($choices_list,$item[5][1]);
+                array_push($choices_list,$item[6][1]);
+            }
+
+            return view('/vyber_dopravy')->with('choices',$choices_list);
+        }
+
+    }
+
+    public function doprava_back_no_logged()
+    {
+        if (Auth::check())
+        {
+            $order = Order::where('id','=',$id)->first();
+            $choices_list = [];
+            array_push($choices_list,$order->Payment);
+            array_push($choices_list,$order->Delivery);
+            $order_id = $order->id;
+
+            return view('vyber_dopravy')->with('choices',$choices_list)->with('order_id', $order_id);
+        }
+        else
+        {
+            $objednavka = Session::get('order');
+            $choices_list = [];
+            foreach ($objednavka as $item)
+            {
                 array_push($choices_list,$item[5][1]);
                 array_push($choices_list,$item[6][1]);
             }
@@ -276,7 +424,7 @@ class MainController extends Controller
             array_push($contact_list,$order->Email);
             array_push($contact_list,$order->Telephone);
 
-            return view('adress')->with('contact',$contact_list);
+            return view('adress')->with('contact',$contact_list)->with('id', $order->id);
         }
         else
         {
@@ -300,70 +448,41 @@ class MainController extends Controller
 
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function adress_no_logged()
     {
-        //
+        if (Auth::check())
+        {
+
+            $order = Order::where('id','=',$id)->first();
+            $contact_list = [];
+            array_push($contact_list,$fullname = Auth::user()->name);
+            array_push($contact_list,$fullname = Auth::user()->name);
+            array_push($contact_list,$order->Adress);
+            array_push($contact_list,$order->Email);
+            array_push($contact_list,$order->Telephone);
+
+            return view('adress')->with('contact',$contact_list)->with('id', $order->id);
+        }
+        else
+        {
+            $objednavka = Session::get('order');
+            $contact_list = [];
+            foreach ($objednavka as $item)
+            {
+                for ($x = 0; $x < count($item); $x++)
+                {
+                    if ($x <= 6){
+                        $contact = [$item[$x][0], $item[$x][1]];
+                        array_push($contact_list,$contact[1]);
+
+                    }
+
+                }
+            }
+
+            return view('adress')->with('contact',$contact_list);
+        }
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

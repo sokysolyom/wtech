@@ -37,11 +37,11 @@ Route::post('/kosik/update',[CartController::class, 'update_kosik']);
 // })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/adresa',[MainController::class, 'adress']);
-Route::post('/doprava',[OrderController::class, 'contact']);
-Route::get('/doprava',[MainController::class, 'doprava_back']);
-Route::post('/zhrnutie',[OrderController::class, 'zhrnutie']);
-Route::get('/zhrnutie',[MainController::class, 'zhrnutie']);
+Route::get('/adresa',[MainController::class, 'adress_no_logged']);
+Route::put('/doprava',[OrderController::class, 'contact']);
+Route::get('/doprava',[MainController::class, 'doprava_back_no_logged']);
+Route::put('/zhrnutie',[OrderController::class, 'zhrnutie']);
+Route::get('/zhrnutie',[MainController::class, 'zhrnutie_no_logged']);
 Route::get('/confirm-order', [OrderController::class, 'order_to_DB']);
 Route::post('/adresa',[OrderController::class, 'create_order'])->name('order.create');
 Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.item');
@@ -51,11 +51,6 @@ Route::post('/kosik',[CartController::class, 'delete_item'])->name('cart.delete.
 Route::post('/stolicky', [CartController::class, 'add_to_cart'])->name('cart.store');
 Route::post('/stoly', [CartController::class, 'add_to_cart'])->name('cart.store');
 Route::post('/postele', [CartController::class, 'add_to_cart'])->name('cart.store');
-
-
-
-
-
 
 
 Route::get('/',[MainController::class, 'index']);

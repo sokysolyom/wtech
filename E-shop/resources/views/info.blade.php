@@ -166,7 +166,7 @@
           >
             <div class="row reference-box">
               <p>
-                {{$product->paramtere}}
+                {{$product->parametre}}
               </p>
             </div>
             <div class="row reference-box">
@@ -202,13 +202,9 @@
 
      <div class="container mt-2" id="container_doprava">
        <div class="row justify-content-around">
-         <button class="malybutton button  col-1 btn-dark btn-work align-self-center">
-           <
-         </button>
-
          @foreach($suggestedlist as $suggested)
 
-         <section class="item d-none d-sm-block " id="container_doprava">
+         <section class="item d-sm-block col-sm-6" id="container_doprava">
            <div class="row">
              <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
                <img src="{{ asset('images/'. $suggested->image) }}" alt="">
@@ -219,11 +215,7 @@
              <p>Cena : {{ $suggested->price }}$</p>
            </div>
          </section>
-
          @endforeach
-         <button class="malybutton button col-1 btn-dark btn-work align-self-center align-middle">
-           >
-         </button>
        </div>
      </div>
 
