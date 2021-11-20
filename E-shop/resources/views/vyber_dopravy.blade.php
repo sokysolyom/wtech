@@ -24,12 +24,12 @@
 
             <div class="container-fluid col-sm-12 col-md-5 ">
               <h3>Výber dopravy</h3>
-
+              
               <div id="container_doprava" class="container">
                 <table class="table">
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="doprava" id="exampleRadios2" value="option1" >
+                      <input class="form-check-input" type="radio" name="doprava" id="1" value="Slovenská pošta" >
                     </td>
                     <td>
                       <span>Slovenská pošta</span>
@@ -38,7 +38,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="doprava" id="exampleRadios2" value="option1" >
+                      <input class="form-check-input" type="radio" name="doprava" id="2" value="Zasielkovňa" >
                     </td>
                     <td>
                       <span>Zasielkovňa</span>
@@ -47,7 +47,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="doprava" id="exampleRadios2" value="option2" >
+                      <input class="form-check-input" type="radio" name="doprava" id="3" value="Kuriér" >
                     </td>
                     <td>
                       <span>Kuriér</span>
@@ -56,7 +56,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="doprava" id="exampleRadios2" value="option2" >
+                      <input class="form-check-input" type="radio" name="doprava" id="4" value="Vyzdvihnúť na mieste" >
                     </td>
 
                     <td>
@@ -65,6 +65,13 @@
                   </tr>
 
                 </table>
+
+                <input type="hidden" value="{{$choices[0]}}" id ='platba'>
+                <input type="hidden" value="{{$choices[1]}}" id ='doprava'>
+
+               
+
+
               </div>
             </div>
             <div class="container-fluid  col-12 col-sm-12 col-md-5 mt-md-0 mt-sm-5 mt-5 ">
@@ -75,18 +82,18 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="platba" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="platba" id="5" value="Platba Kartou" >
                     </td>
 
                     <td>
-                      <span>Platba Kartou </span>
+                      <span>Platba Kartou</span>
                     </td>
 
                   </tr>
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="platba" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="platba" id="6" value="Platba dobierkou" >
                     </td>
 
                     <td>
@@ -96,7 +103,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="platba" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="platba" id="7" value="Bankový prevod" >
                     </td>
 
                     <td>
@@ -106,7 +113,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="platba" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="platba" id="8" value="PayPal" >
                     </td>
 
                     <td>
@@ -137,5 +144,58 @@
     </div>
 </form>
     </main>
+
+
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function(){
+        var idplatba = document.getElementById('platba').value;
+        var iddoprava = document.getElementById('doprava').value;
+        console.log(iddoprava);
+        
+        var iplatba =0;
+        var idoprava =0;
+        if (idplatba == "Platba Kartou")
+        {
+          iplatba = 5 
+        }
+        if (idplatba == "Platba dobierkou")
+        {
+          iplatba = 6
+        }
+        if (idplatba == "Bankový prevod")
+        {
+          iplatba = 7
+        }
+        if (idplatba == "Paypal")
+        {
+          iplatba = 8
+        }
+
+        if (iddoprava == "Slovenská pošta")
+        {
+          idoprava = 1 
+        }
+        if (iddoprava == "Zasielkovňa")
+        {
+          idoprava = 2
+        }
+        if (iddoprava == "Kuriér")
+        {
+          idoprava = 3
+        }
+        if (iddoprava == "Vyzdvihnúť na mieste")
+        {
+          idoprava = 4
+        }
+        console.log(idoprava);
+        var my_id = document.getElementById(iplatba).checked = true;
+        var my_id2 = document.getElementById(idoprava).checked = true;
+        console.log("SADS");
+      });
+      
+     
+    </script>
 
     @endsection

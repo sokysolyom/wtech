@@ -16,7 +16,7 @@ use App\Http\Requests;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductController;
-
+use App\Models\Orderitems;
 
 class MainController extends Controller
 {
@@ -44,14 +44,113 @@ class MainController extends Controller
 
     }
 
-    public function zhrnutie()
+    public function zhrnutie($id)
     {
-        return view('zhrnutie');
+
+        if (Auth::check())
+        {
+
+            
+        }
+        else
+        {
+            $objednavka = Session::get('order');
+            $contact_list = [];
+            $product_list=[];
+            foreach ($objednavka as $item)
+            {
+                for ($x = 0; $x < count($item); $x++) 
+                {
+                    if ($x === 0)
+                    {
+                        $name = $item[$x][1];
+                    }
+                    elseif ($x === 1)
+                    {
+                        $surname = $item[$x][1];
+                    }
+                    elseif ($x === 2)
+                    {
+                        $address = $item[$x][1];
+                    }
+                    elseif ($x === 3)
+                    {
+                        $email = $item[$x][1];
+                    }
+                    elseif ($x === 4)
+                    {
+                        $telephone = $item[$x][1];
+                    }
+                    elseif ($x === 5)
+                    {
+                        $payment = $item[$x][1];
+                    }
+                    elseif ($x === 6)
+                    {
+                        $delivery = $item[$x][1];
+                    }
+                    else
+                    {
+                        $produkt = [$item[$x][0], $item[$x][1]];
+                        array_push($product_list,$produkt);
+                    }
+                    
+                }
+            }
+
+            $fullname = $name." ".$surname;
+            
+            $token = Session::get('_token');
+            $token = intval($token);
+            
+            
+            $list = [];
+            
+            foreach ($product_list as $item){
+                echo($item[0]);
+                $number = $item[0];
+                $counter = $item[1];
+                $item = Product::all()->where('id','=',$number);
+                $item = $item->first();
+                $produkt = [$item,$counter];
+                
+                array_push($list,$produkt);
+                
+                
+            }
+            $objednavka = Session::get('order');
+            $contact_list = [];
+            foreach ($objednavka as $item)
+            {
+                for ($x = 0; $x < count($item); $x++) 
+                {
+                    if ($x <= 6){
+                        $contact = [$item[$x][0], $item[$x][1]];
+                        array_push($contact_list,$contact[1]);
+            
+                    }
+                    
+                }
+            }
+    
+            return view('zhrnutie')->with('contact',$contact_list)
+                                ->with('product',$list);
+        }
+       
     }
 
     public function doprava_back()
     {
-        return view('vyber_dopravy');
+        $objednavka = Session::get('order');
+        $choices_list = [];
+        foreach ($objednavka as $item)
+        {
+            echo($item[5][1]);
+            array_push($choices_list,$item[5][1]);
+            array_push($choices_list,$item[6][1]);
+        }
+
+        return view('/vyber_dopravy')->with('choices',$choices_list);;
     }
 
     public function doprava(Request $request)
