@@ -413,10 +413,12 @@ class MainController extends Controller
 
     public function adress($id)
     {
+        echo("SDADAS;");
         if (Auth::check())
         {
 
-            $order = Order::where('id','=',$id)->first();
+            $cart = User_cart::where('user_id','=',$id)->first();
+            $order = Order::where('cart_id','=',$cart->id)->first();
             $contact_list = [];
             array_push($contact_list,$fullname = Auth::user()->name);
             array_push($contact_list,$fullname = Auth::user()->name);
@@ -450,6 +452,7 @@ class MainController extends Controller
 
     public function adress_no_logged()
     {
+
         if (Auth::check())
         {
 
@@ -465,6 +468,7 @@ class MainController extends Controller
         }
         else
         {
+            echo("SDADAS123456;");
             $objednavka = Session::get('order');
             $contact_list = [];
             foreach ($objednavka as $item)
