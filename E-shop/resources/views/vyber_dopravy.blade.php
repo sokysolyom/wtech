@@ -29,7 +29,7 @@
                 <table class="table">
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="posta" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="doprava" id="exampleRadios2" value="option1" >
                     </td>
                     <td>
                       <span>Slovenská pošta</span>
@@ -38,7 +38,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="zasielkovna" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="doprava" id="exampleRadios2" value="option1" >
                     </td>
                     <td>
                       <span>Zasielkovňa</span>
@@ -47,7 +47,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="kurier" id="exampleRadios1" value="option2" >
+                      <input class="form-check-input" type="radio" name="doprava" id="exampleRadios2" value="option2" >
                     </td>
                     <td>
                       <span>Kuriér</span>
@@ -56,7 +56,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="na_mieste" id="exampleRadios1" value="option2" >
+                      <input class="form-check-input" type="radio" name="doprava" id="exampleRadios2" value="option2" >
                     </td>
 
                     <td>
@@ -75,7 +75,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="karta" id="exampleRadios4" value="option1" >
+                      <input class="form-check-input" type="radio" name="platba" id="exampleRadios1" value="option1" >
                     </td>
 
                     <td>
@@ -86,7 +86,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="dobierka" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="platba" id="exampleRadios1" value="option1" >
                     </td>
 
                     <td>
@@ -96,7 +96,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="bank" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="platba" id="exampleRadios1" value="option1" >
                     </td>
 
                     <td>
@@ -106,7 +106,7 @@
 
                   <tr>
                     <td>
-                      <input class="form-check-input" type="radio" name="paypal" id="exampleRadios1" value="option1" >
+                      <input class="form-check-input" type="radio" name="platba" id="exampleRadios1" value="option1" >
                     </td>
 
                     <td>
