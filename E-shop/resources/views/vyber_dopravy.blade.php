@@ -15,7 +15,17 @@
       </a>
     </div>
     <main class="container-fluid pt-5 pb-5">
-        <form method="POST" role="doprava" action="/zhrnutie/">
+        @php
+        if (Auth::check())
+        {
+            $put_url = "/doprava/".$order_id;
+        }
+        else {
+            $put_url = "/zhrnutie";
+        }
+    @endphp
+        <form method="post" action={{ $put_url }}>
+            <input type="hidden" name="_method" value="PUT">
             {{ csrf_field() }}
       <div class="container mt-5 mb-5" id="container_doprava">
 
@@ -24,7 +34,7 @@
 
             <div class="container-fluid col-sm-12 col-md-5 ">
               <h3>Výber dopravy</h3>
-              
+
               <div id="container_doprava" class="container">
                 <table class="table">
                   <tr>
@@ -69,7 +79,7 @@
                 <input type="hidden" value="{{$choices[0]}}" id ='platba'>
                 <input type="hidden" value="{{$choices[1]}}" id ='doprava'>
 
-               
+
 
 
               </div>
@@ -129,12 +139,23 @@
 
         <div class="container mb-5">
           <div class="row justify-content-center justify-content-md-around justify-content-sm-center " style="height: 50px; margin-top: 30px">
+            @php
+                if (Auth::check())
+                {
 
-              <a class="col-md-4 col-sm-9  mr-3" href="/adresa">
+                    $ref1 = "/adresa/".$order_id;
+                    $ref2 = "/zhrnutie/".$order_id;
+                }
+                else {
+                  $ref1 = '/adresa';
+                  $ref2 = '/zhrnutie';
+                }
+            @endphp
+              <a class="col-md-4 col-sm-9  mr-3" href={{$ref1}}>
                 <button type="button" class="btn-success col-12  h-100"><h4>Späť</h4></button>
               </a>
 
-              <a class="col-md-4 col-sm-9 mt-sm-3 mt-md-0 mt-3" href="/zhrnutie">
+              <a class="col-md-4 col-sm-9 mt-sm-3 mt-md-0 mt-3" href={{$ref2}}>
                 <button type="submit" class="btn-success  col-12  h-100 "><h4>Zhrnutie Objednávky</h4></button>
               </a>
 
@@ -153,12 +174,12 @@
         var idplatba = document.getElementById('platba').value;
         var iddoprava = document.getElementById('doprava').value;
         console.log(iddoprava);
-        
+
         var iplatba =0;
         var idoprava =0;
         if (idplatba == "Platba Kartou")
         {
-          iplatba = 5 
+          iplatba = 5
         }
         if (idplatba == "Platba dobierkou")
         {
@@ -175,7 +196,7 @@
 
         if (iddoprava == "Slovenská pošta")
         {
-          idoprava = 1 
+          idoprava = 1
         }
         if (iddoprava == "Zasielkovňa")
         {
@@ -194,8 +215,8 @@
         var my_id2 = document.getElementById(idoprava).checked = true;
         console.log("SADS");
       });
-      
-     
+
+
     </script>
 
     @endsection

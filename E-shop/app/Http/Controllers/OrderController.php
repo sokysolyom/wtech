@@ -7,24 +7,27 @@ use App\Models\Orderitems;
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User_cart;
+use App\Models\Cart_items;
+
 
 
 
 use Illuminate\Http\Request;
-use App\Models\Cart_items;
+
 
 class OrderController extends Controller
 {
 
     public function create_order(Request $request)
-    {   
+    {
 
         if (Auth::check()){
 
-        
+
             $cart_id = request('cart_id');
             $order = Order::where('cart_id', '=', $cart_id)->first();
-            if ($order === null) 
+            if ($order === null)
             {
                 $order = Order::create(
                     [
@@ -37,24 +40,22 @@ class OrderController extends Controller
                         'Delivery' => "",
                     ]
                 );
-            } 
+            }
 
-            else 
+            else
             {
-                
+
             }
 
             $data = request('pocet_objektov');
             $list_of_products = [];
-            echo("DATA ");
 
             $list = Cart_items::all()->where('cart_id',$cart_id);
             $x = 0;
             Orderitems::where('order_id',$order->id)->delete();
-            
+
             foreach ($list as $item)
             {
-                echo($item);
 
                 $items =  Orderitems::where('product',$item->product)->where('order_id',$order->id)->first();
                 if ($items === null){
@@ -65,7 +66,7 @@ class OrderController extends Controller
                             'order_id' => $order->id,
                         ]
                         );
-        
+
                     array_push($list_of_products,$item);
                 }
                 else
@@ -76,66 +77,66 @@ class OrderController extends Controller
                         $items->save();
                     }
                 }
-                
-            }
-            
 
-            
-            return redirect("/adresa");
+            }
+
+
+            $id = Auth::user()->id;
+            return redirect("/adresa/$id");
         }
 
         else
         {
-            
+
             $kosik = Session::get('cart');
             $cart_id = Session::get('_token');
-           
+
             if (Session::exists('order'))
             {
-               
+
                 $objednavka = Session::get('order');
                 $newlist = [];
                 $contact_list = [];
                 Session::put('order', $newlist);
-                
+
                 foreach ($objednavka as $item)
-                {   
-                   
-                    for ($x = 0; $x < count($item); $x++) 
+                {
+
+                    for ($x = 0; $x < count($item); $x++)
                     {
                         if ($x <= 6){
                             $contact = [$item[$x][0], $item[$x][1]];
                             array_push($newlist,$contact);
-                            
+
                             array_push($contact_list,$contact[1]);
                             $contact = [$item[$x][0], $item[$x][1]];
                         }
                         else
                         {
-                            
+
                         }
                     }
                     foreach ($kosik as $kosikitem)
                     {
                         array_push($newlist,$kosikitem);
-                        
+
                     }
-                
-                    
-                    
+
+
+
                     Session::push('order',$newlist);
                     Session::save();
-      
+
                 }
-                
+
                 return view("adress")->with('contact',$contact_list);
-                
+
             }
             else
             {
                 $order =[];
                 Session::put('order', $order);
-                
+
                 $new = [];
                 array_push($new,["Name",""]);
                 array_push($new,["Surname",""]);
@@ -151,20 +152,20 @@ class OrderController extends Controller
 
                 Session::push('order',$new);
                 Session::save();
-               
+
                 $objednavka = Session::get('order');
                 $contact_list = [];
                 foreach ($objednavka as $item)
                 {
-                    for ($x = 0; $x < count($item); $x++) 
+                    for ($x = 0; $x < count($item); $x++)
                     {
                         if ($x <= 6){
                             $contact = [$item[$x][0], $item[$x][1]];
                             array_push($contact_list,$contact[1]);
-                        }  
+                        }
                     }
-                }     
-                return view("adress")->with('contact',$contact_list);    
+                }
+                return view("adress")->with('contact',$contact_list);
             }
         }
     }
@@ -174,16 +175,12 @@ class OrderController extends Controller
     {
         if (Auth::check())
         {
-            echo("LOGGED");
-
-
-
         }
 
        else
-       {    
+       {
             $kosik = Session::get('cart');
-           
+
             $name = request('name');
             $surname = request('surname');
             $address = request('address');
@@ -193,12 +190,12 @@ class OrderController extends Controller
             $newlist = [];
             $contact_list = [];
             Session::put('order', $newlist);
-                
+
             foreach ($objednavka as $item)
-            {   
-                
-                
-                for ($x = 0; $x < count($item); $x++) 
+            {
+
+
+                for ($x = 0; $x < count($item); $x++)
                 {
                     if ($x <= 6){
                         if ($x === 0)
@@ -239,7 +236,7 @@ class OrderController extends Controller
                             {
                                 $item[$x][1] = $kosikitem[1];
                             }
-                            
+
                         }
                     }
                 }
@@ -247,14 +244,14 @@ class OrderController extends Controller
                 for ($y = 7; $y < count($item); $y++) {
                     $orderitem = [$item[$y][0], $item[$y][1]];
                     array_push($newlist,$orderitem);
-                    
+
                 }
-                
+
                 Session::push('order',$newlist);
                 Session::save();
-    
+
             }
-                
+
             return redirect("/doprava");
        }
     }
@@ -269,14 +266,13 @@ class OrderController extends Controller
         $newlist = [];
         $contact_list = [];
         Session::put('order', $newlist);
-            
+
         foreach ($objednavka as $item)
-        {   
-            
-            
-            for ($x = 0; $x < count($item); $x++) 
+        {
+
+
+            for ($x = 0; $x < count($item); $x++)
             {
-               echo($item[$x][1]);
                 if ($x <= 6){
                     if ($x === 0)
                     {
@@ -316,7 +312,7 @@ class OrderController extends Controller
                         {
                             $item[$x][1] = $kosikitem[1];
                         }
-                        
+
                     }
                 }
             }
@@ -324,16 +320,16 @@ class OrderController extends Controller
             for ($y = 7; $y < count($item); $y++) {
                 $orderitem = [$item[$y][0], $item[$y][1]];
                 array_push($newlist,$orderitem);
-                
+
             }
-            
+
             Session::push('order',$newlist);
             Session::save();
 
         }
 
         return redirect('/zhrnutie');
-        
+
     }
 
 
@@ -341,18 +337,30 @@ class OrderController extends Controller
     {
         if (Auth::check())
         {
+            $user_id = Auth::user()->id;
+            $kosik = User_cart::where('id', '=', $user_id)->first();
+            $list_of_items_to_delete = Cart_items::all()->where('cart_id', '=',$kosik->id);
+
+            foreach ($list_of_items_to_delete as $item_to_delete)
+            {
+
+                $id_to_delete = $item_to_delete->id;
+                $del = Cart_items::find($id_to_delete);
+                $del->delete();
+            }
+            return redirect('/');
 
         }
         else
         {
             $objednavka = Session::get('order');
-           
+
 
             $contact_list = [];
             $product_list=[];
             foreach ($objednavka as $item)
             {
-                for ($x = 0; $x < count($item); $x++) 
+                for ($x = 0; $x < count($item); $x++)
                 {
                     if ($x === 0)
                     {
@@ -387,14 +395,14 @@ class OrderController extends Controller
                         $produkt = [$item[$x][0], $item[$x][1]];
                         array_push($product_list,$produkt);
                     }
-                    
+
                 }
             }
 
             $order = Order::all()->where('telephone',$telephone);
             $order = $order->first();
             $fullname = $name." ".$surname;
-        
+
             $token = Session::get('_token');
             $token = intval($token);
             $order = Order::create(
@@ -411,13 +419,12 @@ class OrderController extends Controller
             $list = [];
             $ORDERID = $order->id;
             foreach ($product_list as $item){
-                echo($item[0]);
                 $number = $item[0];
                 $counter = $item[1];
                 $item = Product::all()->where('id','=',$number);
                 $item = $item->first();
                 $produkt = [$item,$counter];
-                
+
                 array_push($list,$produkt);
                 Orderitems::create(
                     [
@@ -426,15 +433,14 @@ class OrderController extends Controller
                         'order_id' => $ORDERID,
                     ]
                     );
-                
+
             }
-            
+
             Session::flush();
         }
 
         return redirect('/');
-
     }
 
-    
+
 }

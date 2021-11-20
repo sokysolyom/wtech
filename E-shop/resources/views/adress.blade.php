@@ -11,19 +11,27 @@
     @section('content')
 
 
-    @php
-        
-    @endphp
     <div class="d-block d-sm-block d-md-none">
       <a href="/" class="navbar-brand logo"> <img src="{{ asset('images/logo-nabytok.png') }}" alt="" class="main-logo">
       </a>
     </div>
     <div class="container adress-box">
         <h1 style="text-align: center;">ADRESA DODANIA</h1>
-        <form method="POST" role="address" action="/doprava/">
+        @php
+            if (Auth::check())
+            {
+              $post_route = "/adresa/".$id;
+            }
+            else
+            {
+              $post_route = "/doprava";
+            }
+        @endphp
+        <form method="post" action={{ $post_route }}>
+            <input type="hidden" name="_method" value="PUT">
             {{ csrf_field() }}
             @csrf
-            
+
         @if(!Auth::check())
         <div class="form-items row justify-content-center">
             <div class="col-lg-2 col-sm-5">
