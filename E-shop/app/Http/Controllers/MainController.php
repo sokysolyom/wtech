@@ -17,7 +17,9 @@ use App\Http\Requests;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductController;
+use App\Models\Cart;
 use App\Models\Orderitems;
+use App\Models\user_cart;
 
 class MainController extends Controller
 {
@@ -53,7 +55,7 @@ class MainController extends Controller
         if (Auth::check())
         {
             $order = Order::where('id','=',$id)->first();
-            $ldate = date('Y-m-d H:i:s');
+            
 
             $items = Cart_items::all()->where('cart_id','=',$order->cart_id);
 
@@ -373,8 +375,10 @@ class MainController extends Controller
         if (Auth::check())
         {
 
-            $cart = User_cart::where('user_id','=',$id)->first();
-            $order = Order::where('cart_id','=',$cart->id)->first();
+
+            
+            $order = Order::where('id','=',$id)->first();
+
             $contact_list = [];
             array_push($contact_list,$fullname = Auth::user()->name);
             array_push($contact_list,$fullname = Auth::user()->name);
@@ -408,34 +412,13 @@ class MainController extends Controller
 
     public function adress_no_logged()
     {
-<<<<<<< HEAD
 
-        if (Auth::check())
-        {
-
-            $order = Order::where('id','=',$id)->first();
-            $contact_list = [];
-            array_push($contact_list,$fullname = Auth::user()->name);
-            array_push($contact_list,$fullname = Auth::user()->name);
-            array_push($contact_list,$order->Adress);
-            array_push($contact_list,$order->Email);
-            array_push($contact_list,$order->Telephone);
-
-            return view('adress')->with('contact',$contact_list)->with('id', $order->id);
-        }
-        else
-        {
-            echo("SDADAS123456;");
-            $objednavka = Session::get('order');
-            $contact_list = [];
-            foreach ($objednavka as $item)
-=======
         $objednavka = Session::get('order');
         $contact_list = [];
         foreach ($objednavka as $item)
         {
             for ($x = 0; $x < count($item); $x++)
->>>>>>> b5004b4917ff762d1a0ac59a7792f190a1eba465
+
             {
                 if ($x <= 6){
                     $contact = [$item[$x][0], $item[$x][1]];

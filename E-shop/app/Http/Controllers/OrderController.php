@@ -81,7 +81,7 @@ class OrderController extends Controller
             }
 
 
-            $id = Auth::user()->id;
+            $id = $order->id;
             return redirect("/adresa/$id");
         }
 
@@ -143,8 +143,8 @@ class OrderController extends Controller
                 array_push($new,["Address",""]);
                 array_push($new,["Email",""]);
                 array_push($new,["Telephone",""]);
-                array_push($new,["Payment"," "]);
-                array_push($new,["Billing"," "]);
+                array_push($new,["Payment",""]);
+                array_push($new,["Billing",""]);
                 foreach ($kosik as $item)
                 {
                     array_push($new,$item);
@@ -338,7 +338,9 @@ class OrderController extends Controller
         if (Auth::check())
         {
             $user_id = Auth::user()->id;
-            $kosik = User_cart::where('id', '=', $user_id)->first();
+            echo($user_id);
+            $kosik = User_cart::where('user_id', '=', $user_id)->first();
+            
             $list_of_items_to_delete = Cart_items::all()->where('cart_id', '=',$kosik->id);
 
             foreach ($list_of_items_to_delete as $item_to_delete)
@@ -348,6 +350,7 @@ class OrderController extends Controller
                 $del = Cart_items::find($id_to_delete);
                 $del->delete();
             }
+            $kosik->delete();
             return redirect('/');
 
         }
