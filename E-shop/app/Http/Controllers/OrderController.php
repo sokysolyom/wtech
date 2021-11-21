@@ -32,12 +32,12 @@ class OrderController extends Controller
                 $order = Order::create(
                     [
                         'cart_id' => $cart_id,
-                        'Name' => " ",
-                        'Adress' => " ",
-                        'Email' => " ",
-                        'Telephone' => " ",
-                        'Payment' => " ",
-                        'Delivery' => " ",
+                        'Name' => "",
+                        'Adress' => "",
+                        'Email' => "",
+                        'Telephone' => "",
+                        'Payment' => "",
+                        'Delivery' => "",
                     ]
                 );
             }
@@ -143,8 +143,8 @@ class OrderController extends Controller
                 array_push($new,["Address",""]);
                 array_push($new,["Email",""]);
                 array_push($new,["Telephone",""]);
-                array_push($new,["Payment"," "]);
-                array_push($new,["Billing"," "]);
+                array_push($new,["Payment",""]);
+                array_push($new,["Billing",""]);
                 foreach ($kosik as $item)
                 {
                     array_push($new,$item);

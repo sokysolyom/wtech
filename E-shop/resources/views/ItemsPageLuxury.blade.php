@@ -167,16 +167,16 @@
           <span>
             <ul class="navbar-nav "style="font-size: x-large; justify-content: space-evenly !important">
               <li class="nav-item ">
-                <a class="nav-link text-black" href="./stolicky_new">Stoličky</a>
+                <a class="nav-link text-black" href="/stolicky_new">Stoličky</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-black" href="./stoly_new">Stoly</a>
+                <a class="nav-link text-black" href="/stoly_new">Stoly</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-black" href="./postele_new">Postele</a>
+                <a class="nav-link text-black" href="/postele_new">Postele</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link text-black" href="./products_new">Všetko</a>
+                  <a class="nav-link text-black" href="/products_new">Všetko</a>
                 </li>
             </ul>
           </span>
@@ -189,16 +189,16 @@
           <span>
             <ul class="text-white navbar-nav "style="font-size: x-large;">
               <li class=" nav-item ">
-                <a class=" nav-link text-black" href="./stolicky_new"> <img class= "pr-5 "src="{{ asset('images/Chair.png') }}" width=30 alt=""> Stoličky</a>
+                <a class=" nav-link text-black" href="/stolicky_new"> <img class= "pr-5 "src="{{ asset('images/Chair.png') }}" width=30 alt=""> Stoličky</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-black" href="./stoly_new"> <img src="{{ asset('images/table.png') }}" width=30 alt=""> Stoly</a>
+                <a class="nav-link text-black" href="/stoly_new"> <img src="{{ asset('images/table.png') }}" width=30 alt=""> Stoly</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-black" href="./postele_new"><img src="{{ asset('images/Bed.png') }}" width=30 alt=""> Postele</a>
+                <a class="nav-link text-black" href="/postele_new"><img src="{{ asset('images/Bed.png') }}" width=30 alt=""> Postele</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link text-black" href="./products_new"><img src="{{ asset('images/preview.svg') }}" width=30 alt=""> Všetko</a>
+                  <a class="nav-link text-black" href="/products_new"><img src="{{ asset('images/preview.svg') }}" width=30 alt=""> Všetko</a>
                 </li>
             </ul>
           </span>

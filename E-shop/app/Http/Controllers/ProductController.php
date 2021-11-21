@@ -260,6 +260,9 @@ class ProductController extends Controller
         $itemslist = Product::where('category','=',2)->orderBy('price', 'ASC')->paginate(8);
 
         $category = "Postele";
+        $url_link_new = '/postele_new';
+        $url_link_cheap = '/postele_cheap';
+        $url_link_luxury = '/postele_luxury';
         $url_link = '/postele';
 
         return view('ItemsPageCheap')->with('itemslist', $itemslist)
