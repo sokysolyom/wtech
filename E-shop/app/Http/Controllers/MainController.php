@@ -17,7 +17,9 @@ use App\Http\Requests;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductController;
+use App\Models\Cart;
 use App\Models\Orderitems;
+use App\Models\user_cart;
 
 class MainController extends Controller
 {
@@ -53,7 +55,7 @@ class MainController extends Controller
         if (Auth::check())
         {
             $order = Order::where('id','=',$id)->first();
-            $ldate = date('Y-m-d H:i:s');
+            
 
             $items = Cart_items::all()->where('cart_id','=',$order->cart_id);
 
@@ -372,6 +374,7 @@ class MainController extends Controller
         if (Auth::check())
         {
 
+            
             $order = Order::where('id','=',$id)->first();
             $contact_list = [];
             array_push($contact_list,$fullname = Auth::user()->name);
