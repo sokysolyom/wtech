@@ -1,5 +1,4 @@
 
-
   @extends('app')
 
   @section('styles')
@@ -128,15 +127,13 @@
 
 
             <script>
-
               function decrement(poradie) {
                 var id = "ks"+poradie;
                 var id2 = "p_ks"+poradie;
-                
-                
+
+
                 var celk = "celk"+poradie;
                 var cena_ks = "cena_ks"+poradie;
-
                 var i = document.getElementById(id).value;
                 if (document.getElementById(id).value >=2){
                   document.getElementById(id).value = --i;
@@ -151,13 +148,10 @@
                 console.log(cena);
                 document.getElementById(celk).textContent = cena;
                 calculate(i);
-
-
                 var p_ks = '#p_ks'+ poradie;
                 var cart_id = '#cart_id'+ poradie;
                 var product = '#product_id'+ poradie;
                 console.log(product);
-
                 $.ajaxSetup({
                     headers: {
                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -180,11 +174,9 @@
                 var id2 = "p_ks"+poradie;
                 var celk = "celk"+poradie;
                 var cena_ks = "cena_ks"+poradie;
-
                 var i = document.getElementById(id).value;
                 document.getElementById(id).value = ++i;
                 document.getElementById(id2).value = i;
-
                 var cena = document.getElementById(celk).textContent;
                 cena = (Number(cena));
                 var ck = document.getElementById(cena_ks).textContent;
@@ -192,15 +184,11 @@
                 cena = ck * i;
                 console.log(cena);
                 document.getElementById(celk).textContent = cena;
-
                 calculate();
-
-
                 var p_ks = '#p_ks'+ poradie;
                 var cart_id = '#cart_id'+ poradie;
                 var product = '#product_id'+ poradie;
                 console.log(product);
-
                 $.ajaxSetup({
                     headers: {
                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -218,10 +206,6 @@
                       console.log(result)
                     }});
               }
-
-
-
-
             </script>
 
             <script>
@@ -264,24 +248,24 @@
         </div>
 
 
-        
+
         <form action="{{ route('order.create') }}" method="POST" enctype="multipart/form-data">
           @csrf
          @php
              $c = 0;
          @endphp
           @foreach ($items as $item)
-          
-           
+
+
             <input type="hidden" value="{{ $cart_id}}" name="cart_id">
-            
-            
+
+
           @php
               $c = $c + 1;
           @endphp
           @endforeach
           <input type="hidden" value="{{$c}}" name="pocet_objektov">
-          
+
 
           @if (count($items) > 0)
           <div class="container mb-5">
@@ -293,13 +277,12 @@
           </div>
           @endif
 
-          
-        </form> 
-        
+
+        </form>
+
       </div>
 
     </main>
 
 
     @endsection
-

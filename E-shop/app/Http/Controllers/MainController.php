@@ -371,11 +371,14 @@ class MainController extends Controller
 
     public function adress($id)
     {
+        echo("SDADAS;");
         if (Auth::check())
         {
 
+
             
             $order = Order::where('id','=',$id)->first();
+
             $contact_list = [];
             array_push($contact_list,$fullname = Auth::user()->name);
             array_push($contact_list,$fullname = Auth::user()->name);
@@ -409,11 +412,13 @@ class MainController extends Controller
 
     public function adress_no_logged()
     {
+
         $objednavka = Session::get('order');
         $contact_list = [];
         foreach ($objednavka as $item)
         {
             for ($x = 0; $x < count($item); $x++)
+
             {
                 if ($x <= 6){
                     $contact = [$item[$x][0], $item[$x][1]];
