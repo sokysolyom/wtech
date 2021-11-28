@@ -371,7 +371,7 @@ class MainController extends Controller
 
     public function adress($id)
     {
-        echo("SDADAS;");
+
         if (Auth::check())
         {
 

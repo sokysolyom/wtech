@@ -338,7 +338,7 @@ class OrderController extends Controller
         if (Auth::check())
         {
             $user_id = Auth::user()->id;
-            echo($user_id);
+            
             $kosik = User_cart::where('user_id', '=', $user_id)->first();
             
             $list_of_items_to_delete = Cart_items::all()->where('cart_id', '=',$kosik->id);
