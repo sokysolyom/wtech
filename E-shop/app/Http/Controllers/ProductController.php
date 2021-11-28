@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Cart_items;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,101 @@ class ProductController extends Controller
     {
         $productlist = Product::all();
         return view('info')->with('productlist',$productlist);
+    }
+
+
+    public function new_item()
+    {
+        return view('newProduct');
+    }
+
+    public function store_item(Request $request)
+    {
+        echo($request->price);
+        echo($request->image);
+        $path = $request->image->store('public/images');
+        echo($path);
+    if (Auth::user() && Auth::user()->is_admin) {
+        $validation = $request->validate([
+            'title' => 'required|min:3',
+            'description' => 'required',
+            'parametre' => 'required',
+            'colour' => 'required',
+            'rozmery' => 'required',
+            'material' => 'required',
+            'category' => 'required',
+            'price' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png|max:4096'
+        ]);
+        $file = $validation['image'];
+        $fileName = md5($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs(config('app.products-images-path'), $fileName);
+        $product = Product::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'price' => $request->price,
+            'parametre' => $request->parametre,
+            'colour' => $request->colour,
+            'rozmery' => $request->rozmery,
+            'material' => $request->material,
+            'category' => $request->category,
+            'image' => $fileName]);
+        return redirect('/products/' . $product->id);
+    }else {
+        return redirect('/');
+    }
+    }
+
+    public function change_item(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'parametre' => 'required',
+            'colour' => 'required',
+            'rozmery' => 'required',
+            'material' => 'required'
+        ]);
+
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->parametre = $request->parametre;
+        $product->colour = $request->colour;
+        $product->rozmery = $request->rozmery;
+        $product->material = $request->material;
+        $product->save();
+        $request->session()->flash('message', 'Úloha bola úspešne zmenená.');
+
+        return redirect("/products/$id");
+    }
+
+    public function delete_item(Request $request, Product $product)
+    {
+        $id = $product->id;
+
+        $cartitems = Cart_items::all()->where('product','=',$id);
+        foreach ($cartitems as $item){
+            $item->delete();
+        }
+
+        $listmsg = Message::all()->where('product_id','=',$id);
+        foreach ($listmsg as $msg){
+            $msg->delete();
+        }
+
+
+        $product->delete();
+        $request->session()->flash('message', 'Úloha bola úspešne vymazaná.');
+        return redirect('/');
+    }
+
+    public function edit_item($id)
+    {
+        $product = Product::find($id);
+
+        return view('edit')->with('product',$product);
     }
 
     /**

@@ -81,7 +81,11 @@ Route::post('/products/{product}',[ProductController::class, 'post_recension']);
 Route::get('/products/{product}',[ProductController::class, 'show_item']);
 Route::post('/products/filter/',[ProductController::class, 'filter']);
 
-
+Route::get('/products/edit/{product}',[ProductController::class, 'edit_item']);
+Route::put('/products/edit/{product}',[ProductController::class, 'change_item']);
+Route::delete('/products/delete/{product}',[ProductController::class, 'delete_item']);
+Route::get('/newitem',[ProductController::class, 'new_item']);
+Route::post('/newitem',[ProductController::class, 'store_item']);
 
 require __DIR__.'/auth.php';
 

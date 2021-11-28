@@ -11,11 +11,28 @@
 
 
   <div class="d-block d-sm-block d-md-none">
-    <a href="./welcome.html" class="navbar-brand logo"> <img src="{{ asset('images/logo-nabytok.png') }}" alt="" class="main-logo">
+    <a href="/" class="navbar-brand logo"> <img src="{{ asset('images/logo-nabytok.png') }}" alt="" class="main-logo">
     </a>
   </div>
-
     <div class="container-xl info-box">
+     @if(Auth::check())
+        @php
+            $admin = Auth::user();
+
+        @endphp
+        @if($admin->is_admin)
+        <div class="justify-content-end">
+            <a href="/products/edit/{{ $product->id }}">
+                <button type="button" class="btn btn-primary">Editovat</button>
+            </a>
+            <form action="/products/delete/{{$product->id}}" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="submit" class="btn btn-danger" value="Vymazať"/>
+            </form>
+        </div>
+        @endif
+    @endif
       <div class="row">
         <div class="col-md-8">
           <img src="{{ asset('images/'. $product->image) }}" class="rounded mx-auto d-block" alt="..." />
