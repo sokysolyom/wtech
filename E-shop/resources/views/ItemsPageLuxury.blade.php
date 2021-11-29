@@ -234,7 +234,7 @@
           <div class="col-4 col-xxl-3">
             <article class="card item-card">
               <a href="{{ $url_link }}/{{ $item->id }}">
-                <img src="{{ asset('images/'. $item->image) }}" class="card-img-top" alt="..." />
+                <img src="{{ asset('storage/images/'. $item->image) }}" class="card-img-top" alt="..." />
               </a>
               <div class="card-body">
                 <a href="{{ $url_link }}/{{ $item->id }}">

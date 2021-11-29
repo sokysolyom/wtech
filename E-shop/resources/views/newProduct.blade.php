@@ -55,17 +55,89 @@
         <label for="parametre">Parametre</label>
         <textarea class="form-control"  name="parametre" ></textarea>
     </div>
-    <div class="form-group">
-        <label for="colour">Farba</label>
-        <textarea class="form-control"  name="colour" ></textarea>
+    <div id="container_doprava" class="container">
+        <table class="table">
+            <label for="description">Farba</label>
+            <tr>
+            <td>
+                <input class="form-check-input" type="radio" name="colour" id="1" value="cervena" >
+            </td>
+            <td>
+                <span>Červená</span>
+            </td>
+            </tr>
+
+            <tr>
+            <td>
+                <input class="form-check-input" type="radio" name="colour" id="2" value="modra" >
+            </td>
+            <td>
+                <span>Modrá</span>
+            </td>
+            </tr>
+
+            <tr>
+            <td>
+                <input class="form-check-input" type="radio" name="colour" id="3" value="zlta" >
+            </td>
+            <td>
+                <span>Žltá</span>
+            </td>
+            </tr>
+
+            <tr>
+            <td>
+                <input class="form-check-input" type="radio" name="colour" id="3" value="biela" >
+            </td>
+            <td>
+                <span>Biela</span>
+            </td>
+            </tr>
+        </table>
     </div>
     <div class="form-group">
         <label for="rozmery">Rozmery</label>
         <textarea class="form-control" name="rozmery" ></textarea>
     </div>
-    <div class="form-group">
-        <label for="material">Material</label>
-        <textarea class="form-control" name="material" ></textarea>
+    <div id="container_doprava" class="container">
+        <table class="table">
+            <label for="description">Materiál</label>
+            <tr>
+            <td>
+                <input class="form-check-input" type="radio" name="material" id="1" value="kov" >
+            </td>
+            <td>
+                <span>Kov</span>
+            </td>
+            </tr>
+
+            <tr>
+            <td>
+                <input class="form-check-input" type="radio" name="material" id="2" value="plast" >
+            </td>
+            <td>
+                <span>Plast</span>
+            </td>
+            </tr>
+
+            <tr>
+            <td>
+                <input class="form-check-input" type="radio" name="material" id="3" value="drevo" >
+            </td>
+            <td>
+                <span>Drevo</span>
+            </td>
+            </tr>
+
+            <tr>
+            <td>
+                <input class="form-check-input" type="radio" name="material" id="3" value="koza" >
+            </td>
+            <td>
+                <span>Koža</span>
+            </td>
+            </tr>
+        </table>
     </div>
     <div class="form-group">
         <label for="price">Cena</label>

@@ -33,7 +33,7 @@ class ProductController extends Controller
     {
         echo($request->price);
         echo($request->image);
-        $path = $request->image->store('public/images');
+
         echo($path);
     if (Auth::user() && Auth::user()->is_admin) {
         $validation = $request->validate([
@@ -49,7 +49,7 @@ class ProductController extends Controller
         ]);
         $file = $validation['image'];
         $fileName = md5($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
-        $file->storeAs(config('app.products-images-path'), $fileName);
+        $request->image->storeAs('public/images', $fileName);
         $product = Product::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -70,14 +70,22 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        $request->validate([
+        $validation = $request->validate([
             'title' => 'required',
             'description' => 'required',
             'parametre' => 'required',
             'colour' => 'required',
             'rozmery' => 'required',
-            'material' => 'required'
+            'material' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png|max:4096'
         ]);
+
+        if ($request->image){
+            $file = $validation['image'];
+            $fileName = md5($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
+            $request->image->storeAs('public/images', $fileName);
+            $product->image = $fileName;
+        }
 
         $product->title = $request->title;
         $product->description = $request->description;
