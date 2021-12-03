@@ -51,7 +51,7 @@
 
             <!-- Password -->
             <div class="mt-4" style="margin: 0px !important">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Heslo')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -63,14 +63,14 @@
             <div class="block mt-4" style="margin: 0px !important">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Zapamätaj ma') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4" style="margin: 10px !important">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                        {{ __('Zabudli ste heslo?') }}
                     </a>
                 @endif
 
@@ -90,6 +90,16 @@
                         </div>
                     </li>
                     <li>
+                    @php
+                    $admin = Auth::user();
+                    @endphp
+                    @if($admin->is_admin)
+                    <div style="margin-bottom: 10px">
+                        <a href="/newitem">
+                        <button  class="btn-success">Pridať nový produkt</button>
+                        </a>
+                    </div>
+                    @endif
                     <div name="content">
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">

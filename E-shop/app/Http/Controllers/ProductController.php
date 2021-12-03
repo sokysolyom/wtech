@@ -9,6 +9,9 @@ use App\Models\Cart_items;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductController extends Controller
 {
@@ -31,10 +34,6 @@ class ProductController extends Controller
 
     public function store_item(Request $request)
     {
-        echo($request->price);
-        echo($request->image);
-
-        echo($path);
     if (Auth::user() && Auth::user()->is_admin) {
         $validation = $request->validate([
             'title' => 'required|min:3',
@@ -49,7 +48,7 @@ class ProductController extends Controller
         ]);
         $file = $validation['image'];
         $fileName = md5($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
-        $request->image->storeAs('public/images', $fileName);
+        $request->image->storeAs('images', $fileName);
         $product = Product::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -83,8 +82,14 @@ class ProductController extends Controller
         if ($request->image){
             $file = $validation['image'];
             $fileName = md5($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
-            $request->image->storeAs('public/images', $fileName);
+            $request->image->storeAs('images', $fileName);
+            $oldimage = $product->image;
+            $path = public_path('images/');
+            $path = $path.$oldimage;
+            unlink($path);
+            Storage::disk('local')->delete($oldimage);
             $product->image = $fileName;
+
         }
 
         $product->title = $request->title;
@@ -102,6 +107,10 @@ class ProductController extends Controller
     public function delete_item(Request $request, Product $product)
     {
         $id = $product->id;
+        $file_name = $product->image;
+        $path = public_path('images/');
+        $path = $path.$file_name;
+        unlink($path);
 
         $cartitems = Cart_items::all()->where('product','=',$id);
         foreach ($cartitems as $item){

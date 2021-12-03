@@ -55,7 +55,7 @@
 
 
               <div class="kosik_item col-12 col-sm-5 align-self-center col-sm-5 col-md-4 col-lg-2">
-                <img class=" p-2" src="{{ asset('storage/images/'. $item[0]->image) }}"  alt="">
+                <img class=" p-2" src="{{ asset('images/'. $item[0]->image) }}"  alt="">
               </div>
 
 

@@ -55,7 +55,7 @@ class MainController extends Controller
         if (Auth::check())
         {
             $order = Order::where('id','=',$id)->first();
-            
+
 
             $items = Cart_items::all()->where('cart_id','=',$order->cart_id);
 
@@ -173,8 +173,8 @@ class MainController extends Controller
     public function zhrnutie_no_logged()
     {
 
-        
-        
+
+
         $objednavka = Session::get('order');
         $contact_list = [];
         $product_list=[];
@@ -255,7 +255,7 @@ class MainController extends Controller
 
         return view('zhrnutie')->with('contact',$contact_list)
                             ->with('product',$list);
-        
+
 
     }
 
@@ -297,7 +297,7 @@ class MainController extends Controller
         }
 
         return view('/vyber_dopravy')->with('choices',$choices_list);
-        
+
 
     }
 
@@ -371,12 +371,11 @@ class MainController extends Controller
 
     public function adress($id)
     {
-        echo("SDADAS;");
         if (Auth::check())
         {
 
 
-            
+
             $order = Order::where('id','=',$id)->first();
 
             $contact_list = [];
@@ -430,7 +429,7 @@ class MainController extends Controller
         }
 
         return view('adress')->with('contact',$contact_list);
-        
+
 
     }
 

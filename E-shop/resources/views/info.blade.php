@@ -36,7 +36,7 @@
       <div class="row">
         <div class="col-md-8">
 
-          <img src="{{ asset('storage/images/'. $product->image) }}" class="rounded mx-auto d-block" alt="..." />
+          <img src="{{ asset('images/'. $product->image) }}" class="rounded mx-auto d-block" alt="..." />
         </div>
         <div class="col-md-4">
           <div class="col">
@@ -225,9 +225,8 @@
          <section class="item d-sm-block col-sm-6" id="container_doprava">
            <div class="row">
              <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
-               <img src="{{ asset('storage/images/'. $suggested->image) }}" alt="">
+               <img src="{{ asset('images/'. $suggested->image) }}" alt="">
              </a>
-
            </div>
            <div class="content">
              <p>Cena : {{ $suggested->price }}$</p>

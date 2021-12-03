@@ -82,7 +82,7 @@
           <section class="carousel-item active">
 
             <a href="{{ $url_link }}/{{ $carousellist[0]->id }}">
-              <img class="d-block "  src="{{ asset('storage/images/'. $carousellist[0]->image) }}"alt="First slide">
+              <img class="d-block "  src="{{ asset('images/'. $carousellist[0]->image) }}"alt="First slide">
             </a>
 
 
@@ -96,7 +96,7 @@
           </section>
           <section class="carousel-item">
             <a href="{{ $url_link }}/{{ $carousellist[1]->id }}">
-                <img class="d-block " src="{{ asset('storage/images/'. $carousellist[1]->image) }}"alt="Second slide"></a>
+                <img class="d-block " src="{{ asset('images/'. $carousellist[1]->image) }}"alt="Second slide"></a>
             <div class="carousel-caption">
               <div class="circle">
                 <h3>{{ $carousellist[1]->price }} $
@@ -107,7 +107,7 @@
           </section>
           <section class="carousel-item">
             <a href="{{ $url_link }}/{{ $carousellist[2]->id }}">
-                <img class="d-block "  src="{{ asset('storage/images/'. $carousellist[2]->image) }}" alt="Second slide"></a>
+                <img class="d-block "  src="{{ asset('images/'. $carousellist[2]->image) }}" alt="Second slide"></a>
             <div class="carousel-caption">
               <div class="circle">
                 <h3>{{ $carousellist[2]->price }} $
@@ -135,7 +135,7 @@
          <section class="item d-sm-block col-sm-6" id="container_doprava">
            <div class="row">
              <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
-               <img src="{{ asset('storage/images/'. $suggested->image) }}" alt="">
+               <img src="{{ asset('images/'. $suggested->image) }}" alt="">
              </a>
 
            </div>
@@ -160,7 +160,7 @@
         <section class="item d-sm-block col-sm-6" id="container_doprava">
           <div class="row">
             <a href="{{ $url_link }}/{{ $suggested->id }}" class="text-center">
-              <img src="{{ asset('storage/images/'. $suggested->image) }}" alt="">
+              <img src="{{ asset('images/'. $suggested->image) }}" alt="">
             </a>
 
           </div>

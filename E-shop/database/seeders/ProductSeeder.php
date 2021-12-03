@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Product;
+use Illuminate\Support\Facades\File;
 
 class ProductSeeder extends Seeder
 {
@@ -14,6 +15,15 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        $BED = 'Bed.png';
+        $CHAIR = 'Chair.png';
+        $TABLE = 'table.png';
+        $fileName = md5($BED) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$BED;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'postel1-cervena-plast',
             'price' => 100,
@@ -23,8 +33,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2,
-            'image' => 'Bed.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($BED) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$BED;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Postel2-cervena-plast',
             'price' => 200,
@@ -34,8 +51,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2,
-            'image' => 'Bed.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($BED) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$BED;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Postel3-cervena-koza',
             'price' => 300,
@@ -45,8 +69,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2,
-            'image' => 'Bed.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($BED) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$BED;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Postel4-modra-drevo',
             'price' => 400,
@@ -56,8 +87,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2,
-            'image' => 'Bed.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($BED) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$BED;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Postel5-modra-drevo',
             'price' => 500,
@@ -67,8 +105,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2,
-            'image' => 'Bed.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($BED) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$BED;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Postel6-cervena-drevo',
             'price' => 600,
@@ -78,8 +123,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2,
-            'image' => 'Bed.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($BED) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$BED;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Postel7-cervena-drevo',
             'price' => 700,
@@ -89,8 +141,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2,
-            'image' => 'Bed.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($BED) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$BED;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Postel8-modra-drevo',
             'price' => 800,
@@ -100,8 +159,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2,
-            'image' => 'Bed.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($BED) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$BED;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Postel9-modra-drevo',
             'price' => 900,
@@ -111,8 +177,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 2,
-            'image' => 'Bed.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($CHAIR) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$CHAIR;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Stolicka1-modra-drevo',
             'price' => 10,
@@ -122,8 +195,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0,
-            'image' => 'Chair.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($CHAIR) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$CHAIR;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Stolicka2-modra-plast',
             'price' => 20,
@@ -133,8 +213,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0,
-            'image' => 'Chair.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($CHAIR) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$CHAIR;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Stolicka3-modra-plast',
             'price' => 30,
@@ -144,8 +231,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0,
-            'image' => 'Chair.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($CHAIR) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$CHAIR;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Stolicka4-modra-plast',
             'price' => 40,
@@ -155,8 +249,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0,
-            'image' => 'Chair.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($CHAIR) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$CHAIR;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Stolicka5-cervena-plast',
             'price' => 50,
@@ -166,8 +267,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0,
-            'image' => 'Chair.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($CHAIR) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$CHAIR;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Stolicka6-cervena-plast',
             'price' => 60,
@@ -177,8 +285,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0,
-            'image' => 'Chair.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($CHAIR) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$CHAIR;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Stolicka7-cervena-plast',
             'price' => 70,
@@ -188,8 +303,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' =>0,
-            'image' => 'Chair.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($CHAIR) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$CHAIR;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Stolicka8-cervena-plast',
             'price' => 80,
@@ -199,8 +321,15 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0,
-            'image' => 'Chair.png'
+            'image' => $fileName
         ]);
+
+        $fileName = md5($CHAIR) . time() . '.' . random_int(1,99999) . '.png';
+        $path = public_path('images/');
+        $path1 = public_path('images/');
+        $path = $path.$CHAIR;
+        $new_path = $path1.$fileName;
+        File::copy($path,$new_path);
         Product::create([
             'title' => 'Stolicka9-cervena-plast',
             'price' => 90,
@@ -210,7 +339,7 @@ class ProductSeeder extends Seeder
             'rozmery' => 'šŕika: 150cm, dĺžka: 400cm',
             'parametre' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laboriosam mollitia veritatis distinctio odio officia, animi voluptatum pariatur earum libero numquam ipsum magni architecto ut quae fugit quos fuga nulla! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur nemo praesentium reprehenderit, repellat rem! Eveniet blanditiis obcaecati aperiam nihil ex maxime, consequuntur suscipit quaerat dolores reiciendis illum ipsa voluptates!',
             'category' => 0,
-            'image' => 'Chair.png'
+            'image' => $fileName
         ]);
 
 
