@@ -164,7 +164,7 @@ class ProductController extends Controller
     public function display_tables()
     {
 
-        $itemslist = Product::where('category','=',1)->paginate(8);
+        $itemslist = Product::where('category','=',1)->orderBy('updated_at', 'DESC')->paginate(8);
 
         $category = "Stoly";
         $url_link_new = '/stoly_new';
@@ -258,7 +258,7 @@ class ProductController extends Controller
     public function display_chairs()
     {
 
-        $itemslist = Product::where('category','=',0)->paginate(8);
+        $itemslist = Product::where('category','=',0)->orderBy('updated_at', 'DESC')->paginate(8);
 
         $category = 'Stoličky';
         $url_link_new = '/stolicky_new';
@@ -351,7 +351,7 @@ class ProductController extends Controller
     public function display_beds()
     {
 
-        $itemslist = Product::where('category','=',2)->paginate(8);
+        $itemslist = Product::where('category','=',2)->orderBy('updated_at', 'DESC')->paginate(8);
 
         $category = "Postele";
         $url_link_new = '/postele_new';
@@ -449,7 +449,7 @@ class ProductController extends Controller
             $itemslist->withPath('?search='.request('search'));
         }
         else {
-             $itemslist = Product::paginate(8);
+             $itemslist = Product::orderBy('updated_at', 'DESC')->paginate(8);
         }
 
 

@@ -32,7 +32,7 @@ class MainController extends Controller
     {
         $suggestedlist = Product::inRandomOrder()->limit(4)->get();
         $carousellist = Product::inRandomOrder()->limit(3)->get();
-        $newslist = Product::orderBy('price', 'DESC')->limit(4)->get();
+        $newslist = Product::orderBy('updated_at', 'DESC')->limit(4)->get();
 
         $url_link = '/products';
 
