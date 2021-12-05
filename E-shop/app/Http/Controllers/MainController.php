@@ -28,6 +28,7 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //funckia na nacitanie welcome page
     public function index()
     {
         $suggestedlist = Product::inRandomOrder()->limit(4)->get();
@@ -42,13 +43,14 @@ class MainController extends Controller
                             ->with('url_link', $url_link);
 
     }
-
+    //funckia na nacitanie kosiku
     public function kosik()
     {
         return view('kosik');
 
     }
 
+    //funckia na nacitanie zhrnutiu
     public function zhrnutie($id)
     {
 
@@ -170,6 +172,7 @@ class MainController extends Controller
 
     }
 
+    //funckia na nacitanie kosiku ked nie sme prihlaseny
     public function zhrnutie_no_logged()
     {
 
@@ -259,6 +262,7 @@ class MainController extends Controller
 
     }
 
+    //funckia na nacitanie vyber dopravy
     public function doprava_back($id)
     {
         if (Auth::check())
@@ -286,6 +290,7 @@ class MainController extends Controller
 
     }
 
+    //funckia na nacitanie vyber dopravy ked nie sme prihlaseny
     public function doprava_back_no_logged()
     {
         $objednavka = Session::get('order');
@@ -301,6 +306,7 @@ class MainController extends Controller
 
     }
 
+    //funckia na nacitanie zrhnutie
     public function doprava(Request $request, $id)
     {
 
@@ -314,6 +320,7 @@ class MainController extends Controller
         return redirect("/zhrnutie/$id");
     }
 
+    //funckia na nacitanie adresy
     public function adresa(Request $request, $id)
     {
         $order = Order::where('id','=',$id)->first();
@@ -341,16 +348,19 @@ class MainController extends Controller
         return redirect("/doprava/$id");
     }
 
+
     public function tables_Page()
     {
         return view('tablesPage');
     }
 
+    //funckia na nacitanie register
     public function register()
     {
         return view('register');
     }
 
+    //funckia na nacitanie jedneho produktu
     public function info($id)
     {
         $product = Product::find($id);
@@ -369,6 +379,7 @@ class MainController extends Controller
         return view('bedsPage');
     }
 
+    //funckia na nacitanie adresy
     public function adress($id)
     {
         if (Auth::check())
@@ -409,6 +420,7 @@ class MainController extends Controller
 
     }
 
+    //funckia na nacitanie adresy ked nie sme prihlaseny
     public function adress_no_logged()
     {
 

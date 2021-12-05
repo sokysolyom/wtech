@@ -20,18 +20,20 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //funckia na vratenie vsetkych produktov
     public function index()
     {
         $productlist = Product::all();
         return view('info')->with('productlist',$productlist);
     }
 
-
+    //funckia na nacitanie stranky newProduct
     public function new_item()
     {
         return view('newProduct');
     }
 
+    //funkcia na pridanie noveho produkty
     public function store_item(Request $request)
     {
     if (Auth::user() && Auth::user()->is_admin) {
@@ -65,6 +67,7 @@ class ProductController extends Controller
     }
     }
 
+    //funckia na zmenenie produktu
     public function change_item(Request $request, $id)
     {
         $product = Product::find($id);
@@ -104,6 +107,7 @@ class ProductController extends Controller
         return redirect("/products/$id");
     }
 
+    //funkcia na vymazavanie produktu
     public function delete_item(Request $request, Product $product)
     {
         $id = $product->id;
@@ -128,6 +132,7 @@ class ProductController extends Controller
         return redirect('/');
     }
 
+    //funckia na nacitanie stranky Edit
     public function edit_item($id)
     {
         $product = Product::find($id);
@@ -141,6 +146,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //funckia na nacitanie jedneho produktu
     public function show_item($id)
     {
         $product = Product::find($id);
@@ -160,7 +166,7 @@ class ProductController extends Controller
     }
 
     //TABLES
-
+    //funckia nacitanie vsetkych stolov
     public function display_tables()
     {
 
@@ -180,6 +186,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia nacitanie lacnych stolov
     public function display_cheap_tables()
     {
         $itemslist = Product::where('category','=',1)->orderBy('price', 'ASC')->paginate(8);
@@ -198,6 +205,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia nacitanie drahych stolov
     public function display_luxury_tables()
     {
         $itemslist = Product::where('category','=',1)->orderBy('price', 'DESC')->paginate(8);
@@ -215,6 +223,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia na filtrovanie stolov
     public function tables_filter(Request $request)
     {
         //TODO add to database material and colour
@@ -254,7 +263,7 @@ class ProductController extends Controller
 
 
     //CHAIRS
-
+    //funckia nacitanie vsetkych stolicky
     public function display_chairs()
     {
 
@@ -274,6 +283,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia nacitanie lacnych stolicky
     public function display_cheap_chairs()
     {
         $itemslist = Product::where('category','=',0)->orderBy('price', 'ASC')->paginate(8);
@@ -292,6 +302,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia nacitanie drahych stolicky
     public function display_luxury_chairs()
     {
         $itemslist = Product::where('category','=',0)->orderBy('price', 'DESC')->paginate(8);
@@ -310,6 +321,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia na filtrovanie stolicky
     public function chairs_filter(Request $request)
     {
         //TODO add to database material and colour
@@ -347,7 +359,7 @@ class ProductController extends Controller
     }
 
     //BEDS
-
+    //funckia nacitanie vsetkych postelov
     public function display_beds()
     {
 
@@ -368,6 +380,7 @@ class ProductController extends Controller
 
     }
 
+    //funckia nacitanie lacnych postelov
     public function display_cheap_beds()
     {
         $itemslist = Product::where('category','=',2)->orderBy('price', 'ASC')->paginate(8);
@@ -386,6 +399,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia nacitanie drahych postelov
     public function display_luxury_beds()
     {
         $itemslist = Product::where('category','=',2)->orderBy('price', 'DESC')->paginate(8);
@@ -404,6 +418,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia na filtrovanie postelov
     public function beds_filter(Request $request)
     {
         //TODO add to database material and colour
@@ -441,7 +456,7 @@ class ProductController extends Controller
     }
 
     //ALL PRODUCTS
-
+    //funckia nacitanie vsetkych produktov
     public function display_all()
     {
         if(request()->has('search')) {
@@ -469,7 +484,7 @@ class ProductController extends Controller
 
     }
 
-
+    //funckia nacitanie lacnych produktov
     public function display_cheap_all()
     {
         $itemslist = Product::orderBy('price', 'ASC')->paginate(8);
@@ -488,6 +503,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia nacitanie drahych produktov
     public function display_luxury_all()
     {
         $itemslist = Product::orderBy('price', 'DESC')->paginate(8);
@@ -506,6 +522,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia na filtrovanie vsetkych produktov
     public function filter(Request $request)
     {
         //TODO add to database material and colour
@@ -540,6 +557,7 @@ class ProductController extends Controller
                                 ->with('url_link', $url_link);
     }
 
+    //funckia na pridanie recenzii
     public function post_recension($id, Request $request)
     {
         $request->validate([
