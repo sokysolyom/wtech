@@ -15,7 +15,7 @@ use PHPUnit\TextUI\XmlConfiguration\Php;
 
 class CartController extends Controller
 {
-
+    // funkcia pridá produkt do košíka aj viac kusov
     public function add_to_cart(Request $request){
 
 
@@ -109,6 +109,7 @@ class CartController extends Controller
     }
 
 
+    // funkcia zobrazí košík daného používateĽa / logged / no logged
     public function kosik(Request $request)
     {
 
@@ -170,6 +171,8 @@ class CartController extends Controller
 
     }
 
+
+    // funkcia vymaže item z košíka ( aj z DB aj zo Session)
     public function delete_item(){
 
         $product_id = request('id');
@@ -241,6 +244,7 @@ class CartController extends Controller
     }
 
 
+    // funkcia upravuje DB aj Session ak v košíku užívateľ mení počet kusov daného produktu ( pomoocu AJAX )
     public function update_kosik(Request $request){
 
         $product_id = $request->product;

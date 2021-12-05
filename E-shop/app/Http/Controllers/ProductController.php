@@ -132,7 +132,7 @@ class ProductController extends Controller
         return redirect('/');
     }
 
-    //funckia na nacitanie stranky Edit
+    //funckia na nacitanie stranky Edit produktu
     public function edit_item($id)
     {
         $product = Product::find($id);

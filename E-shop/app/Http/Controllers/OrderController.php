@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
 
+    //funkcia vytvorí objednávku po stlačení tlačidla POKRAČOVAŤ v Košíku (aj logged aj Nologged)
     public function create_order(Request $request)
     {
 
@@ -170,7 +171,7 @@ class OrderController extends Controller
         }
     }
 
-
+    //funkcia načíta kontaktné údaje + redirect na doprava/platba 
     public function contact()
     {
         if (Auth::check())
@@ -256,7 +257,7 @@ class OrderController extends Controller
        }
     }
 
-
+    // funkcia načíta údaje z doprava/platba + redirect na  zhrnutie s údajmi objednávky 
     public function zhrnutie()
     {
         $doprava = request('doprava');
@@ -333,6 +334,7 @@ class OrderController extends Controller
     }
 
 
+    //Po úspešnom zaplatení uloží dáta do DB a vymaže sa košík 
     public function order_to_DB()
     {
         if (Auth::check())

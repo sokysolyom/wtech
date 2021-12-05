@@ -309,7 +309,11 @@ class MainController extends Controller
     //funckia na nacitanie zrhnutie
     public function doprava(Request $request, $id)
     {
-
+        $request->validate([
+            'platba' => 'required',
+            'doprava' => 'required',
+        ]);
+        
         $order = Order::where('id','=',$id)->first();
 
         $order->Payment = $request->platba;
@@ -320,7 +324,7 @@ class MainController extends Controller
         return redirect("/zhrnutie/$id");
     }
 
-    //funckia na nacitanie adresy
+    //funckia na nacitanie adresy + redirect na doprava/platba
     public function adresa(Request $request, $id)
     {
         $order = Order::where('id','=',$id)->first();
@@ -379,14 +383,11 @@ class MainController extends Controller
         return view('bedsPage');
     }
 
-    //funckia na nacitanie adresy
+    //funckia na nacitanie adresy + pošlú sa údaje ak sú 
     public function adress($id)
     {
         if (Auth::check())
         {
-
-
-
             $order = Order::where('id','=',$id)->first();
 
             $contact_list = [];
@@ -395,7 +396,6 @@ class MainController extends Controller
             array_push($contact_list,$order->Adress);
             array_push($contact_list,$order->Email);
             array_push($contact_list,$order->Telephone);
-
             return view('adress')->with('contact',$contact_list)->with('id', $order->id);
         }
         else
